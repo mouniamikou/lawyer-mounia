@@ -3,8 +3,8 @@ import { Globe } from 'lucide-react';
 
 import { useLanguage } from '../context/LanguageContext';
 const languages = [
-  { code: 'fr', label: 'Français' },
   { code: 'en', label: 'English' },
+  { code: 'fr', label: 'Français' },
 
 ] 
 

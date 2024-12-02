@@ -345,7 +345,7 @@ const BusinessForm = () => {
         <motion.div variants={fadeIn} className="pt-6">
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+            className="w-full bg-[#039B9B] text-white px-6 py-3 rounded-lg hover:bg-[#028787] transition-colors font-semibold"
           >
             Submit Request
           </button>

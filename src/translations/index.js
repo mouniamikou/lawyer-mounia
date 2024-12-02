@@ -1,10 +1,11 @@
 export const translations = {
     fr: {
       nav: {
+        home: 'Home',
         about: 'About',
         installP: 'Installation In Portugal',
         realestate: 'Real Estate Investment',
-        business: 'Business',
+        business: 'Business Creation',
         blogs: 'Blogs',
         contact: 'Contact',
       },
@@ -108,12 +109,13 @@ export const translations = {
     },
     en: {
       nav: {
+        home: 'Home',
         about: 'About',
-        services: 'Services',
-        values: 'Values',
-        blog: 'Blog',
+        installP: 'Installation In Portugal',
+        realestate: 'Real Estate Investment',
+        business: 'Business Creation',
+        blogs: 'Blogs',
         contact: 'Contact',
-        bookCall: 'Book a Call',
       },
       hero: {
         title: 'Structure your installation and activities in Portugal',
@@ -213,218 +215,5 @@ export const translations = {
         callToAction: 'Book a Free Call',
       },
     },
-    pt: {
-      nav: {
-        about: 'Sobre',
-        services: 'Serviços',
-        values: 'Valores',
-        blog: 'Blog',
-        contact: 'Contacto',
-        bookCall: 'Agendar Chamada',
-      },
-      hero: {
-        title: 'Estruture a sua instalação e atividades em Portugal',
-        subtitle: 'Experiência jurídica personalizada para o seu estabelecimento bem-sucedido em Portugal',
-        cta: 'Agendar consulta',
-      },
-      about: {
-        title: 'Sobre Mim',
-        paragraphs: [
-          'Inscrita na Ordem dos Advogados de Paris desde 2018, estou habilitada a exercer em Lisboa.',
-          'Comecei a minha carreira em escritórios de advocacia internacionais e franceses em Paris.',
-          'Atuava principalmente como consultora de executivos e investidores em operações de compra e venda, particularmente no setor imobiliário.',
-          'Desenvolvi um gosto pela estruturação de operações, tendo em conta aspectos pessoais, jurídicos, fiscais e práticos.',
-          'Após uma viagem a Portugal, e convencida pela sensação de segurança, qualidade de vida e hospitalidade que encontrei, estabeleci-me aqui em 2021.',
-          'Dedico-me agora a apoiar os recém-chegados para que também possam desfrutar de tudo o que Portugal tem para oferecer, com tranquilidade.',
-          'Trabalho em estreita colaboração com outros colegas e especialistas para fornecer um suporte 360°.',
-        ],
-        languages: 'Idiomas falados',
-      },
-      values: {
-        title: 'Nossos Valores',
-        trust: {
-          title: 'Confiança',
-          points: [
-            'Sigilo profissional garantido',
-            'Proteção de dados pessoais',
-            'Confidencialidade absoluta dos processos',
-            'Respeito rigoroso pela ética',
-          ],
-        },
-        reactivity: {
-          title: 'Reatividade',
-          points: [
-            'Resposta em 24 horas úteis',
-            'Acompanhamento regular dos processos',
-            'Atualizações em tempo real',
-            'Disponibilidade máxima',
-          ],
-        },
-        sharing: {
-          title: 'Partilha',
-          points: [
-            'Rede de especialistas qualificados',
-            'Parceiros de confiança',
-            'Soluções personalizadas',
-            'Acompanhamento completo',
-          ],
-        },
-      },
-      services: {
-        title: 'Nossos Serviços',
-        installation: {
-          title: 'Estabelecer-se em Portugal',
-          description: 'Ajudo-o a estabelecer-se em Portugal e a antecipar o seu novo regime fiscal.',
-          items: [
-            'Obtenção do NIF',
-            'Residente Europeu',
-            'Visto e nacionalidade',
-            'Residente Não Habitual',
-          ],
-          cta: 'Descobrir soluções',
-        },
-        realEstate: {
-          title: 'Investir em Imóveis',
-          description: 'Estruturo e asseguro a sua transação.',
-          items: [
-            'Compra / Venda',
-            'Residência principal',
-            'Investimento para arrendamento',
-          ],
-          cta: 'Explorar opções',
-        },
-        business: {
-          title: 'Empreender',
-          description: 'Acompanho-o desde o lançamento da sua atividade e permaneço ao seu lado',
-          items: [
-            'Identificação da estrutura jurídica adequada',
-            'Declaração de início de atividade',
-            'Criação da empresa',
-            'Conformidade',
-            'Implementação de contratos',
-          ],
-          cta: 'Iniciar seu projeto',
-        },
-      },
-      blog: {
-        title: 'Notícias Jurídicas',
-        readMore: 'Ler mais',
-      },
-      footer: {
-        office: 'Escritório de Advocacia',
-        navigation: 'Navegação',
-        followUs: 'Siga-nos',
-        rights: 'Todos os direitos reservados.',
-      },
-      booking: {
-        callToAction: 'Agendar Chamada Gratuita',
-      },
-    },
-    ar: {
-      nav: {
-        about: 'حول',
-        services: 'خدمات',
-        values: 'قيم',
-        blog: 'مدونة',
-        contact: 'اتصل',
-        bookCall: 'احجز مكالمة',
-      },
-      hero: {
-        title: 'هيكلة إقامتك وأنشطتك في البرتغال',
-        subtitle: 'خبرة قانونية مخصصة لتأسيسك الناجح في البرتغال',
-        cta: 'حجز موعد',
-      },
-      about: {
-        title: 'عني',
-        paragraphs: [
-          'مسجلة في نقابة المحامين في باريس منذ 2018، ومؤهلة للممارسة في لشبونة.',
-          'بدأت مسيرتي المهنية في مكاتب محاماة دولية وفرنسية في باريس.',
-          'عملت بشكل رئيسي كمستشارة للمديرين التنفيذيين والمستثمرين في عمليات البيع والشراء، خاصة في القطاع العقاري.',
-          'طورت اهتماماً بهيكلة العمليات مع مراعاة الجوانب الشخصية والقانونية والضريبية والعملية.',
-          'بعد رحلة إلى البرتغال، واقتناعاً بالشعور بالأمان وجودة الحياة وحسن الضيافة التي وجدتها هناك، استقررت هناك في 2021.',
-          'أكرس نفسي الآن لدعم القادمين الجدد حتى تتمكنوا أيضاً من الاستمتاع بكل ما تقدمه البرتغال، بكل طمأنينة.',
-          'أعمل عن كثب مع زملاء وخبراء آخرين لتقديم دعم شامل 360 درجة.',
-        ],
-        languages: 'اللغات المتحدثة',
-      },
-      values: {
-        title: 'قيمنا',
-        trust: {
-          title: 'الثقة',
-          points: [
-            'السرية المهنية مضمونة',
-            'حماية البيانات الشخصية',
-            'سرية مطلقة للملفات',
-            'الالتزام الصارم بالأخلاقيات',
-          ],
-        },
-        reactivity: {
-          title: 'سرعة الاستجابة',
-          points: [
-            'الرد خلال 24 ساعة عمل',
-            'متابعة منتظمة للملفات',
-            'تحديثات في الوقت الحقيقي',
-            'أقصى درجات التوفر',
-          ],
-        },
-        sharing: {
-          title: 'المشاركة',
-          points: [
-            'شبكة من الخبراء المؤهلين',
-            'شركاء موثوقون',
-            'حلول مخصصة',
-            'دعم شامل',
-          ],
-        },
-      },
-      services: {
-        title: 'خدماتنا',
-        installation: {
-          title: 'الاستقرار في البرتغال',
-          description: 'أساعدك في التأسيس في البرتغال وتوقع نظامك الضريبي الجديد.',
-          items: [
-            'الحصول على NIF',
-            'الإقامة الأوروبية',
-            'التأشيرة والجنسية',
-            'الإقامة غير المعتادة',
-          ],
-          cta: 'اكتشف الحلول',
-        },
-        realEstate: {
-          title: 'الاستثمار العقاري',
-          description: 'أقوم بهيكلة وتأمين معاملتك.',
-          items: [
-            'شراء / بيع',
-            'السكن الرئيسي',
-            'الاستثمار في التأجير',
-          ],
-          cta: 'استكشف الخيارات',
-        },
-        business: {
-          title: 'ريادة الأعمال',
-          description: 'أدعمك منذ إطلاق نشاطك وأبقى إلى جانبك',
-          items: [
-            'تحديد الهيكل القانوني المناسب',
-            'إعلان النشاط',
-            'إنشاء الشركة',
-            'الامتثال',
-            'تنفيذ العقود',
-          ],
-          cta: 'ابدأ مشروعك',
-        },
-      },
-      blog: {
-        title: 'الأخبار القانونية',
-        readMore: 'اقرأ المزيد',
-      },
-      footer: {
-        office: 'مكتب المحاماة',
-        navigation: 'التنقل',
-        followUs: 'تابعنا',
-        rights: 'جميع الحقوق محفوظة.',
-      },
-      booking: {
-        callToAction: 'احجز مكالمة مجانية',
-      },
-    },
+  
   } ;

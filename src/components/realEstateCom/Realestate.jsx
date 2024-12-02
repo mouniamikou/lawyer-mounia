@@ -80,7 +80,7 @@ const RealEstateServicesPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#039B9B]/10 to-white py-16 px-4">
+    <div className="min-h-screen bg-gradient-to-b from-[#039B9B]/10 to-white py-24 px-4">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -88,7 +88,7 @@ const RealEstateServicesPage = () => {
         className="max-w-7xl mx-auto"
       >
         <motion.div variants={itemVariants} className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#039B9B] mb-6">
             Professional Real Estate Services in Portugal
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -181,7 +181,7 @@ const RealEstateServicesPage = () => {
 
         <motion.div variants={itemVariants} className="text-center">
           <h1 className="bg-white text-3xl font-bold text-[#039B9B] px-8 py-4 ">
-            Schedule a Consultation
+          Request a Consultation
           </h1>
         </motion.div>
       </motion.div>

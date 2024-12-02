@@ -66,7 +66,7 @@ const RealEstateForm = () => {
               <label className="block text-sm font-medium text-gray-700">First Name</label>
               <input
                 type="text"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#039B9B] focus:ring-[#039B9B]"
                 value={formData.personalInfo.firstName}
                 onChange={(e) => setFormData({
                   ...formData,
@@ -78,7 +78,7 @@ const RealEstateForm = () => {
               <label className="block text-sm font-medium text-gray-700">Last Name</label>
               <input
                 type="text"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#039B9B] focus:ring-[#039B9B]"
                 value={formData.personalInfo.lastName}
                 onChange={(e) => setFormData({
                   ...formData,
@@ -90,7 +90,7 @@ const RealEstateForm = () => {
               <label className="block text-sm font-medium text-gray-700">Email</label>
               <input
                 type="email"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#039B9B] focus:ring-[#039B9B]"
                 value={formData.personalInfo.email}
                 onChange={(e) => setFormData({
                   ...formData,
@@ -102,7 +102,7 @@ const RealEstateForm = () => {
               <label className="block text-sm font-medium text-gray-700">Phone Number (include country code)</label>
               <input
                 type="tel"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#039B9B] focus:ring-[#039B9B]"
                 value={formData.personalInfo.phone}
                 onChange={(e) => setFormData({
                   ...formData,
@@ -114,7 +114,7 @@ const RealEstateForm = () => {
               <label className="block text-sm font-medium text-gray-700">Current Country of Residence</label>
               <input
                 type="text"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#039B9B] focus:ring-[#039B9B]"
                 value={formData.personalInfo.currentCountry}
                 onChange={(e) => setFormData({
                   ...formData,
@@ -140,7 +140,7 @@ const RealEstateForm = () => {
                   type="radio"
                   name="projectStatus"
                   value={status}
-                  className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
+                  className="focus:ring-[#039B9B] h-4 w-4 text-[#039B9B] border-gray-300"
                   onChange={(e) => setFormData({ ...formData, projectStatus: e.target.value })}
                   checked={formData.projectStatus === status}
                 />
@@ -159,7 +159,7 @@ const RealEstateForm = () => {
                 type="radio"
                 name="transactionType"
                 value="buy"
-                className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
+                className="focus:ring-[#039B9B] h-4 w-4 text-[#039B9B] border-gray-300"
                 onChange={(e) => setFormData({ ...formData, transactionType: e.target.value })}
                 checked={formData.transactionType === 'buy'}
               />
@@ -170,7 +170,7 @@ const RealEstateForm = () => {
                 type="radio"
                 name="transactionType"
                 value="sell"
-                className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
+                className="focus:ring-[#039B9B] h-4 w-4 text-[#039B9B] border-gray-300"
                 onChange={(e) => setFormData({ ...formData, transactionType: e.target.value })}
                 checked={formData.transactionType === 'sell'}
               />
@@ -192,7 +192,7 @@ const RealEstateForm = () => {
                       type="radio"
                       name="budget"
                       value={range}
-                      className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
+                      className="focus:ring-[#039B9B] h-4 w-4 text-[#039B9B] border-gray-300"
                       onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                       checked={formData.budget === range}
                     />
@@ -209,7 +209,7 @@ const RealEstateForm = () => {
                 <label className="flex items-center space-x-3">
                   <input
                     type="checkbox"
-                    className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                    className="focus:ring-[#039B9B] h-4 w-4 text-[#039B9B] border-gray-300 rounded"
                     onChange={(e) => setFormData({
                       ...formData,
                       projectStage: { ...formData.projectStage, searching: e.target.checked }
@@ -221,7 +221,7 @@ const RealEstateForm = () => {
                 <label className="flex items-center space-x-3">
                   <input
                     type="checkbox"
-                    className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                    className="focus:ring-[#039B9B] h-4 w-4 text-[#039B9B] border-gray-300 rounded"
                     onChange={(e) => setFormData({
                       ...formData,
                       projectStage: { ...formData.projectStage, identifiedProperty: e.target.checked }
@@ -233,7 +233,7 @@ const RealEstateForm = () => {
                 <label className="flex items-center space-x-3">
                   <input
                     type="checkbox"
-                    className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                    className="focus:ring-[#039B9B] h-4 w-4 text-[#039B9B] border-gray-300 rounded"
                     onChange={(e) => setFormData({
                       ...formData,
                       projectStage: { ...formData.projectStage, submittedOffer: e.target.checked }
@@ -245,7 +245,7 @@ const RealEstateForm = () => {
                 <label className="flex items-center space-x-3">
                   <input
                     type="checkbox"
-                    className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                    className="focus:ring-[#039B9B] h-4 w-4 text-[#039B9B] border-gray-300 rounded"
                     onChange={(e) => setFormData({
                       ...formData,
                       projectStage: { ...formData.projectStage, offerAccepted: e.target.checked }
@@ -260,7 +260,7 @@ const RealEstateForm = () => {
                       Promise of sale ("CPCV") expected before:
                       <input
                         type="date"
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#039B9B] focus:ring-[#039B9B]"
                         onChange={(e) => setFormData({
                           ...formData,
                           projectStage: { ...formData.projectStage, promiseDate: e.target.value }
@@ -273,7 +273,7 @@ const RealEstateForm = () => {
                 <label className="flex items-center space-x-3">
                   <input
                     type="checkbox"
-                    className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                    className="focus:ring-[#039B9B] h-4 w-4 text-[#039B9B] border-gray-300 rounded"
                     onChange={(e) => setFormData({
                       ...formData,
                       projectStage: { ...formData.projectStage, promiseSigned: e.target.checked }
@@ -288,7 +288,7 @@ const RealEstateForm = () => {
                       Notarial deed ("escritura") expected before:
                       <input
                         type="date"
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#039B9B] focus:ring-[#039B9B]"
                         onChange={(e) => setFormData({
                           ...formData,
                           projectStage: { ...formData.projectStage, deedDate: e.target.value }
@@ -301,7 +301,7 @@ const RealEstateForm = () => {
                 <label className="flex items-center space-x-3">
                   <input
                     type="checkbox"
-                    className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                    className="focus:ring-[#039B9B] h-4 w-4 text-[#039B9B] border-gray-300 rounded"
                     onChange={(e) => setFormData({
                       ...formData,
                       projectStage: { ...formData.projectStage, deedSigned: e.target.checked }
@@ -322,7 +322,7 @@ const RealEstateForm = () => {
               <label className="flex items-center space-x-3">
                 <input
                   type="checkbox"
-                  className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                  className="focus:ring-[#039B9B] h-4 w-4 text-[#039B9B] border-gray-300 rounded"
                   onChange={(e) => setFormData({
                     ...formData,
                     sellingStage: { ...formData.sellingStage, considering: e.target.checked }
@@ -334,7 +334,7 @@ const RealEstateForm = () => {
               <label className="flex items-center space-x-3">
                 <input
                   type="checkbox"
-                  className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                  className="focus:ring-[#039B9B] h-4 w-4 text-[#039B9B] border-gray-300 rounded"
                   onChange={(e) => setFormData({
                     ...formData,
                     sellingStage: { ...formData.sellingStage, listed: e.target.checked }
@@ -346,7 +346,7 @@ const RealEstateForm = () => {
               <label className="flex items-center space-x-3">
                 <input
                   type="checkbox"
-                  className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                  className="focus:ring-[#039B9B] h-4 w-4 text-[#039B9B] border-gray-300 rounded"
                   onChange={(e) => setFormData({
                     ...formData,
                     sellingStage: { ...formData.sellingStage, offerAccepted: e.target.checked }
@@ -361,7 +361,7 @@ const RealEstateForm = () => {
                     Promise of sale ("CPCV") expected before:
                     <input
                       type="date"
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#039B9B] focus:ring-[#039B9B]"
                       onChange={(e) => setFormData({
                         ...formData,
                         sellingStage: { ...formData.sellingStage, promiseDate: e.target.value }
@@ -374,7 +374,7 @@ const RealEstateForm = () => {
               <label className="flex items-center space-x-3">
                 <input
                   type="checkbox"
-                  className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                  className="focus:ring-[#039B9B] h-4 w-4 text-[#039B9B] border-gray-300 rounded"
                   onChange={(e) => setFormData({
                     ...formData,
                     sellingStage: { ...formData.sellingStage, promiseSigned: e.target.checked }
@@ -389,7 +389,7 @@ const RealEstateForm = () => {
                     Notarial deed ("escritura") expected before:
                     <input
                       type="date"
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#039B9B] focus:ring-[#039B9B]"
                       onChange={(e) => setFormData({
                         ...formData,
                         sellingStage: { ...formData.sellingStage, deedDate: e.target.value }
@@ -402,7 +402,7 @@ const RealEstateForm = () => {
               <label className="flex items-center space-x-3">
                 <input
                   type="checkbox"
-                  className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                  className="focus:ring-[#039B9B] h-4 w-4 text-[#039B9B] border-gray-300 rounded"
                   onChange={(e) => setFormData({
                     ...formData,
                     sellingStage: { ...formData.sellingStage, deedSigned: e.target.checked }
@@ -420,7 +420,7 @@ const RealEstateForm = () => {
           <div>
             <input
               type="text"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#039B9B] focus:ring-[#039B9B]"
               placeholder="Please specify any other requirements or information"
               value={formData.other}
               onChange={(e) => setFormData({ ...formData, other: e.target.value })}
@@ -431,7 +431,7 @@ const RealEstateForm = () => {
         <motion.div variants={fadeIn} className="pt-6">
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+            className="w-full bg-[#039B9B] text-white px-6 py-3 rounded-lg hover:bg-[#028787]] transition-colors font-semibold"
           >
             Submit Request
           </button>

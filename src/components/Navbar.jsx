@@ -6,6 +6,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../translations';
 import LanguageSelector from './LanguageSelector';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +14,7 @@ export default function Navbar() {
   const t = translations[language];
 
   const navItems = [
+    { label: t.nav.home, href: '/' },
     { label: t.nav.about, href: '/about' },
     { label: t.nav.installP, href: '/installationportugal' },
     { label: t.nav.realestate, href: '/Realestate' },
@@ -36,21 +38,21 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
                 className="text-gray-600 hover:text-primary transition-colors"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <LanguageSelector />
-            <a
+            <Link
               href="/contact"
               className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition-colors"
             >
               {t.nav.contact}
-            </a>
+            </Link>
           </div>
 
           <button
@@ -69,19 +71,29 @@ export default function Navbar() {
           >
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.label}
                   href={item.href}
                   className="block px-3 py-2 text-gray-600 hover:text-primary transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
+                     <div className="px-2 py-2">
+               <Link
+              href="/contact"
+              className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition-colors"
+            >
+              {t.nav.contact}
+            </Link>
+            </div>
               <div className="px-3 py-2">
                 <LanguageSelector />
               </div>
+              
             </div>
+            
           </motion.div>
         )}
       </div>

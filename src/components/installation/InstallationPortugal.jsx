@@ -41,7 +41,7 @@ const installationportugal = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white py-24 px-4">
+    <div className="min-h-screen bg-gradient-to-b from-[#039B9B]/10 to-white py-24 px-4">
       <motion.div 
         initial="hidden"
         animate="visible"
@@ -49,7 +49,7 @@ const installationportugal = () => {
       >
         <motion.h1 
           variants={serviceVariants}
-          className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-12"
+          className="text-4xl md:text-5xl font-bold text-center text-[#039B9B] mb-12"
         >
           Installation in Portugal
         </motion.h1>
@@ -82,7 +82,7 @@ const installationportugal = () => {
                     key={stepIndex} 
                     className="flex items-center text-gray-700"
                   >
-                    <CheckCircle2 className="w-5 h-5 mr-3 text-blue-500" />
+                    <CheckCircle2 className="w-5 h-5 mr-3 text-[#039B9B]" />
                     {step}
                   </li>
                 ))}
@@ -95,9 +95,9 @@ const installationportugal = () => {
           variants={serviceVariants}
           className="mt-16 text-center"
         >
-          <h3 className="text-3xl font-bold text-gray-800 mb-6">
+         <h1 className="text-3xl font-bold text-[#039B9B] px-8 py-4 ">
             Your Personalized Transition Journey
-          </h3>
+            </h1 >
           <p className="text-gray-600 max-w-3xl mx-auto mb-8">
             We provide end-to-end support, from initial consultation to complete administrative setup, 
             ensuring a smooth and stress-free transition to your new life in Portugal.

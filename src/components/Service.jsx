@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Home, Building, Briefcase, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const services = [
   {
@@ -22,6 +23,7 @@ const services = [
       "NHR status",
       "expat relocation",
     ],
+    link:"/installationportugal"
   },
   {
     icon: Building,
@@ -41,6 +43,7 @@ const services = [
       "legal property support",
       "international property",
     ],
+    link:"/Realestate"
   },
   {
     icon: Briefcase,
@@ -61,6 +64,7 @@ const services = [
       "corporate law",
       "business compliance",
     ],
+    link:"/business"
   },
 ];
 
@@ -112,7 +116,10 @@ export default function Services() {
          ))}
        </ul>
        <button className="w-full bg-primary text-white px-6 py-2 rounded-lg font-medium hover:bg-primary-dark transition-colors flex items-center justify-center gap-2">
+        <Link href={service.link}>
+        
          {service.buttonText}
+        </Link>
          <ArrowRight size={16} />
        </button>
      </div>
