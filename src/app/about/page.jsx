@@ -1,12 +1,16 @@
 import About from '@/components/AboutPage'
+
 import Navbar from '@/components/Navbar'
+import Values from '@/components/Value'
 import React from 'react'
 
 function page() {
   return (
     <>
-    <Navbar></Navbar>
+    <Navbar/>
     <About/>
+    <Values/>
+
     </>
   )
 }

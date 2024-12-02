@@ -5,8 +5,7 @@ import { useLanguage } from '../context/LanguageContext';
 const languages = [
   { code: 'fr', label: 'Français' },
   { code: 'en', label: 'English' },
-  { code: 'pt', label: 'Português' },
-  { code: 'ar', label: 'العربية' },
+
 ] 
 
 export default function LanguageSelector() {

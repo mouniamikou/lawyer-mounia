@@ -30,7 +30,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-3xl lg:text-5xl font-bold text-gray-900 mb-8"
+              className="text-2xl lg:text-5xl font-bold text-gray-900 mb-8"
             >
               Your Trusted Legal Partner in Lisbon for Cross-Border Investments
             </motion.h1>
@@ -38,7 +38,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg lg:text-xl text-gray-600 max-w-3xl mb-8"
+              className="text-base lg:text-xl text-gray-600 max-w-3xl mb-8"
             >
               Expert Legal Services for International Property Investments in
               Portugal Navigating Real Estate, Corporate, and Tax Law

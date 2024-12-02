@@ -14,14 +14,15 @@ export default function Navbar() {
 
   const navItems = [
     { label: t.nav.about, href: '/about' },
-    { label: t.nav.services, href: '#services' },
-    { label: t.nav.values, href: '#values' },
-    { label: t.nav.blog, href: '#blog' },
-    { label: t.nav.contact, href: '#contact' },
+    { label: t.nav.installP, href: '/installationportugal' },
+    { label: t.nav.realestate, href: '/Realestate' },
+    { label: t.nav.business, href: '/business' },
+    { label: t.nav.blogs, href: '/blogs' },
+ 
   ];
 
   return (
-    <nav className="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
+    <div className="fixed w-full bg-white/90 backdrop-blur-sm  z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <motion.a
@@ -45,10 +46,10 @@ export default function Navbar() {
             ))}
             <LanguageSelector />
             <a
-              href="#contact"
+              href="/contact"
               className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition-colors"
             >
-              {t.nav.bookCall}
+              {t.nav.contact}
             </a>
           </div>
 
@@ -84,6 +85,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </div>
-    </nav>
+    </div>
   );
 }

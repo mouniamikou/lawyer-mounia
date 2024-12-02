@@ -1,12 +1,12 @@
 export const translations = {
     fr: {
       nav: {
-        about: 'À propos',
-        services: 'Services',
-        values: 'Valeurs',
-        blog: 'Blog',
+        about: 'About',
+        installP: 'Installation In Portugal',
+        realestate: 'Real Estate Investment',
+        business: 'Business',
+        blogs: 'Blogs',
         contact: 'Contact',
-        bookCall: 'Prendre RDV',
       },
       hero: {
         title: 'Structurer votre installation et vos activités au Portugal',

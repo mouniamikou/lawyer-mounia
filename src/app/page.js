@@ -5,7 +5,7 @@ import Services from "@/components/Service"
 import Blog from "@/components/Blog"
 import Footer from "@/components/Footer"
 
-import BookingButton from "@/components/Bookingbutton"
+// import BookingButton from "@/components/Bookingbutton"
 
 export default function Home() {
   return (
@@ -13,11 +13,10 @@ export default function Home() {
     <main className="min-h-screen">
       <Navbar />
       <Hero />
-      <Values />
       <Services />
       <Blog />
       <Footer />
-      <BookingButton/>
+      
     </main>
  
   )
