@@ -14,7 +14,6 @@ export default function Navbar() {
   const t = translations[language];
 
   const navItems = [
-    { label: t.nav.home, href: '/' },
     { label: t.nav.about, href: '/about' },
     { label: t.nav.installP, href: '/installationportugal' },
     { label: t.nav.realestate, href: '/Realestate' },

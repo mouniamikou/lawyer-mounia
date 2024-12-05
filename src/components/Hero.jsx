@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Building2 } from "lucide-react";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -18,19 +18,19 @@ export default function Hero() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 ">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-left"
+            className="text-left "
           >
-            {/* <Building2 className="w-16 h-16 text-primary mb-8" /> */}
+     
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-2xl lg:text-5xl font-bold text-gray-900 mb-8"
+              className="text-3xl lg:text-5xl font-bold text-gray-900 sm:mt-52 mb-8"
             >
               Your Trusted Legal Partner in Lisbon for Cross-Border Investments
             </motion.h1>
@@ -38,7 +38,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-base lg:text-xl text-gray-600 max-w-3xl mb-8"
+              className="text-base lg:text-xl  text-gray-600 max-w-3xl mb-8"
             >
               Expert Legal Services for International Property Investments in
               Portugal Navigating Real Estate, Corporate, and Tax Law

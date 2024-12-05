@@ -136,7 +136,7 @@ export const translations = {
         languages: 'Languages spoken',
       },
       values: {
-        title: 'Our Values',
+        title: 'Values',
         trust: {
           title: 'Trust',
           points: [
@@ -166,7 +166,7 @@ export const translations = {
         },
       },
       services: {
-        title: 'Our Services',
+        title: 'Services',
         installation: {
           title: 'Settling in Portugal',
           description: 'I help you establish yourself in Portugal and anticipate your new tax regime.',

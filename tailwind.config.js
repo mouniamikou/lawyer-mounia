@@ -12,7 +12,7 @@ module.exports = {
         'primary-dark': '#028787',
       },
       height:{
-        '600':"800px"
+        '600':"510px"
       }
     },
   },

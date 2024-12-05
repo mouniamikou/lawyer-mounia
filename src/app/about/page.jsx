@@ -1,5 +1,6 @@
 import About from '@/components/AboutPage'
 import ContactCTA from '@/components/AboutToContact'
+import Footer from '@/components/Footer'
 
 import Navbar from '@/components/Navbar'
 import Values from '@/components/Value'
@@ -12,7 +13,7 @@ function page() {
     <About/>
     <Values/>
     <ContactCTA></ContactCTA>
-
+<Footer></Footer>
     </>
   )
 }

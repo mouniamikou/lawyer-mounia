@@ -35,7 +35,7 @@ const services = [
       "Company Incorporation",
       "Investment Property Management",
     ],
-    image: "/pexels-jing-zhang-1250761192-24287350.jpg",
+    image: "/core-architects_portuguese-architecture99-1160x613.jpg",
     buttonText: "Explore Property Options",
     seoKeywords: [
       "Portugal real estate",
@@ -56,7 +56,7 @@ const services = [
       "Regulatory Compliance",
       "Contract Development",
     ],
-    image: "/pexels-su-lopes-54155462-7789476.jpg",
+    image: "/DSCF1361.jpg",
     buttonText: "Launch Your Business",
     seoKeywords: [
       "Portugal business formation",
@@ -79,7 +79,7 @@ export default function Services() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl font-bold text-gray-900">Our Services</h2>
+          <h2 className="text-3xl font-bold text-gray-900">Services</h2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

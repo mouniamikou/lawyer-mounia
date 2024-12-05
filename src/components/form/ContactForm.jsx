@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import PersonalInfoForm from './PersonalInfo';
 
 const InstallationForm = () => {
   const [formData, setFormData] = useState({
@@ -29,14 +30,23 @@ const InstallationForm = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white rounded-xl shadow-lg">
+    <div className="max-w-2xl mx-auto p-6 mb-4 bg-white rounded-xl shadow-lg" style={{
+      backgroundImage: "url('/blob-scene-haikei (2).svg')",
+      backgroundSize: 'cover', // Or 'contain', depending on your preference
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+    }}>
       <motion.form 
         initial="hidden"
         animate="visible"
         className="space-y-6"
       >
+ <PersonalInfoForm 
+          formData={formData}
+          onFormDataChange={setFormData}
+        />
         {/* Personal Information */}
-        <motion.section 
+        {/* <motion.section 
           variants={fadeIn}
           className="space-y-4"
         >
@@ -105,7 +115,6 @@ const InstallationForm = () => {
           </div>
         </motion.section>
 
-        {/* Project Status */}
         <motion.section variants={fadeIn} className="space-y-4">
           <h2 className="text-xl font-semibold text-gray-800">Where are you in your project?</h2>
           <div className="space-y-2">
@@ -128,7 +137,7 @@ const InstallationForm = () => {
               </label>
             ))}
           </div>
-        </motion.section>
+        </motion.section> */}
 
         {/* Residency Status */}
         <motion.section variants={fadeIn} className="space-y-4">
@@ -143,7 +152,7 @@ const InstallationForm = () => {
                 onChange={(e) => setFormData({ ...formData, residencyStatus: e.target.value })}
                 checked={formData.residencyStatus === 'eu'}
               />
-              <span className="text-gray-700">EU Resident</span>
+              <span className="text-gray-700">EU Citizen</span>
             </label>
             <label className="flex items-center space-x-3">
               <input
@@ -154,7 +163,7 @@ const InstallationForm = () => {
                 onChange={(e) => setFormData({ ...formData, residencyStatus: e.target.value })}
                 checked={formData.residencyStatus === 'non-eu'}
               />
-              <span className="text-gray-700">Non-EU Resident</span>
+              <span className="text-gray-700">Non-EU Citizen</span>
             </label>
           </div>
         </motion.section>
@@ -252,9 +261,9 @@ const InstallationForm = () => {
     animate="visible"
     className="space-y-6"
   >
-    <h3 className="text-lg font-medium text-gray-800">*Non-EU Resident</h3>
+
     <div className="space-y-4">
-      <p className="text-gray-700">You need:</p>
+    <h3 className="text-lg font-medium text-gray-800">Your Needs</h3>
       
       {/* Single choice visa options */}
       <div className="space-y-2">
@@ -333,12 +342,12 @@ const InstallationForm = () => {
           />
           <div className="text-gray-700">
             <span>Legal and Tax Consultation</span>
-            <a 
+            {/* <a 
               href="#" 
               className="block text-blue-600 hover:text-blue-800 text-sm mt-1"
             >
               Book your consultation directly by clicking this link
-            </a>
+            </a> */}
           </div>
         </label>
 

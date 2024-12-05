@@ -187,7 +187,7 @@ const BusinessServicesPage = () => {
         {/* Service Note */}
         <motion.div variants={itemVariants} className="text-center mb-16">
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Our service proposals include professional fees and administrative costs based on your project's specific characteristics.
+            Service proposals include professional fees and administrative costs based on your project's specific characteristics.
           </p>
         </motion.div>
 

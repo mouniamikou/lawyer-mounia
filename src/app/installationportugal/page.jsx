@@ -2,6 +2,7 @@ import InstallationForm from '@/components/form/ContactForm'
 import Navbar from '@/components/Navbar'
 import Instal from '@/components/installation/InstallationPortugal.jsx'
 import React from 'react'
+import Footer from '@/components/Footer'
 
 
 function page() {
@@ -10,6 +11,7 @@ function page() {
     <Navbar></Navbar>
     <Instal></Instal>
     <InstallationForm></InstallationForm>
+    <Footer></Footer>
     </>
   )
 }

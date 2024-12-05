@@ -1,7 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
 import React from 'react';
-
+import EUImag from "../../../public/european.png"
+import Image from "next/image";
 import { CheckCircle2, GlobeIcon, FileText } from 'lucide-react';
 
 const installationportugal = () => {
@@ -19,29 +20,29 @@ const installationportugal = () => {
 
   const services = [
     {
-      icon: <GlobeIcon className="w-12 h-12 text-blue-600" />,
-      title: "EU Residents",
-      description: "Simplified administrative processes with comprehensive guidance for EU citizens moving to Portugal.",
+      icon: <Image src={EUImag} alt="eu citizen" width={50} height={50} />,
+      title: "EU Citizens",
+      description: "Streamlined administrative processes and comprehensive guidance for EU citizenship holders relocating to Portugal.",
       steps: [
+        "Citizenship Documentation Processing",
         "Administrative Compliance Support",
-        "Residency Documentation Assistance",
-        "Personalized Transition Guidance"
+        "Relocation Strategy Planning"
       ]
     },
     {
-      icon: <FileText className="w-12 h-12 text-green-600" />,
-      title: "Non-EU Residents",
-      description: "Comprehensive visa and residency support for digital nomads, entrepreneurs, and international professionals.",
+      icon: <GlobeIcon className="w-12 h-12 text-blue-600" />,
+      title: "Global Citizens",
+      description: "Full-service immigration support for digital nomads, entrepreneurs, and international professionals seeking Portuguese citizenship.",
       steps: [
-        "Visa Application Support",
-        "Digital Nomad Visa Assistance",
-        "Entrepreneur Residency Guidance"
+        "Visa Application Processing",
+        "Digital Nomad Visa Expertise",
+        "Entrepreneur Immigration Pathways"
       ]
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#039B9B]/10 to-white py-24 px-4">
+    <div className="min-h-screen bg-gradient-to-b from-[#039B9B]/10 to-white py-24  px-4">
       <motion.div 
         initial="hidden"
         animate="visible"

@@ -1,8 +1,12 @@
 "use client"
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import PersonalInfoForm from './PersonalInfo';
+import SuccessMessage from '../SuccessMessage';
+
 
 const RealEstateForm = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     personalInfo: {
         firstName: '',
@@ -42,21 +46,41 @@ const RealEstateForm = () => {
   };
 
   const budgetRanges = [
-    '< 250K€',
-    '250K€ - 500K€',
-    '500K€ - 1M€',
-    '> 1M€'
+    '< 250.000€',
+    '250.000€ - 500.000€',
+    '500.000€ - 1.000.000€',
+    '> 1.000.000€'
   ];
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add your form submission logic here
+    setIsSubmitted(true);
+  };
+  if (isSubmitted) {
+    return <SuccessMessage />;
+  }
+
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white rounded-xl shadow-lg">
+    <div className="max-w-2xl mx-auto p-6 mb-4 bg-white rounded-xl shadow-lg" style={{
+      backgroundImage: "url('/blob-scene-haikei (2).svg')",
+      backgroundSize: 'cover', // Or 'contain', depending on your preference
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+    }}>
       <motion.form 
         initial="hidden"
         animate="visible"
         className="space-y-6"
+        onSubmit={handleSubmit} 
       >
+         <PersonalInfoForm 
+          formData={formData}
+          onFormDataChange={setFormData}
+        />
+
         {/* Personal Information */}
-        <motion.section 
+        {/* <motion.section 
           variants={fadeIn}
           className="space-y-4"
         >
@@ -125,7 +149,8 @@ const RealEstateForm = () => {
           </div>
         </motion.section>
 
-        {/* Project Status */}
+     
+
         <motion.section variants={fadeIn} className="space-y-4">
           <h2 className="text-xl font-semibold text-gray-800">Where are you in your project?</h2>
           <div className="space-y-2">
@@ -148,7 +173,7 @@ const RealEstateForm = () => {
               </label>
             ))}
           </div>
-        </motion.section>
+        </motion.section> */}
 
         {/* Transaction Type Selection */}
         <motion.section variants={fadeIn} className="space-y-4">
@@ -430,6 +455,7 @@ const RealEstateForm = () => {
 
         <motion.div variants={fadeIn} className="pt-6">
           <button
+      
             type="submit"
             className="w-full bg-[#039B9B] text-white px-6 py-3 rounded-lg hover:bg-[#028787]] transition-colors font-semibold"
           >

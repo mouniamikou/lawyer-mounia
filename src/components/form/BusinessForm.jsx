@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import PersonalInfoForm from './PersonalInfo';
 
 const BusinessForm = () => {
   const [formData, setFormData] = useState({
@@ -33,14 +34,23 @@ const BusinessForm = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white rounded-xl shadow-lg">
+    <div className="max-w-2xl mx-auto p-6 mb-4 bg-white rounded-xl shadow-lg" style={{
+      backgroundImage: "url('/blob-scene-haikei (2).svg')",
+      backgroundSize: 'cover', // Or 'contain', depending on your preference
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+    }}>
       <motion.form 
         initial="hidden"
         animate="visible"
         className="space-y-6"
       >
+         <PersonalInfoForm 
+          formData={formData}
+          onFormDataChange={setFormData}
+        />
         {/* Personal Information */}
-        <motion.section 
+        {/* <motion.section 
           variants={fadeIn}
           className="space-y-4"
         >
@@ -107,7 +117,7 @@ const BusinessForm = () => {
               />
             </div>
           </div>
-        </motion.section>
+        </motion.section> */}
 
         {/* Business Type Selection */}
         <motion.section variants={fadeIn} className="space-y-4">
