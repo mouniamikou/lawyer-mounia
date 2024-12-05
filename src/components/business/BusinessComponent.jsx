@@ -2,13 +2,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
-  LightbulbIcon,
-  BuildingIcon,
-  ClipboardCheckIcon,
+  DownloadIcon,
+  PenIcon,
+  WrenchIcon,
   FileTextIcon,
-  ScrollTextIcon,
-  BookOpenIcon,
-  CheckCircleIcon
+  FolderIcon,
+  CheckCircleIcon,
+  Users2Icon,
+  BuildingIcon,
+  MapPinIcon,
+  ActivityIcon,
+  GlobeIcon
 } from 'lucide-react';
 
 const BusinessServicesPage = () => {
@@ -33,94 +37,145 @@ const BusinessServicesPage = () => {
     }
   };
 
-  const companyFormationSteps = [
+  const preRequisites = [
     {
-      title: "Strategic Planning",
+      title: "Strategy Phase",
       items: [
-        "Strategic legal consulting",
-        "Customized business structure",
-        "Company formation guidance"
+        "Business plan development",
+        "Market analysis",
+        "Financial projections",
+        "Legal structure selection"
       ]
     },
     {
-      title: "Company Formation Process",
+      title: "Prerequisites",
       items: [
-        "Company constitution",
-        "Business registration",
-        "Beneficial owners declaration",
-        "Shareholders' meeting records setup",
-        "Complete social documentation delivery"
-      ]
-    },
-    {
-      title: "Operational Support",
-      items: [
-        "Compliance management (required licenses)",
-        "Contract drafting (client/employment)",
-        "Operational support (Meeting minutes, registered office changes...)"
+        "Initial capital requirements",
+        "Documentation preparation",
+        "Location selection",
+        "Shareholder agreements"
       ]
     }
   ];
 
-  const businessStatusSetup = {
-    title: "Business Status Implementation",
-    steps: [
-      {
-        label: "Company Creation",
-        prerequisites: [
-          "NIF and NIPC number applications",
-          "Contact with accountants"
-        ],
-        presence: [
-          "Partners present at meeting → Articles signing appointment",
-          "Partners absent → Power of attorney or representation"
-        ]
-      },
-      {
-        label: "Company Life",
-        requirements: [
-          "Compliance",
-          "Contracts",
-          "Statutory modifications"
-        ]
-      }
-    ]
-  };
+  const locationOptions = [
+    {
+      title: "Inside Country Formation",
+      requirements: [
+        "Local address verification",
+        "Physical presence requirements",
+        "Local bank account",
+        "Resident director requirements"
+      ]
+    },
+    {
+      title: "Outside Country Formation",
+      requirements: [
+        "Power of attorney",
+        "Apostille documents",
+        "International banking setup",
+        "Remote registration process"
+      ]
+    }
+  ];
+
+  const formationSteps = [
+    {
+      icon: <DownloadIcon className="w-8 h-8 text-[#039B9B]" />,
+      number: "1",
+      title: "Information Collection",
+      items: ["Required documentation", "Identity verification", "Business details"]
+    },
+    {
+      icon: <PenIcon className="w-8 h-8 text-[#039B9B]" />,
+      number: "2",
+      title: "Company Constitution",
+      items: ["Articles of association", "Shareholder structure", "Capital declaration"]
+    },
+    {
+      icon: <WrenchIcon className="w-8 h-8 text-[#039B9B]" />,
+      number: "3",
+      title: "Company Registration",
+      items: ["Official registration", "Tax number acquisition", "Business licenses"]
+    },
+    {
+      icon: <FileTextIcon className="w-8 h-8 text-[#039B9B]" />,
+      number: "4",
+      title: "Beneficial Owners Declaration",
+      items: ["Ownership structure", "UBO registration", "Compliance verification"]
+    },
+    {
+      icon: <FolderIcon className="w-8 h-8 text-[#039B9B]" />,
+      number: "5",
+      title: "Social Documentation",
+      items: ["Corporate documents", "Operational guidelines", "Compliance records"]
+    }
+  ];
+
+  const postFormationSteps = [
+    // {
+    //   icon: <Users2Icon className="w-8 h-8 text-[#039B9B]" />,
+    //   title: "Shareholder Management",
+    //   items: [
+    //     "Shareholder meetings",
+    //     "Voting procedures",
+    //     "Rights and obligations",
+    //     "Share transfers"
+    //   ]
+    // },
+    {
+      icon: <BuildingIcon className="w-8 h-8 text-[#039B9B]" />,
+      title: "Business Life Cycle",
+      items: [
+        "Annual compliance",
+        "Financial reporting",
+        "Corporate changes",
+        "Statutory modifications"
+      ]
+    },
+    {
+      icon: <ActivityIcon className="w-8 h-8 text-[#039B9B]" />,
+      title: "Freelance Activity",
+      items: [
+        "Self-employed status",
+        "Tax obligations",
+        "Social security",
+        "Professional insurance"
+      ]
+    }
+  ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#039B9B]/10 to-white py-24 px-4">
+    <div className="min-h-screen bg-gradient-to-b py-24 from-[#039B9B]/10 to-white  px-4">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
         className="max-w-7xl mx-auto"
       >
-        <motion.div variants={itemVariants} className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#039B9B] mb-6">
-            Business Creation Services
+        <motion.div variants={itemVariants} className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#039B9B] mb-4">
+            Complete Business Formation Journey
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            From Concept to Reality: Comprehensive Business Formation and Support
+            From Strategy to Operational Business
           </p>
         </motion.div>
 
-        {/* Main Services Section */}
-        <motion.section variants={itemVariants} className="mb-16">
-          <div className="flex items-center justify-center mb-8">
-            <BuildingIcon className="w-10 h-10 text-[#039B9B] mr-4" />
-            <h2 className="text-3xl font-bold text-gray-800">Company Formation Process</h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {companyFormationSteps.map((section, index) => (
-              <div 
-                key={index} 
-                className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-100"
-              >
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">{section.title}</h3>
+        {/* Pre-Formation Phase */}
+        <motion.section variants={itemVariants} className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            <GlobeIcon className="w-8 h-8 text-[#039B9B] mr-3" />
+            Pre-Formation Strategy
+          </h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {preRequisites.map((phase, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-md p-6">
+                <h3 className="text-xl font-semibold text-[#039B9B] mb-4">{phase.title}</h3>
                 <ul className="space-y-3">
-                  {section.items.map((item, itemIndex) => (
-                    <li key={itemIndex} className="flex items-start">
-                      <CheckCircleIcon className="w-5 h-5 text-[#039B9B] mt-1 mr-3 flex-shrink-0" />
+                  {phase.items.map((item, i) => (
+                    <li key={i} className="flex items-start">
+                      <CheckCircleIcon className="w-5 h-5 text-[#039B9B] mt-1 mr-2" />
                       <span className="text-gray-700">{item}</span>
                     </li>
                   ))}
@@ -130,71 +185,86 @@ const BusinessServicesPage = () => {
           </div>
         </motion.section>
 
-        {/* Business Status Implementation */}
-        <motion.section variants={itemVariants} className="mb-16">
-          <div className="flex items-center justify-center mb-8">
-            <ScrollTextIcon className="w-10 h-10 text-[#039B9B] mr-4" />
-            <h2 className="text-3xl font-bold text-gray-800">{businessStatusSetup.title}</h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {businessStatusSetup.steps.map((step, index) => (
-              <div 
-                key={index} 
-                className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-100"
-              >
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">{step.label}</h3>
-                {step.prerequisites && (
-                  <div className="mb-4">
-                    <h4 className="font-medium text-gray-800 mb-2">Prerequisites:</h4>
-                    <ul className="space-y-2">
-                      {step.prerequisites.map((prereq, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <CheckCircleIcon className="w-5 h-5 text-[#039B9B] mt-1 mr-3 flex-shrink-0" />
-                          <span className="text-gray-700">{prereq}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                {step.presence && (
-                  <div>
-                    <h4 className="font-medium text-gray-800 mb-2">Attendance Options:</h4>
-                    <ul className="space-y-2">
-                      {step.presence.map((option, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <CheckCircleIcon className="w-5 h-5 text-[#039B9B] mt-1 mr-3 flex-shrink-0" />
-                          <span className="text-gray-700">{option}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                {step.requirements && (
-                  <ul className="space-y-2">
-                    {step.requirements.map((req, idx) => (
-                      <li key={idx} className="flex items-start">
-                        <CheckCircleIcon className="w-5 h-5 text-[#039B9B] mt-1 mr-3 flex-shrink-0" />
-                        <span className="text-gray-700">{req}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+        {/* Location Options */}
+        <motion.section variants={itemVariants} className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            <MapPinIcon className="w-8 h-8 text-[#039B9B] mr-3" />
+            Formation Location Options
+          </h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {locationOptions.map((option, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-md p-6">
+                <h3 className="text-xl font-semibold text-[#039B9B] mb-4">{option.title}</h3>
+                <ul className="space-y-3">
+                  {option.requirements.map((req, i) => (
+                    <li key={i} className="flex items-start">
+                      <CheckCircleIcon className="w-5 h-5 text-[#039B9B] mt-1 mr-2" />
+                      <span className="text-gray-700">{req}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
         </motion.section>
 
-        {/* Service Note */}
-        <motion.div variants={itemVariants} className="text-center mb-16">
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Service proposals include professional fees and administrative costs based on your project's specific characteristics.
-          </p>
-        </motion.div>
+        {/* Formation Steps */}
+        <motion.section variants={itemVariants} className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">Formation Process</h2>
+          <div className="space-y-4">
+            {formationSteps.map((step, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-md p-6">
+                <div className="flex items-center mb-4">
+                  <div className="bg-[#039B9B]/10 rounded-full p-2 mr-4">
+                    {step.icon}
+                  </div>
+                  <div className="flex items-center">
+                    <span className="text-2xl font-bold text-[#039B9B] mr-3">{step.number}</span>
+                    <h3 className="text-xl font-semibold text-gray-800">{step.title}</h3>
+                  </div>
+                </div>
+                <ul className="grid md:grid-cols-3 gap-4">
+                  {step.items.map((item, i) => (
+                    <li key={i} className="flex items-start">
+                      <CheckCircleIcon className="w-5 h-5 text-[#039B9B] mt-1 mr-2" />
+                      <span className="text-gray-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* Post Formation */}
+        <motion.section variants={itemVariants} className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">Post Formation & Ongoing Support</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {postFormationSteps.map((step, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-md p-6">
+                <div className="flex items-center mb-4">
+                  <div className="bg-[#039B9B]/10 rounded-full p-2 mr-3">
+                    {step.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-800">{step.title}</h3>
+                </div>
+                <ul className="space-y-3">
+                  {step.items.map((item, i) => (
+                    <li key={i} className="flex items-start">
+                      <CheckCircleIcon className="w-5 h-5 text-[#039B9B] mt-1 mr-2" />
+                      <span className="text-gray-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </motion.section>
 
         <motion.div variants={itemVariants} className="text-center">
-        <h1 className="bg-white text-3xl font-bold text-[#039B9B] px-8 py-4 ">
-            Request a Consultation
-          </h1>
+          <h2 className=" text-2xl font-bold text-[#039B9B] px-8 py-4 inline-block rounded-lg ">
+            Start Your Business Journey Today
+          </h2>
         </motion.div>
       </motion.div>
     </div>
