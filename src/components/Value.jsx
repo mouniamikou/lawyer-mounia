@@ -1,44 +1,32 @@
-"use client"
+// Values.js
+"use client";
 import { motion } from 'framer-motion';
 import { Lock, Zap, Network } from 'lucide-react';
-
-const values = [
-  {
-    icon: Lock,
-    title: "Trust",
-    points: [
-      "Guaranteed Privacy",
-     "Personal Data Protection",
-     "Strict Ethical Standards",
-     "Confidential Handling"
-    ],
-    seoKeywords: ["legal confidentiality", "professional ethics", "client privacy", "data protection"]
-  },
-  {
-    icon: Zap,
-    title: "Responsiveness",
-    points: [
-      "24-Hour Business Response",
-      "Continuous Case Tracking",
-      "Real-Time Updates",
-      "Maximum Availability"
-    ],
-    seoKeywords: ["legal responsiveness", "client communication", "quick legal support", "proactive legal services"]
-  },
-  {
-    icon: Network,
-    title: "Collaboration",
-    points: [
-      "Network of Qualified Experts",
-      "Trusted Professional Partners",
-      "Customized Legal Solutions",
-      "Comprehensive Support"
-    ],
-    seoKeywords: ["international legal network", "personalized legal services", "expert legal collaboration", "comprehensive legal support"]
-  }
- ];
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations';
 
 export default function Values() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
+  const values = [
+    {
+      icon: Lock,
+      title: t.values.trust.title,
+      points: t.values.trust.points
+    },
+    {
+      icon: Zap,
+      title: t.values.reactivity.title,
+      points: t.values.reactivity.points
+    },
+    {
+      icon: Network,
+      title: t.values.sharing.title,
+      points: t.values.sharing.points
+    }
+  ];
+
   return (
     <section id="valeurs" className="py-8 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,9 +37,9 @@ export default function Values() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-     <h1 className="text-3xl font-bold text-[#039B9B] px-8 py-4 ">
-            Our valeurs
-            </h1>
+          <h1 className="text-3xl font-bold text-[#039B9B] px-8 py-4">
+            {t.values.title}
+          </h1>
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">

@@ -108,43 +108,7 @@ const RealEstateServicesPage = () => {
             transactions, ensuring security and peace of mind throughout the
             process.
           </p>
-          {/* Representation Options */}
-          <motion.section variants={itemVariants} className="my-16">
-            <div className="flex items-center justify-center mb-8">
-              <UserIcon className="w-10 h-10 text-[#039B9B] mr-4" />
-              <h2 className="text-3xl font-bold text-gray-800">
-                Representation Options
-              </h2>
-            </div>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-300">
-                <div className="flex items-center mb-4">
-                  <ClipboardCheckIcon className="w-8 h-8 text-[#039B9B] mr-3" />
-                  <h3 className="text-xl font-semibold text-gray-800">
-                    In-Person Support
-                  </h3>
-                </div>
-                <p className="text-gray-700">
-                  Comprehensive support with your physical presence during all
-                  key stages of the transaction, ensuring complete understanding
-                  and control.
-                </p>
-              </div>
-              <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-300">
-                <div className="flex items-center mb-4">
-                  <LanguagesIcon className="w-8 h-8 text-[#039B9B] mr-3" />
-                  <h3 className="text-xl font-semibold text-gray-800">
-                    Remote Representation
-                  </h3>
-                </div>
-                <p className="text-gray-700">
-                  Full power of attorney services for clients unable to be
-                  present, managing all aspects of the transaction on your
-                  behalf.
-                </p>
-              </div>
-            </div>
-          </motion.section>
+         
         </motion.div>
 
         {/* Property Acquisition Section */}
@@ -203,6 +167,43 @@ const RealEstateServicesPage = () => {
             ))}
           </div>
         </motion.section>
+         {/* Representation Options */}
+         <motion.section variants={itemVariants} className="my-16">
+            <div className="flex items-center justify-center mb-8">
+              <UserIcon className="w-10 h-10 text-[#039B9B] mr-4" />
+              <h2 className="text-3xl font-bold text-gray-800">
+                Representation Options
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-300">
+                <div className="flex items-center mb-4">
+                  <ClipboardCheckIcon className="w-8 h-8 text-[#039B9B] mr-3" />
+                  <h3 className="text-xl font-semibold text-gray-800">
+                    In-Person Support
+                  </h3>
+                </div>
+                <p className="text-gray-700">
+                  Comprehensive support with your physical presence during all
+                  key stages of the transaction, ensuring complete understanding
+                  and control.
+                </p>
+              </div>
+              <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-300">
+                <div className="flex items-center mb-4">
+                  <LanguagesIcon className="w-8 h-8 text-[#039B9B] mr-3" />
+                  <h3 className="text-xl font-semibold text-gray-800">
+                    Remote Representation
+                  </h3>
+                </div>
+                <p className="text-gray-700">
+                  Full power of attorney services for clients unable to be
+                  present, managing all aspects of the transaction on your
+                  behalf.
+                </p>
+              </div>
+            </div>
+          </motion.section>
 
         <motion.div variants={itemVariants} className="text-center">
           <h1 className="bg-white text-3xl font-bold text-[#039B9B] px-8 py-4 ">

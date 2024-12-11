@@ -1,9 +1,9 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+
 import { LanguageProvider } from "@/context/LanguageContext";
 
 
-const inter = Inter({ subsets: ["latin"] });
+
 
 export const metadata = {
   title: "Mounia Mikou L'avocate de votre expatriation",
@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <LanguageProvider>
 
-        <body className={inter.className}>{children}</body>
+        <body>{children}</body>
    
       </LanguageProvider>
     </html>

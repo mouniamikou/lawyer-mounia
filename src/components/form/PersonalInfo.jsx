@@ -35,7 +35,7 @@ const PersonalInfoForm = ({ formData, onFormDataChange }) => {
         <h2 className="text-xl font-semibold text-gray-800 mb-4">Personal Information</h2>
         <div className="space-y-3">
           <div>
-            <label className="block text-sm font-medium text-gray-700">First Name</label>
+            {/* <label className="block text-sm font-medium text-gray-700">First Name</label> */}
             <input
               type="text"
               placeholder="Enter your first name"
@@ -45,7 +45,7 @@ const PersonalInfoForm = ({ formData, onFormDataChange }) => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Last Name</label>
+            {/* <label className="block text-sm font-medium text-gray-700">Last Name</label> */}
             <input
               type="text"
               placeholder="Enter your last name"
@@ -55,7 +55,7 @@ const PersonalInfoForm = ({ formData, onFormDataChange }) => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Email</label>
+            {/* <label className="block text-sm font-medium text-gray-700">Email</label> */}
             <input
               type="email"
               placeholder="your.email@example.com"
@@ -65,7 +65,7 @@ const PersonalInfoForm = ({ formData, onFormDataChange }) => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Phone Number (include country code)</label>
+            {/* <label className="block text-sm font-medium text-gray-700">Phone Number (include country code)</label> */}
             <input
               type="tel"
               placeholder="+1 234 567 8900"
@@ -75,7 +75,7 @@ const PersonalInfoForm = ({ formData, onFormDataChange }) => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Current Country of Residence</label>
+            {/* <label className="block text-sm font-medium text-gray-700">Current Country of Residence</label> */}
             <input
               type="text"
               placeholder="Enter your current country of residence"
