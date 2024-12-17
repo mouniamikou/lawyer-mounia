@@ -23,7 +23,7 @@ export default function About() {
               <Image
               width={900}
               height={100}
-              src="/lawyer-mounia.avif"
+              src="/photo_2024-12-13_11-33-38.jpg"
               alt="Profile"
               className="rounded-2xl mb-4 shadow-xl w-full max-w-md mx-auto"
             />

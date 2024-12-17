@@ -38,7 +38,7 @@ const PersonalInfoForm = ({ formData, onFormDataChange }) => {
             {/* <label className="block text-sm font-medium text-gray-700">First Name</label> */}
             <input
               type="text"
-              placeholder="Enter your first name"
+              placeholder="First name"
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#039B9B] focus:ring-[#039B9B]"
               value={formData.personalInfo.firstName}
               onChange={(e) => handlePersonalInfoChange('firstName', e.target.value)}
@@ -48,7 +48,7 @@ const PersonalInfoForm = ({ formData, onFormDataChange }) => {
             {/* <label className="block text-sm font-medium text-gray-700">Last Name</label> */}
             <input
               type="text"
-              placeholder="Enter your last name"
+              placeholder="Last name"
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#039B9B] focus:ring-[#039B9B]"
               value={formData.personalInfo.lastName}
               onChange={(e) => handlePersonalInfoChange('lastName', e.target.value)}
@@ -78,7 +78,7 @@ const PersonalInfoForm = ({ formData, onFormDataChange }) => {
             {/* <label className="block text-sm font-medium text-gray-700">Current Country of Residence</label> */}
             <input
               type="text"
-              placeholder="Enter your current country of residence"
+              placeholder="Current country of residence"
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#039B9B] focus:ring-[#039B9B]"
               value={formData.personalInfo.currentCountry}
               onChange={(e) => handlePersonalInfoChange('currentCountry', e.target.value)}

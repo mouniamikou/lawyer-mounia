@@ -82,7 +82,8 @@ const RealEstateServicesPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#039B9B]/10 to-white py-24 px-4">
+    <div className=" bg-white py-24 px-4">
+      
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -96,7 +97,7 @@ const RealEstateServicesPage = () => {
           height={100}
           src="/pexels-jing-zhang-1250761192-24287350.jpg"
           alt="Lisbon"
-          className="w-full h-600 object-cover opacity-10"
+          className="w-full h-600 object-cover opacity-5"
         />
       </div>
       
@@ -113,29 +114,7 @@ const RealEstateServicesPage = () => {
 
         {/* Property Acquisition Section */}
         <motion.section variants={itemVariants} className="mb-16">
-          {/* <div className="flex items-center justify-center mb-8">
-            <HomeIcon className="w-10 h-10 text-[#039B9B] mr-4" />
-            <h2 className="text-3xl font-bold text-gray-800">Property Acquisition Services</h2>
-          </div> */}
-          {/* <div className="grid md:grid-cols-2 gap-8">
-            {acquisitionServices.map((section, index) => (
-              <div 
-                key={index} 
-                className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-100"
-              >
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">{section.title}</h3>
-                <ul className="space-y-3">
-                  {section.items.map((item, itemIndex) => (
-                    <li key={itemIndex} className="flex items-start">
-                      <CheckCircleIcon className="w-5 h-5 text-[#039B9B] mt-1 mr-3 flex-shrink-0" />
-                      <span className="text-gray-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div> */}
-          <AcquisitionProcess></AcquisitionProcess>
+          <AcquisitionProcess/>
         </motion.section>
 
         {/* Property Sale Section */}
@@ -206,7 +185,7 @@ const RealEstateServicesPage = () => {
           </motion.section>
 
         <motion.div variants={itemVariants} className="text-center">
-          <h1 className="bg-white text-3xl font-bold text-[#039B9B] px-8 py-4 ">
+          <h1 className="bg-white text-3xl font-bold text-[#039B9B] px-8  ">
             Request a Consultation
           </h1>
         </motion.div>

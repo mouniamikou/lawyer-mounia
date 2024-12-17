@@ -146,7 +146,7 @@ const BusinessServicesPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b py-24 from-[#039B9B]/10 to-white  px-4">
+    <div className="bg-gradient-to-b py-24 from-[#039B9B]/10 to-white  px-4">
       <motion.div
         variants={containerVariants}
         initial="hidden"

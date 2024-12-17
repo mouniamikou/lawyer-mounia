@@ -93,7 +93,7 @@ export const translations = {
           'Identification de la structure juridique adéquate',
           'Déclaration d\'activité',
           'Création de société',
-          'Mise en conformité',
+         
           'Mise en place des contrats',
         ],
         cta: 'Commencer votre projet',
@@ -195,7 +195,7 @@ export const translations = {
       },
     },
     services: {
-      title: 'Our Services',
+      title: 'Services',
       installation: {
         title: 'Settling in Portugal',
         description: 'I help you establish yourself in Portugal and anticipate your new tax regime.',
@@ -225,7 +225,7 @@ export const translations = {
           'Identification of adequate legal structure',
           'Activity declaration',
           'Company creation',
-          'Compliance',
+     
           'Contract implementation',
         ],
         cta: 'Start Your Project',

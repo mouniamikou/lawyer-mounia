@@ -10,7 +10,7 @@ export default function Hero() {
   const t = translations[language].hero;
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="relative  bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="absolute inset-0">
         <Image
           width={900}
@@ -33,7 +33,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-3xl lg:text-5xl font-bold text-gray-900 sm:mt-52 mb-8"
+              className="text-3xl lg:text-5xl font-bold text-gray-900 sm:mt-36 mb-8"
             >
               {t.title}
             </motion.h1>
@@ -68,7 +68,7 @@ export default function Hero() {
             <Image
               width={900}
               height={100}
-              src="/lawyer-mounia.avif"
+              src="/photo_2024-12-13_11-33-38.jpg"
               alt={t.imageAlt.profile}
               className="rounded-2xl mb-4 shadow-xl w-full max-w-md mx-auto"
             />

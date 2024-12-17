@@ -42,7 +42,7 @@ const MainContactForm = () => {
   };
 
   return (
-    <div className="min-h-screen mb-4 bg-gray-50 py-24 px-4 sm:px-6 lg:px-8" style={{
+    <div className="mb-4 bg-gray-50 py-24 px-4 sm:px-4 lg:px-8" style={{
       backgroundImage: "url('/blob-scene-haikei (2).svg')",
       backgroundSize: 'cover', // Or 'contain', depending on your preference
       backgroundRepeat: 'no-repeat',
@@ -57,44 +57,11 @@ const MainContactForm = () => {
         <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
           Expert assistance with business creation, real estate transactions, and relocation services in Portugal.
         </p>
-        <div className="flex flex-wrap justify-center gap-4 mb-6">
-          <span className="px-3 py-1 bg-[#039B9B] bg-opacity-10 text-[#039B9B] rounded-full text-sm font-medium">Business Formation</span>
-          <span className="px-3 py-1 bg-[#039B9B] bg-opacity-10 text-[#039B9B] rounded-full text-sm font-medium">Property Purchase</span>
-          <span className="px-3 py-1 bg-[#039B9B] bg-opacity-10 text-[#039B9B] rounded-full text-sm font-medium">Citizenship</span>
-
-          <span className="px-3 py-1 bg-[#039B9B] bg-opacity-10 text-[#039B9B] rounded-full text-sm font-medium">Legal Consultation</span>
-        </div>
       </div>
 
-      {/* Progress Steps */}
-      <div className="max-w-4xl mx-auto mb-8">
-        <div className="flex items-center justify-between relative">
-          <div className="absolute left-0 right-0 top-1/2 h-0.5 bg-gray-200 -z-10" />
-          <div className={`flex items-center justify-center w-8 h-8 rounded-full ${
-            step >= 1 ? 'bg-[#039B9B] text-white' : 'bg-gray-200 text-gray-500'
-          }`}>
-            1
-          </div>
-          <div className={`flex items-center justify-center w-8 h-8 rounded-full ${
-            step >= 2 ? 'bg-[#039B9B] text-white' : 'bg-gray-200 text-gray-500'
-          }`}>
-            2
-          </div>
-          <div className={`flex items-center justify-center w-8 h-8 rounded-full ${
-            step >= 3 ? 'bg-[#039B9B] text-white' : 'bg-gray-200 text-gray-500'
-          }`}>
-            3
-          </div>
-        </div>
-        <div className="flex justify-between mt-2 text-sm">
-          <span className="text-[#039B9B] font-medium">Personal Info</span>
-          <span className={step >= 2 ? 'text-[#039B9B]' : 'text-gray-500'}>Service Selection</span>
-          <span className={step >= 3 ? 'text-[#039B9B]' : 'text-gray-500'}>Service Details</span>
-        </div>
-      </div>
 
       {/* Main Form */}
-      <div className="bg-white p-8 rounded-xl shadow-lg">
+    
           <motion.form 
             initial="hidden"
             animate="visible"
@@ -102,7 +69,7 @@ const MainContactForm = () => {
             onSubmit={handleSubmit}
           >
 
-{step === 1 && (
+{/* {step === 1 && (
   <>
     <div className="text-center">
       <h1 className="text-3xl font-bold text-gray-800 mb-6">Schedule a Consultation</h1>
@@ -113,7 +80,7 @@ const MainContactForm = () => {
         <button
           type="button"
           className="w-full bg-[#039B9B] text-white px-6 py-3 rounded-lg hover:bg-[#028787] transition-colors font-semibold"
-          onClick={() => {/* Add Calendly integration here */}}
+          onClick={() => {}}
         >
           Book a Call
         </button>
@@ -127,9 +94,9 @@ const MainContactForm = () => {
       </div>
     </div>
   </>
-)}
+)} */}
 
-            {step === 2 && (
+            {step === 1 && (
               <>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {[
@@ -145,7 +112,7 @@ const MainContactForm = () => {
                       }`}
                       onClick={() => {
                         setFormData({ ...formData, serviceType: service.value });
-                        setStep(3);
+                        setStep(2);
                       }}
                     >
                       <div className="text-4xl mb-4">{service.icon}</div>
@@ -154,19 +121,10 @@ const MainContactForm = () => {
                     </div>
                   ))}
                 </div>
-                <motion.div variants={fadeIn} className="pt-6">
-                  <button
-                    type="button"
-                    className="w-full bg-gray-100 text-gray-600 px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors font-semibold"
-                    onClick={() => setStep(1)}
-                  >
-                    Back
-                  </button>
-                </motion.div>
               </>
             )}
 
-            {step === 3 && (
+            {step === 2 && (
               <>
                 {formData.serviceType === 'installation' && (
                   <InstallationForm
@@ -200,6 +158,8 @@ const MainContactForm = () => {
 
                 {formData.serviceType === 'other' && (
                   <motion.section variants={fadeIn} className="space-y-6">
+                    <PersonalInfoForm  formData={formData}
+          onFormDataChange={setFormData} />
                     <h2 className="text-xl font-semibold text-gray-800">Please Describe Your Needs</h2>
                     <div>
                       <textarea
@@ -216,33 +176,27 @@ const MainContactForm = () => {
                       >
                         Submit Request
                       </motion.button>
-                      <motion.button
-                        type="button"
-                        className="w-full bg-gray-100 text-gray-600 px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors font-semibold"
-                        onClick={() => setStep(2)}
-                      >
-                        Back
-                        </motion.button>
+                    
                     </div>
                   </motion.section>
                 )}
 
-                {formData.serviceType !== 'other' && (
+               
                   <div className="flex flex-col space-y-4">
                     
                     <motion.button
                       type="button"
                       className="w-full bg-gray-100 text-gray-600 px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors font-semibold"
-                      onClick={() => setStep(2)}
+                      onClick={() => setStep(1)}
                     >
                       Back
                     </motion.button>
                   </div>
-                )}
+           
               </>
             )}
           </motion.form>
-        </div>
+
       </div>
     </div>
   );
