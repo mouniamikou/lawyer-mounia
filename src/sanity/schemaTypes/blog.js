@@ -30,16 +30,17 @@ export default {
         name: 'category',
         title: 'Category',
         type: 'string',
+        of: [{ type: 'string' }],
         options: {
           list: [
-            { title: 'Visa Portugal', value: 'visa-portugal' },
-            { title: 'Real Estate', value: 'real-estate' },
-            { title: 'Business', value: 'business' },
-            { title: 'Others', value: 'others' },
+            { title: 'Visa Portugal', value: 'Visa Portugal' },
+            { title: 'Real Estate', value: 'Real Estate' },
+            { title: 'Business', value: 'Business' },
+            { title: 'Others', value: 'Others' },
           ],
-          layout: 'radio',
+          layout: 'checkbox',
         },
-        validation: Rule => Rule.required(),
+        validation: Rule => Rule.required().min(1).warning('Please select at least one category.'),
       },
       {
         name: 'publishedAt',

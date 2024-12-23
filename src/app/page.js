@@ -1,9 +1,10 @@
 import Navbar from "@/components/Navbar"
 import Hero from "@/components/Hero"
-import Values from "@/components/Value"
+
 import Services from "@/components/Service"
-import Blog from "@/components/Blog"
+
 import Footer from "@/components/Footer"
+import BlogList from "./blogs/page"
 
 // import BookingButton from "@/components/Bookingbutton"
 
@@ -14,7 +15,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Services />
-      <Blog />
+      <BlogList/>
       <Footer />
       
     </main>

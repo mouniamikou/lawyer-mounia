@@ -51,7 +51,7 @@ export default function Services() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl font-bold text-gray-900">{t.services.title}</h2>
+          <h2 className="text-5xl font-bold text-primary">{t.services.title}</h2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

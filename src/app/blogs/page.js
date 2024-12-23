@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
+import { motion } from "framer-motion";
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState([]);
@@ -68,7 +69,7 @@ const BlogList = () => {
     });
   };
 
-  const categories = ["All", "Visa Portugal", "Real Estate", "Business", "Others"];
+  const categories = ["All", "visa-portugal", "real-estate", "business", "others"];
 
   if (isLoading) {
     return (
@@ -87,8 +88,16 @@ const BlogList = () => {
 
   return (
     <div className="container mx-auto py-24">
-      <h1 className="text-4xl font-bold mb-8">Latest Posts</h1>
-
+      
+      <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-5xl font-bold text-primary">Recent blogs</h2>
+        </motion.div>
       <div className="flex flex-wrap gap-3 mb-8">
         {categories.map((category) => (
           <button
