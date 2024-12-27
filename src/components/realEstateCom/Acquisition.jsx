@@ -157,7 +157,7 @@ const AcquisitionProcess = () => {
           </div>
         </div>
 
-        <div className="flex justify-between mb-6">
+        {/* <div className="flex justify-between mb-6">
           <button
             type="button"
             onClick={() => handleStepChange('prev')}
@@ -182,7 +182,7 @@ const AcquisitionProcess = () => {
           >
             Next <ChevronRight className="w-4 h-4" />
           </button>
-        </div>
+        </div> */}
 
         <AnimatePresence mode="wait">
           <motion.div

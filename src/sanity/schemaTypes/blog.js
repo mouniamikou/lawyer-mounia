@@ -33,10 +33,10 @@ export default {
         of: [{ type: 'string' }],
         options: {
           list: [
-            { title: 'Visa Portugal', value: 'Visa Portugal' },
-            { title: 'Real Estate', value: 'Real Estate' },
-            { title: 'Business', value: 'Business' },
-            { title: 'Others', value: 'Others' },
+            { title: 'Visa Portugal', value: 'visa-portugal' },
+            { title: 'Real Estate', value: 'real-estate' },
+            { title: 'Business', value: 'business' },
+            { title: 'Others', value: 'others' },
           ],
           layout: 'checkbox',
         },
