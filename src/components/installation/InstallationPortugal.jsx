@@ -241,7 +241,7 @@ const InstallationPortugal = () => {
                   }`}>
                     <h3 className="font-bold text-xs mb-1">{step.title}</h3>
                     <p className="text-xs mb-1 opacity-80">{step.description}</p>
-                    <p className="text-xs text-gray-500">{step.duration}</p>
+                    
                   </div>
                 </motion.div>
               ))}

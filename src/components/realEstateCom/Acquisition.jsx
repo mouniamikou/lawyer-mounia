@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 
 const AcquisitionProcess = () => {
+  // Using useRef to maintain state across re-renders
   const [activeStep, setActiveStep] = useState(0);
   const [showTips, setShowTips] = useState(true);
   const [currentStep, setCurrentStep] = useState(null);
@@ -90,11 +91,16 @@ const AcquisitionProcess = () => {
     setCurrentStep(steps[activeStep]);
   }, [activeStep]);
 
-  const handleStepChange = (type) => {
-    if (type === 'next') {
-      setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
-    } else if (type === 'prev') {
-      setActiveStep((prev) => Math.max(prev - 1, 0));
+  // Handlers moved outside of any animation context
+  const handleNext = () => {
+    if (activeStep < steps.length - 1) {
+      setActiveStep(prevStep => prevStep + 1);
+    }
+  };
+
+  const handlePrevious = () => {
+    if (activeStep > 0) {
+      setActiveStep(prevStep => prevStep - 1);
     }
   };
 
@@ -105,7 +111,10 @@ const AcquisitionProcess = () => {
   if (!currentStep) return null;
 
   return (
-    <div className="w-full mx-auto p-4 bg-gradient-to-b from-gray-100 to-white rounded-xl shadow-lg">
+    <motion.div 
+      className="w-full mx-auto p-4 bg-gradient-to-b from-gray-100 to-white rounded-xl shadow-lg"
+      initial={false}
+    >
       <div className="mb-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <h2 className="text-2xl md:text-4xl font-bold text-[#039B9B]">Property Acquisition Process</h2>
@@ -126,14 +135,11 @@ const AcquisitionProcess = () => {
           
           <div className="relative flex justify-between min-w-[600px] md:min-w-0 px-4 md:px-0">
             {steps.map((step, index) => (
-              <motion.div
+              <div
                 key={index}
                 className={`relative flex flex-col items-center w-32 md:w-48 group ${
                   index === activeStep ? 'scale-105' : ''
                 }`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
               >
                 <button
                   onClick={() => handleStepClick(index)}
@@ -152,17 +158,16 @@ const AcquisitionProcess = () => {
                   <h3 className="font-bold text-xs md:text-sm mb-1">{step.title}</h3>
                   <p className="text-xs md:text-sm mb-1 opacity-80">{step.description}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
 
-        {/* <div className="flex justify-between mb-6">
+        <div className="flex justify-between mb-8">
           <button
-            type="button"
-            onClick={() => handleStepChange('prev')}
+            onClick={handlePrevious}
             disabled={activeStep === 0}
-            className={`px-4 md:px-6 py-2 md:py-3 rounded-lg transition-all flex items-center gap-2 text-sm md:text-base ${
+            className={`px-6 py-3 rounded-lg transition-all flex items-center gap-2 ${
               activeStep > 0
                 ? 'bg-[#039B9B] text-white hover:shadow-lg'
                 : 'bg-gray-200 text-gray-400 cursor-not-allowed'
@@ -171,10 +176,9 @@ const AcquisitionProcess = () => {
             <ChevronLeft className="w-4 h-4" /> Previous
           </button>
           <button
-            type="button"
-            onClick={() => handleStepChange('next')}
+            onClick={handleNext}
             disabled={activeStep === steps.length - 1}
-            className={`px-4 md:px-6 py-2 md:py-3 rounded-lg transition-all flex items-center gap-2 text-sm md:text-base ${
+            className={`px-6 py-3 rounded-lg transition-all flex items-center gap-2 ${
               activeStep < steps.length - 1
                 ? 'bg-[#039B9B] text-white hover:shadow-lg'
                 : 'bg-gray-200 text-gray-400 cursor-not-allowed'
@@ -182,7 +186,7 @@ const AcquisitionProcess = () => {
           >
             Next <ChevronRight className="w-4 h-4" />
           </button>
-        </div> */}
+        </div>
 
         <AnimatePresence mode="wait">
           <motion.div
@@ -240,7 +244,7 @@ const AcquisitionProcess = () => {
           </motion.div>
         </AnimatePresence>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
