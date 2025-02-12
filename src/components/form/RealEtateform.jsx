@@ -38,6 +38,7 @@ const RealEstateForm = () => {
       deedDate: '',
     },
     other: '',
+    termsAccepted: false
   });
 
   const fadeIn = {
@@ -356,9 +357,21 @@ const RealEstateForm = () => {
           </div>
         </motion.section>
 
+        {/* Terms Acceptance Checkbox */}
+        <motion.div variants={fadeIn} className="space-y-4">
+          <label className="flex items-center space-x-3">
+            <input
+              type="checkbox"
+              required
+              className="focus:ring-[#039B9B] h-4 w-4 text-[#039B9B] border-gray-300 rounded"
+              onChange={(e) => setFormData({ ...formData, termsAccepted: e.target.checked })}
+            />
+            <span className="text-gray-700">By checking this box, I acknowledge that I have read and agree to the terms and conditions. I consent to the collection and processing of my personal data solely for the purpose of being contacted regarding my inquiry. My information will not be shared with third parties or used for any other purposes beyond this request.</span>
+          </label>
+        </motion.div>
+
         <motion.div variants={fadeIn} className="pt-6">
           <button
-      
             type="submit"
             className="w-full bg-[#039B9B] text-white px-6 py-3 rounded-lg hover:bg-[#028787]] transition-colors font-semibold"
           >

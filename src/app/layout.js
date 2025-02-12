@@ -1,6 +1,8 @@
+
 import "./globals.css";
 
 import { LanguageProvider } from "@/context/LanguageContext";
+
 
 
 
@@ -16,7 +18,7 @@ export default function RootLayout({ children }) {
       <LanguageProvider>
 
         <body>{children}</body>
-   
+
       </LanguageProvider>
     </html>
   );

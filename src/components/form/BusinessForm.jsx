@@ -26,6 +26,7 @@ const BusinessForm = () => {
     businessSector: '',
     timeline: '', // '<1month', '1-3months', '>3months'
     other: '',
+    termsAccepted: false,
   });
 
   const fadeIn = {
@@ -270,17 +271,32 @@ const BusinessForm = () => {
           </div>
         </motion.section>
 
-    {/* Other */}
-    <motion.section variants={fadeIn} className="space-y-4">
-          <h2 className="text-xl font-semibold text-gray-800">Other</h2>
-          <div className="space-y-4">
-            <textarea
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 min-h-[100px]"
-              placeholder="Please specify any other requests or requirements"
+        {/* Other Section */}
+        <motion.section variants={fadeIn} className="space-y-4">
+          <h3 className="text-lg font-medium text-gray-800">Other</h3>
+          <div>
+            <input
+              type="text"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              placeholder="Please specify any other requirements or information"
               value={formData.other}
               onChange={(e) => setFormData({ ...formData, other: e.target.value })}
             />
           </div>
+        </motion.section>
+
+        {/* Terms Acceptance */}
+        <motion.section variants={fadeIn} className="space-y-4">
+          <label className="flex items-center space-x-3">
+            <input
+              type="checkbox"
+              required
+              className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+              onChange={(e) => setFormData({ ...formData, termsAccepted: e.target.checked })}
+              checked={formData.termsAccepted}
+            />
+            <span className="text-gray-700">By checking this box, I acknowledge that I have read and agree to the terms and conditions. I consent to the collection and processing of my personal data solely for the purpose of being contacted regarding my inquiry. My information will not be shared with third parties or used for any other purposes beyond this request.</span>
+          </label>
         </motion.section>
 
         <motion.div variants={fadeIn} className="pt-6">

@@ -22,7 +22,8 @@ const MainContactForm = () => {
     realEstate: {/* ... real estate fields */},
     business: {/* ... business fields */},
     otherDetails: '',
-    additionalInfo: ''
+    additionalInfo: '',
+    termsAccepted: false
   });
   const [step, setStep] = useState(1);
   const fadeIn = {
@@ -169,6 +170,21 @@ const MainContactForm = () => {
                         onChange={(e) => setFormData({ ...formData, otherDetails: e.target.value })}
                       />
                     </div>
+                    
+                    {/* Terms Acceptance */}
+                    <div className="space-y-4">
+                      <label className="flex items-center space-x-3">
+                        <input
+                          type="checkbox"
+                          required
+                          className="focus:ring-[#039B9B] h-4 w-4 text-[#039B9B] border-gray-300 rounded"
+                          onChange={(e) => setFormData({ ...formData, termsAccepted: e.target.checked })}
+                          checked={formData.termsAccepted}
+                        />
+                        <span className="text-gray-700">By checking this box, I acknowledge that I have read and agree to the terms and conditions. I consent to the collection and processing of my personal data solely for the purpose of being contacted regarding my inquiry. My information will not be shared with third parties or used for any other purposes beyond this request.</span>
+                      </label>
+                    </div>
+
                     <div className="flex flex-col space-y-4">
                       <motion.button
                         type="submit"

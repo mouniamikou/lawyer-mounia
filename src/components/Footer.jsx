@@ -1,87 +1,79 @@
 "use client";
-import { MapPin, Phone, Mail, Linkedin, Instagram, Facebook } from "lucide-react";
+import { MapPin, Mail, Linkedin, Instagram } from "lucide-react";
+import Link from 'next/link';
 
 export default function Footer() {
-  const legalLinks = [
-    { name: "Terms of Service", href: "/terms" },
-    { name: "Privacy Policy", href: "/privacy" },
-    { name: "Cookie Policy", href: "/cookies" },
-  ];
-
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-        {/* Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Contact Information */}
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
-            <ul className="space-y-3 text-gray-300">
-              <li className="flex items-center gap-2">
-                <MapPin size={20} />
-                <span>Rua Augusta, Lisbon, Portugal</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone size={20} />
-                <span>+351 123 456 789</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail size={20} />
-                <span>contact@cabinet-juridique.pt</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Social Media Links */}
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
-            <div className="flex space-x-6">
-              <a
-                href="#"
-                aria-label="LinkedIn"
-                className="hover:text-primary transition-colors"
-              >
-                <Linkedin size={28} />
-              </a>
-              <a
-                href="#"
-                aria-label="Instagram"
-                className="hover:text-primary transition-colors"
-              >
-                <Instagram size={28} />
-              </a>
-              <a
-                href="#"
-                aria-label="Facebook"
-                className="hover:text-primary transition-colors"
-              >
-                <Facebook size={28} />
-              </a>
-            </div>
-          </div>
-
-          {/* Legal Links */}
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2">
-              {legalLinks.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="hover:text-primary transition-colors text-gray-300"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-12">
+        
+        {/* Left Section - Address & Contact */}
+        <div>
+          <h3 className="text-xl font-semibold mb-4">Contact</h3>
+          <p className="flex items-center space-x-2">
+            <MapPin size={20} />
+            <span>Travessa Cova da Moura 2, R/C dir. 1350 – 118 Lisboa</span>
+          </p>
+          <p className="flex items-center space-x-2 mt-2">
+            <Mail size={20} />
+            <a href="mailto:mm@mouniamikou.com" className="hover:text-primary transition-colors">mm@mouniamikou.com</a>
+          </p>
+          <div className="flex space-x-6 mt-4">
+            <Link
+              href="https://www.linkedin.com/in/mounia-mikou/"
+              aria-label="LinkedIn"
+              className="hover:text-primary transition-colors"
+            >
+              <Linkedin size={28} />
+            </Link>
+            <Link
+              href="https://www.instagram.com/mounmk/"
+              aria-label="Instagram"
+              className="hover:text-primary transition-colors"
+            >
+              <Instagram size={28} />
+            </Link>
           </div>
         </div>
-
-        {/* Footer Bottom */}
-        <div className="mt-12 border-t border-gray-800 pt-6 text-center text-sm text-gray-400">
-          <p>© {new Date().getFullYear()} Cabinet Juridique. All rights reserved.</p>
+        
+        {/* Center Section - Navigation */}
+        <div>
+          <h3 className="text-xl font-semibold mb-4">Navigation</h3>
+          <ul className="space-y-2">
+            <li><Link href="/about" className="hover:text-primary transition-colors">About</Link></li>
+            <li><Link href="/services" className="hover:text-primary transition-colors">Services</Link></li>
+            <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
+          </ul>
         </div>
+        
+        {/* Right Section - Legal Consultation Box */}
+        <div className=" p-6 rounded-lg text-center">
+          <h3 className="text-lg font-semibold">Need Legal Advice?</h3>
+          <p className="text-sm text-gray-300 mt-2">Get professional legal guidance for your specific situation.</p>
+          <Link href="/contact">
+            <button className="mt-4 bg-primary text-white py-2 px-4 rounded-lg hover:bg-opacity-90 transition">🗓 Book Consultation</button>
+          </Link>
+        </div>
+
+        <div className="flex space-x-2">
+          <Link href="/terms" className="hover:text-primary transition-colors">
+          Terms of Service
+          </Link>
+          <span className="text-gray-400">|</span>
+          <Link href="/privacy" className="hover:text-primary transition-colors">
+          Privacy Policy
+          </Link>
+          <span className="text-gray-400">|</span>
+          <Link href="/cookies" className="hover:text-primary transition-colors">
+          Cookie Policy
+          </Link>
+        </div>
+      </div>
+
+      {/* Legal Links */}
+      <div className="mt-12 text-center text-sm text-gray-400 border-t border-gray-800 pt-6">
+       
+        <p className="mt-2">© {new Date().getFullYear()} Cabinet Juridique. All rights reserved.</p>
       </div>
     </footer>
   );

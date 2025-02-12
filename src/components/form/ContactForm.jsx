@@ -22,6 +22,7 @@ const InstallationForm = () => {
     },
     visaType: '', // 'D2' or 'D7'
     aimaDate: '',
+    termsAccepted: false,
   });
 
   const fadeIn = {
@@ -293,6 +294,20 @@ const InstallationForm = () => {
     </div>
   </motion.section>
 )}
+
+        {/* Terms Acceptance */}
+        <motion.section variants={fadeIn} className="space-y-4">
+          <label className="flex items-center space-x-3">
+            <input
+              type="checkbox"
+              required
+              className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+              onChange={(e) => setFormData({ ...formData, termsAccepted: e.target.checked })}
+              checked={formData.termsAccepted}
+            />
+            <span className="text-gray-700">By checking this box, I acknowledge that I have read and agree to the terms and conditions. I consent to the collection and processing of my personal data solely for the purpose of being contacted regarding my inquiry. My information will not be shared with third parties or used for any other purposes beyond this request.</span>
+          </label>
+        </motion.section>
 
         <motion.div variants={fadeIn} className="pt-6">
           <button

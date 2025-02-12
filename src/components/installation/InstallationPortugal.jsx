@@ -150,64 +150,78 @@ const InstallationPortugal = () => {
   if (!currentStep) return null;
 
   return (
-    <div className="bg-gradient-to-b from-[#039B9B]/10 to-white py-24 px-4">
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        className="max-w-6xl mx-auto"
-      >
-        <motion.h1
-          variants={serviceVariants}
-          className="text-4xl md:text-5xl font-bold text-center text-[#039B9B] mb-8"
-        >
-          Installation in Portugal
-        </motion.h1>
+    <div className="py-24 px-4">
+      {/* Header Section with Background */}
+      <div className="relative mb-12">
+        {/* Background Image with Overlay */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: "url('/passportPP.jpeg')", // Use your image path
+          
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            opacity: '0.3' // Adjust opacity as needed
+          }}
+        />
 
-        <motion.p
-          variants={serviceVariants}
-          className="text-xl text-center text-gray-600 max-w-3xl mx-auto mb-16"
-        >
-          Seamless transition support for individuals looking to make Portugal
-          their new home, with personalized guidance through administrative and
-          legal processes.
-        </motion.p>
+        {/* Header Content */}
+        <div className="relative z-10 py-12">
+          <motion.h1
+            variants={serviceVariants}
+            className="text-4xl md:text-5xl font-bold text-center text-primary-dark mb-8"
+          >
+            Installation in Portugal
+          </motion.h1>
 
-        {/* Citizenship Type Tabs */}
-        <div className="flex justify-center gap-6 mb-12">
-          <motion.button
+          <motion.p
             variants={serviceVariants}
-            onClick={() => setActiveTab('global')}
-            className={`flex items-center gap-3 px-8 py-4 rounded-xl transition-all ${
-              activeTab === 'global'
-                ? 'bg-[#039B9B] text-white shadow-lg'
-                : 'bg-white text-[#039B9B] hover:bg-[#039B9B]/10'
-            }`}
+            className="text-xl text-center text-gray-600 max-w-3xl mx-auto mb-16"
           >
-            <Globe className="w-6 h-6" />
-            <span className="text-lg font-semibold">Global Citizens</span>
-          </motion.button>
-          <motion.button
-            variants={serviceVariants}
-            onClick={() => setActiveTab('eu')}
-            className={`flex items-center gap-3 px-8 py-4 rounded-xl transition-all ${
-              activeTab === 'eu'
-                ? 'bg-[#039B9B] text-white shadow-lg'
-                : 'bg-white text-[#039B9B] hover:bg-[#039B9B]/10'
-            }`}
-          >
-            <Image src={EUImag} alt="eu citizen" width={24} height={24} />
-            <span className="text-lg font-semibold">EU Citizens</span>
-          </motion.button>
+            Seamless transition support for individuals looking to make Portugal
+            their new home, with personalized guidance through administrative and
+            legal processes.
+          </motion.p>
+
+          {/* Citizenship Type Tabs */}
+          <div className="flex justify-center gap-6">
+            <motion.button
+              variants={serviceVariants}
+              onClick={() => setActiveTab('global')}
+              className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-8 py-2 sm:py-4 rounded-xl transition-all text-sm sm:text-lg ${
+                activeTab === 'global'
+                  ? 'bg-[#039B9B] text-white shadow-lg'
+                  : 'bg-white text-primary-dark hover:bg-[#039B9B]/10'
+              }`}
+            >
+              <Globe className="w-4 h-4 sm:w-6 sm:h-6" />
+              <span className="font-semibold">Global Citizens</span>
+            </motion.button>
+            <motion.button
+              variants={serviceVariants}
+              onClick={() => setActiveTab('eu')}
+              className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-8 py-2 sm:py-4 rounded-xl transition-all text-sm sm:text-lg ${
+                activeTab === 'eu'
+                  ? 'bg-[#039B9B] text-white shadow-lg'
+                  : 'bg-white text-primary-dark hover:bg-[#039B9B]/10'
+              }`}
+            >
+              <Image src={EUImag} alt="eu citizen" width={20} height={20} className="w-4 h-4 sm:w-6 sm:h-6" />
+              <span className="font-semibold">EU Citizens</span>
+            </motion.button>
+          </div>
         </div>
+      </div>
 
+      <div className="max-w-6xl mx-auto">
         <div className="bg-white rounded-xl shadow-lg p-8">
           <div className="flex justify-between items-center mb-8">
-            <h2 className="text-2xl font-bold text-[#039B9B]">Process Timeline</h2>
+            <h2 className="text-2xl font-bold text-primary-dark">Process Timeline</h2>
             <button
               onClick={() => setShowTips(!showTips)}
               className="p-2 rounded-full hover:bg-[#039B9B]/10 transition-colors"
             >
-              <Info className={`w-6 h-6 ${showTips ? 'text-[#039B9B]' : 'text-gray-400'}`} />
+              <Info className={`w-6 h-6 ${showTips ? 'text-primary-dark' : 'text-gray-400'}`} />
             </button>
           </div>
 
@@ -228,7 +242,7 @@ const InstallationPortugal = () => {
                   <button
                     onClick={() => handleStepClick(index)}
                     className={`w-8 h-8 rounded-full flex items-center justify-center
-                      ${index <= activeStep ? 'text-[#039B9B]' : 'text-gray-400'} 
+                      ${index <= activeStep ? 'text-primary-dark' : 'text-gray-400'} 
                       ${index === activeStep ? 'ring-4 ring-[#039B9B]/20' : ''}
                       bg-white border-2 border-current
                       transition-all duration-300 cursor-pointer group-hover:shadow-lg`}
@@ -237,7 +251,7 @@ const InstallationPortugal = () => {
                   </button>
 
                   <div className={`text-center mt-4 transition-colors duration-300 ${
-                    index === activeStep ? 'text-[#039B9B]' : 'text-gray-600'
+                    index === activeStep ? 'text-primary-dark' : 'text-gray-600'
                   }`}>
                     <h3 className="font-bold text-xs mb-1">{step.title}</h3>
                     <p className="text-xs mb-1 opacity-80">{step.description}</p>
@@ -247,7 +261,7 @@ const InstallationPortugal = () => {
               ))}
             </div>
           </div>
-
+      
           <div className="flex justify-between mb-8">
             <button
               onClick={handlePrevious}
@@ -283,13 +297,13 @@ const InstallationPortugal = () => {
             >
               <div>
                 <div className="flex items-center gap-2 mb-6">
-                  <LucideFileCheck className="w-6 h-6 text-[#039B9B]" />
-                  <h4 className="font-semibold text-[#039B9B] text-lg">Key Tasks</h4>
+                  <LucideFileCheck className="w-6 h-6 text-primary-dark" />
+                  <h4 className="font-semibold text-primary-dark text-lg">Key Tasks</h4>
                 </div>
                 <ul className="space-y-4">
                   {currentStep.details.map((detail, i) => (
                     <li key={i} className="flex items-start gap-3 bg-[#039B9B]/5 p-3 rounded-lg">
-                      <CheckCircle className="w-5 h-5 text-[#039B9B] mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="w-5 h-5 text-primary-dark mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700">{detail}</span>
                     </li>
                   ))}
@@ -300,9 +314,9 @@ const InstallationPortugal = () => {
                 {showTips && (
                   <div className="bg-[#039B9B]/10 rounded-lg p-6">
                     <div className="flex items-start gap-3">
-                      <AlertCircle className="w-6 h-6 text-[#039B9B] mt-1" />
+                      <AlertCircle className="w-6 h-6 text-primary-dark mt-1" />
                       <div>
-                        <h4 className="font-semibold text-[#039B9B] mb-2">Helpful Tip</h4>
+                        <h4 className="font-semibold text-primary-dark mb-2">Helpful Tip</h4>
                         <p className="text-gray-600">{currentStep.tips}</p>
                       </div>
                     </div>
@@ -311,8 +325,8 @@ const InstallationPortugal = () => {
 
                 <div>
                   <div className="flex items-center gap-2 mb-4">
-                    <FileText className="w-6 h-6 text-[#039B9B]" />
-                    <h4 className="font-semibold text-[#039B9B]">Required Documents</h4>
+                    <FileText className="w-6 h-6 text-primary-dark" />
+                    <h4 className="font-semibold text-primary-dark">Required Documents</h4>
                   </div>
                   <ul className="space-y-3">
                     {currentStep.requiredDocs.map((doc, i) => (
@@ -329,7 +343,7 @@ const InstallationPortugal = () => {
         </div>
 
         <motion.div variants={serviceVariants} className="mt-16 text-center">
-          <h2 className="text-3xl font-bold text-[#039B9B] mb-8">
+          <h2 className="text-3xl font-bold text-primary-dark mb-8">
             Start Your Portugal Journey
           </h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
@@ -338,7 +352,7 @@ const InstallationPortugal = () => {
             to your new life in Portugal.
           </p>
         </motion.div>
-      </motion.div>
+      </div>
     </div>
   );
 };

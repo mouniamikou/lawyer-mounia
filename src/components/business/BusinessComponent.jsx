@@ -138,31 +138,43 @@ const BusinessFormationService = () => {
   if (!currentStep) return null;
 
   return (
-    <div className="bg-gradient-to-b from-[#039B9B]/10 to-white py-24 px-4">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="max-w-6xl mx-auto"
-      >
-        <div className="text-center mb-12">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#039B9B] mb-4">
-            Business Formation Package
-          </h1>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-            Complete legal assistance for company formation in Portugal
-          </p>
+    <div className="py-24 px-4">
+      {/* Header Section with Background */}
+      <div className="relative mb-12">
+        {/* Background Image with Overlay */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: "url('/DSCF1361.jpg')", // Use your image path
+          
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            opacity: '0.3' // Adjust opacity as needed
+          }}
+        />
+
+        {/* Header Content */}
+        <div className="relative z-10 py-12">
+          <div className="text-center mb-12">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary-dark mb-4">
+              Business Formation Package
+            </h1>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+              Complete legal assistance for company formation in Portugal
+            </p>
+          </div>
         </div>
+      </div>
 
-     
-
+      <div className="max-w-6xl mx-auto">
         <div className="bg-white rounded-xl shadow-lg p-6">
           <div className="flex justify-between items-center mb-8">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#039B9B]">Formation Process</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-primary-dark">Formation Process</h2>
             <button
               onClick={() => setShowTips(!showTips)}
               className="p-2 rounded-full hover:bg-[#039B9B]/10 transition-colors"
             >
-              <Info className={`w-5 h-5 sm:w-6 sm:h-6 ${showTips ? 'text-[#039B9B]' : 'text-gray-400'}`} />
+              <Info className={`w-5 h-5 sm:w-6 sm:h-6 ${showTips ? 'text-primary-dark' : 'text-gray-400'}`} />
             </button>
           </div>
 
@@ -184,7 +196,7 @@ const BusinessFormationService = () => {
                   <button
                     onClick={() => handleStepClick(index)}
                     className={`w-8 h-8 rounded-full flex items-center justify-center
-                      ${index <= activeStep ? 'text-[#039B9B]' : 'text-gray-400'} 
+                      ${index <= activeStep ? 'text-primary-dark' : 'text-gray-400'} 
                       ${index === activeStep ? 'ring-4 ring-[#039B9B]/20' : ''}
                       bg-white border-2 border-current
                       transition-all duration-300 cursor-pointer group-hover:shadow-lg`}
@@ -193,7 +205,7 @@ const BusinessFormationService = () => {
                   </button>
 
                   <div className={`text-center mt-4 transition-colors duration-300 ${
-                    index === activeStep ? 'text-[#039B9B]' : 'text-gray-600'
+                    index === activeStep ? 'text-primary-dark' : 'text-gray-600'
                   }`}>
                     <h3 className="font-bold text-xs sm:text-sm mb-1">{step.title}</h3>
                     <p className="text-xs sm:text-sm opacity-80">{step.description}</p>
@@ -243,12 +255,12 @@ const BusinessFormationService = () => {
               <div>
                 <div className="flex items-center gap-2 mb-4 sm:mb-6">
                   {currentStep.icon}
-                  <h4 className="font-semibold text-[#039B9B] text-base sm:text-lg">Key Steps</h4>
+                  <h4 className="font-semibold text-primary-dark text-base sm:text-lg">Key Steps</h4>
                 </div>
                 <ul className="space-y-3 sm:space-y-4">
                   {currentStep.details.map((detail, i) => (
                     <li key={i} className="flex items-start gap-3 bg-[#039B9B]/5 p-3 rounded-lg text-sm sm:text-base">
-                      <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-[#039B9B] mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-primary-dark mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700">{detail}</span>
                     </li>
                   ))}
@@ -259,9 +271,9 @@ const BusinessFormationService = () => {
                 {showTips && (
                   <div className="bg-[#039B9B]/10 rounded-lg p-4 sm:p-6">
                     <div className="flex items-start gap-3">
-                      <AlertTriangle className="w-5 h-5 sm:w-6 sm:h-6 text-[#039B9B] mt-1" />
+                      <AlertTriangle className="w-5 h-5 sm:w-6 sm:h-6 text-primary-dark mt-1" />
                       <div>
-                        <h4 className="font-semibold text-[#039B9B] mb-2 text-sm sm:text-base">Important Note</h4>
+                        <h4 className="font-semibold text-primary-dark mb-2 text-sm sm:text-base">Important Note</h4>
                         <p className="text-gray-600 text-sm sm:text-base">{currentStep.tips}</p>
                       </div>
                     </div>
@@ -270,8 +282,8 @@ const BusinessFormationService = () => {
 
                 <div>
                   <div className="flex items-center gap-2 mb-4">
-                    <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-[#039B9B]" />
-                    <h4 className="font-semibold text-[#039B9B] text-sm sm:text-base">Required Documents</h4>
+                    <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-primary-dark" />
+                    <h4 className="font-semibold text-primary-dark text-sm sm:text-base">Required Documents</h4>
                   </div>
                   <ul className="space-y-3">
                     {currentStep.requiredDocs.map((doc, i) => (
@@ -299,7 +311,7 @@ const BusinessFormationService = () => {
             We provide comprehensive support and guidance throughout your company formation process in Portugal.
           </p>
         </motion.div>
-      </motion.div>
+      </div>
     </div>
   );
 };
