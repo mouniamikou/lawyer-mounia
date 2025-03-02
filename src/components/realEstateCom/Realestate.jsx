@@ -2,16 +2,16 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
+import {
   UserIcon,
   Home,
   Building2,
   ClipboardCheckIcon,
   LanguagesIcon,
-  CheckCircle, 
-  AlertCircle, 
-  Info, 
-  ChevronLeft, 
+  CheckCircle,
+  AlertCircle,
+  Info,
+  ChevronLeft,
   ChevronRight,
 
   FileText,
@@ -43,109 +43,109 @@ const RealEstateServicesPage = () => {
       description: "Documentation & Offer",
       duration: "1-2 weeks",
       details: [
-        "Property documentation review",
-        "Legal status verification",
-        "Market analysis",
-        "Offer submission"
+        "Project Analysis",
+        "Legal due diligence",
+        "Purchase offer submission"
       ],
       tips: "Get pre-approved for mortgage if needed",
-      requiredDocs: ["Property title", "Tax records", "Building permits"]
+      requiredDocs: ["Property title", "Tax records", "Building permits", "Energy certificate"]
     },
     {
       title: "AGREEMENT",
       description: "Contract & Deposit",
       duration: "1-3 weeks",
       details: [
-        "Offer acceptance",
+        "Conditions structuring",
         "Contract negotiation",
-        "Deposit payment",
-        "CPCV signing"
+        "Signing",
+        "Deposit payment"
       ],
-      tips: "Standard deposit is 10-20%",
-      requiredDocs: ["Bank details", "ID documents", "Proof of funds"]
+      tips: "Standard deposit is 10-30%",
+      requiredDocs: ["Draft preliminary contract", "Proof of funds for deposit", "NIF", "Identification documents"]
     },
     {
-      title: "PREEMPTION",
-      description: "Rights Verification",
+      title: "CONDITIONS PRECEDENT",
+      description: "Verification & Funding",
       duration: "2-8 weeks",
       details: [
-        "Public authority rights check",
-        "Tenant rights verification",
-        "Notification procedures",
-        "Waiting period"
+        "Funding confirmation, if any",
+        "Verification of other conditions precedent",
+        "Verification of preemptive rights",
+        "Obtention of tax forms"
       ],
-      tips: "Timeline varies by municipality",
-      requiredDocs: ["Property registration", "Tenant contracts"]
+      tips: "For apartments, review condominium regulations and confirm no outstanding fees.",
+      requiredDocs: ["Land registry certificate (less than 6 months old)", "Property tax certificate", "Condominium certificate (if applicable)", "Habitation license"]
     },
     {
       title: "NOTARY DEED",
       description: "Final Signature",
       duration: "1 week",
       details: [
-        "Conditions verification",
-        "Final payment preparation",
-        "Deed review",
-        "Official signing"
+        "Documentation preparation",
+        "Translation if needed",
+        "Legal representation if needed",
+        "Tax payment oversight"
       ],
-      tips: "Bring valid ID and POA if applicable",
-      requiredDocs: ["All previous documents", "Payment confirmation"]
+      tips: "Confirm exact payment procedures with your bank in advance, especially for international transfers.",
+      requiredDocs: ["Final purchase contract", "Proof of funds for final payment", "Tax payment forms", "Power of attorney (if applicable)"]
     },
     {
       title: "TRANSFER",
       description: "Registration",
       duration: "2-4 weeks",
       details: [
-        "Land registry filing",
-        "Tax authority registration",
+        "Property registration",
         "Utility transfers",
-        "Key handover"
+        "Tax representation",
+        "Post-acquisition support"
       ],
-      tips: "Keep all documentation safe",
-      requiredDocs: ["Signed deed", "Tax forms", "Registration fees"]
+      tips: "Keep all acquisition documents safely stored for future reference and eventual resale.",
+      requiredDocs: ["Signed deed", "Property tax registration form", "Proof of payment of all transaction taxes", "Utility contracts"]
     }
   ];
 
-  const saleSteps = [
-    {
-      title: "PREPARATION",
-      description: "Documentation Setup",
-      duration: "2-3 weeks",
-      details: [
-        "Property evaluation",
-        "Document collection",
-        "Legal verification",
-        "Marketing preparation"
-      ],
-      tips: "Ensure all property documents are current",
-      requiredDocs: ["Property deed", "Tax certificates", "Technical documents"]
-    },
-    {
-      title: "MARKETING",
-      description: "Sale Process",
-      duration: "4-12 weeks",
-      details: [
-        "Market listing",
-        "Buyer negotiations",
-        "Offer acceptance",
-        "Contract preparation"
-      ],
-      tips: "Consider professional staging",
-      requiredDocs: ["Listing agreement", "Offer documents", "Sale contract"]
-    },
-    {
-      title: "CLOSING",
-      description: "Final Process",
-      duration: "2-3 weeks",
-      details: [
-        "Final negotiations",
-        "Contract signing",
-        "Payment receipt",
-        "Property transfer"
-      ],
-      tips: "Prepare for final utility readings",
-      requiredDocs: ["Final contract", "Payment proof", "Transfer documents"]
-    }
-  ];
+
+ 
+const saleSteps = [
+  {
+    title: "PREPARATION",
+    description: "Documentation & Marketing",
+    duration: "2-3 weeks",
+    details: [
+      "Property evaluation",
+      "Document collection",
+      "Legal verification",
+      "Marketing preparation"
+    ],
+    tips: "Consider obtaining a new energy certificate if your current one is outdated",
+    requiredDocs: ["Property Registration", "Habitation license", "Energy certificate", "Condominium agreements (if applicable)"]
+  },
+  {
+    title: "NEGOTIATION",
+    description: "Offers & Terms",
+    duration: "4-12 weeks",
+    details: [
+      "Offer evaluation",
+      "Terms negotiation",
+      "Contract drafting"
+    ],
+    tips: "Negotiate progressive deposit terms for additional security if the closing timeline is extended.",
+    requiredDocs: ["CPCV", "Property valuation documents", "Capital gains tax calculations", "Power of attorney (if selling remotely)"]
+  },
+  {
+    title: "CLOSING",
+    description: "Deed & Transfer",
+    duration: "2-3 weeks",
+    details: [
+      "Final documentation",
+      "Tax compliance",
+      "Translation / Representation at notary",
+      "Fund reception"
+    ],
+    tips: "Make sure all utility contracts are transferred or terminated.",
+    requiredDocs: ["Final deed document", "Bank details for receiving funds", "Utility termination requests", "Capital gain declaration"]
+  }
+];
 
   const currentSteps = activeTab === 'purchase' ? purchaseSteps : saleSteps;
 
@@ -182,11 +182,11 @@ const RealEstateServicesPage = () => {
       {/* Header Section with Background */}
       <div className="relative mb-12">
         {/* Background Image with Overlay */}
-        <div 
+        <div
           className="absolute inset-0 z-0"
           style={{
             backgroundImage: "url('/core-architects_portuguese-architecture99-1160x613.jpg')", // Replace with your image path
-           
+
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
             opacity: '0.4' // Adjust opacity as needed
@@ -206,7 +206,7 @@ const RealEstateServicesPage = () => {
             variants={serviceVariants}
             className="text-xl text-center text-gray-800 max-w-3xl mx-auto mb-16"
           >
-            Professional support for your property transactions in Portugal, ensuring a smooth and secure process.
+          Expert legal guidance through every stage of your property transaction in Portugal - ensuring security, compliance, and peace of mind.
           </motion.p>
 
           {/* Service Type Tabs */}
@@ -214,11 +214,10 @@ const RealEstateServicesPage = () => {
             <motion.button
               variants={serviceVariants}
               onClick={() => setActiveTab('purchase')}
-              className={`flex items-center gap-1.5 px-3 py-2.5 rounded-xl transition-all ${
-                activeTab === 'purchase'
+              className={`flex items-center gap-1.5 px-3 py-2.5 rounded-xl transition-all ${activeTab === 'purchase'
                   ? 'bg-[#039B9B] text-white shadow-lg'
                   : 'bg-white text-primary-dark hover:bg-[#039B9B]/10'
-              }`}
+                }`}
             >
               <Home className="w-5 h-5" />
               <span className="text-base font-semibold">Purchase Process</span>
@@ -226,11 +225,10 @@ const RealEstateServicesPage = () => {
             <motion.button
               variants={serviceVariants}
               onClick={() => setActiveTab('sale')}
-              className={`flex items-center gap-1.5 px-3 py-2.5 rounded-xl transition-all ${
-                activeTab === 'sale'
+              className={`flex items-center gap-1.5 px-3 py-2.5 rounded-xl transition-all ${activeTab === 'sale'
                   ? 'bg-[#039B9B] text-white shadow-lg'
                   : 'bg-white text-primary-dark hover:bg-[#039B9B]/10'
-              }`}
+                }`}
             >
               <Building2 className="w-6 h-6" />
               <span className="text-base font-semibold">Sale Process</span>
@@ -253,16 +251,15 @@ const RealEstateServicesPage = () => {
 
           <div className="relative mb-12">
             <div className="absolute top-8 left-0 w-full h-1 bg-[#039B9B]/10" />
-            
+
             {/* Added overflow container */}
             <div className="overflow-x-auto pb-4 hide-scrollbar">
               <div className="flex min-w-max gap-4">
                 {currentSteps.map((step, index) => (
                   <motion.div
                     key={index}
-                    className={`relative flex flex-col items-center w-48 group ${
-                      index === activeStep ? 'scale-105' : ''
-                    }`}
+                    className={`relative flex flex-col items-center w-48 group ${index === activeStep ? 'scale-105' : ''
+                      }`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
@@ -278,9 +275,8 @@ const RealEstateServicesPage = () => {
                       <span className="font-medium">{index + 1}</span>
                     </button>
 
-                    <div className={`text-center mt-4 transition-colors duration-300 ${
-                      index === activeStep ? 'text-primary-dark' : 'text-gray-600'
-                    }`}>
+                    <div className={`text-center mt-4 transition-colors duration-300 ${index === activeStep ? 'text-primary-dark' : 'text-gray-600'
+                      }`}>
                       <h3 className="font-bold text-xs mb-1">{step.title}</h3>
                       <p className="text-xs mb-1 opacity-80">{step.description}</p>
                     </div>
@@ -294,22 +290,20 @@ const RealEstateServicesPage = () => {
             <button
               onClick={handlePrevious}
               disabled={activeStep === 0}
-              className={`px-6 py-3 rounded-lg transition-all flex items-center gap-2 ${
-                activeStep > 0
+              className={`px-6 py-3 rounded-lg transition-all flex items-center gap-2 ${activeStep > 0
                   ? 'bg-[#039B9B] text-white hover:shadow-lg'
                   : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-              }`}
+                }`}
             >
               <ChevronLeft className="w-4 h-4" /> Previous
             </button>
             <button
               onClick={handleNext}
               disabled={activeStep === currentSteps.length - 1}
-              className={`px-6 py-3 rounded-lg transition-all flex items-center gap-2 ${
-                activeStep < currentSteps.length - 1
+              className={`px-6 py-3 rounded-lg transition-all flex items-center gap-2 ${activeStep < currentSteps.length - 1
                   ? 'bg-[#039B9B] text-white hover:shadow-lg'
                   : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-              }`}
+                }`}
             >
               Next <ChevronRight className="w-4 h-4" />
             </button>
@@ -367,43 +361,39 @@ const RealEstateServicesPage = () => {
                 </div>
               </div>
             </motion.div>
-             {/* Representation Options */}
-         <motion.section  className="my-16">
-            <div className="flex items-center justify-center mb-8">
-              <UserIcon className="w-10 h-10 text-primary-dark mr-4" />
-              <h2 className="text-3xl font-bold text-gray-800">
-                Representation Options
-              </h2>
-            </div>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-300">
-                <div className="flex items-center mb-4">
-                  <ClipboardCheckIcon className="w-8 h-8 text-primary-dark mr-3" />
-                  <h3 className="text-xl font-semibold text-gray-800">
-                    In-Person Support
-                  </h3>
-                </div>
-                <p className="text-gray-700">
-                  Comprehensive support with your physical presence during all
-                  key stages of the transaction, ensuring complete understanding
-                  and control.
-                </p>
+            {/* Representation Options */}
+            <motion.section className="my-16">
+              <div className="flex items-center justify-center mb-8">
+                <UserIcon className="w-10 h-10 text-primary-dark mr-4" />
+                <h2 className="text-3xl font-bold text-gray-800">
+                  Representation Options
+                </h2>
               </div>
-              <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-300">
-                <div className="flex items-center mb-4">
-                  <LanguagesIcon className="w-8 h-8 text-primary-dark mr-3" />
-                  <h3 className="text-xl font-semibold text-gray-800">
-                    Remote Representation
-                  </h3>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-300">
+                  <div className="flex items-center mb-4">
+                    <ClipboardCheckIcon className="w-8 h-8 text-primary-dark mr-3" />
+                    <h3 className="text-xl font-semibold text-gray-800">
+                      In-Person Support
+                    </h3>
+                  </div>
+                  <p className="text-gray-700">
+                    Comprehensive legal presence throughout your property journey in Portugal. I personally attend all key meetings and signings, ensuring you have expert guidance at every critical moment, from first viewing to final handover. This option provides maximum security and support, especially recommended for first-time investors in Portuguese Real Estate.
+                  </p>
                 </div>
-                <p className="text-gray-700">
-                  Full power of attorney services for clients unable to be
-                  present, managing all aspects of the transaction on your
-                  behalf.
-                </p>
+                <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-300">
+                  <div className="flex items-center mb-4">
+                    <LanguagesIcon className="w-8 h-8 text-primary-dark mr-3" />
+                    <h3 className="text-xl font-semibold text-gray-800">
+                      Remote Representation
+                    </h3>
+                  </div>
+                  <p className="text-gray-700">
+                  Full legal protection and oversight for clients unable to be physically present in Portugal. Through secure power of attorney arrangements, I handle all aspects of your transaction with the same attention to detail as if you were present. Regular video consultations and detailed documentation keep you informed and in control throughout the process, regardless of your location.
+                  </p>
                 </div>
-                </div>
-                </motion.section>
+              </div>
+            </motion.section>
           </AnimatePresence>
         </div>
 
@@ -412,8 +402,7 @@ const RealEstateServicesPage = () => {
             Start Your Property Journey
           </h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
-            We provide comprehensive support throughout your real estate transaction,
-            ensuring a seamless experience from initial consultation to final closing.
+          Whether buying or selling property in Portugal, navigating the legal complexities requires expert guidance. From initial preparation to final registration, I provide comprehensive legal support to protect your interests and ensure a smooth transaction. Let's discuss your specific situation and create a tailored strategy for your Portuguese real estate journey.
           </p>
         </motion.div>
       </div>
@@ -422,4 +411,3 @@ const RealEstateServicesPage = () => {
 };
 
 export default RealEstateServicesPage;
-            

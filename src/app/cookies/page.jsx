@@ -4,37 +4,59 @@ import Navbar from "@/components/Navbar";
 const CookiePolicy = () => {
     return (
         <>
-        <Navbar></Navbar>
-       
+        <Navbar />
+      
       <div className="bg-gray-100 text-gray-900">
-         <div className="bg-primary text-white pt-24 pb-12  text-center">
+         <div className="bg-primary text-white pt-24 pb-12 text-center">
           <h1 className="text-5xl font-bold">Cookie Policy</h1>
-    
         </div>
         <div className="max-w-4xl mx-auto py-12 px-6">
           <section className="mb-10 bg-white p-6 rounded-2xl shadow-lg">
             <h2 className="text-2xl font-semibold text-primary mb-4">1. What Are Cookies?</h2>
-            <p>Cookies are small text files stored on your device when you visit our website. They help us enhance your browsing experience.</p>
+            <p>Cookies are small text files placed on your device when you visit our website to enhance functionality and user experience.</p>
           </section>
   
           <section className="mb-10 bg-white p-6 rounded-2xl shadow-lg">
             <h2 className="text-2xl font-semibold text-primary mb-4">2. Types of Cookies We Use</h2>
-            <p>We use different types of cookies:
-              <ul className="list-disc ml-6">
-                <li>Essential Cookies: Necessary for website functionality.</li>
-                <li>Analytical Cookies: Help us understand how visitors interact with our website.</li>
-                <li>Marketing Cookies: Used to personalize ads and content.</li>
-              </ul>
-            </p>
+            <ul className="list-disc ml-6">
+              <li><strong>Essential Cookies</strong><br />
+                <em>Purpose:</em> Necessary for website functionality<br />
+                <em>Legal basis:</em> Legitimate interest<br />
+                <em>Duration:</em> Session to 13 months</li>
+              <li><strong>Analytical Cookies</strong><br />
+                <em>Purpose:</em> Track website usage and performance<br />
+                <em>Legal basis:</em> Consent<br />
+                <em>Duration:</em> Up to 13 months<br />
+                <em>Provider:</em> Google Analytics</li>
+              <li><strong>Functional Cookies</strong><br />
+                <em>Purpose:</em> Enhanced functionality and personalization<br />
+                <em>Legal basis:</em> Consent<br />
+                <em>Duration:</em> Up to 13 months</li>
+            </ul>
           </section>
   
           <section className="mb-10 bg-white p-6 rounded-2xl shadow-lg">
-            <h2 className="text-2xl font-semibold text-primary mb-4">3. Managing Cookies</h2>
-            <p>You can control or disable cookies through your browser settings. However, disabling cookies may affect the functionality of our site.</p>
+            <h2 className="text-2xl font-semibold text-primary mb-4">3. Managing Your Preferences</h2>
+            <p>You can manage your cookie preferences:</p>
+            <ul className="list-disc ml-6">
+              <li>Via our cookie banner</li>
+              <li>Via your browser settings (instructions for Chrome, Firefox, Safari, Edge)</li>
+            </ul>
+          </section>
+  
+          <section className="mb-10 bg-white p-6 rounded-2xl shadow-lg">
+            <h2 className="text-2xl font-semibold text-primary mb-4">4. Third-Party Cookies</h2>
+            <p>Our website may include elements from third parties that may place cookies on your device. We have no control over these cookies.</p>
+          </section>
+  
+          <section className="mb-10 bg-white p-6 rounded-2xl shadow-lg">
+            <h2 className="text-2xl font-semibold text-primary mb-4">5. Contact</h2>
+            <p>For any questions regarding our use of cookies, please contact <strong>mm@mouniamikou.com</strong>.</p>
+            <p><strong>Last updated:</strong> March 25, 2025</p>
           </section>
         </div>
       </div>
-      <Footer></Footer>
+      <Footer />
       </>
     );
   };

@@ -3,13 +3,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from "next/image";
-import { 
-  CheckCircle, 
-  AlertCircle, 
-  Info, 
-  ChevronLeft, 
+import {
+  CheckCircle,
+  AlertCircle,
+  Info,
+  ChevronLeft,
   ChevronRight,
   Clock,
+  BookMarked,
   FileText,
   LucideFileCheck,
   Globe,
@@ -39,19 +40,21 @@ const InstallationPortugal = () => {
     {
       title: "VISA APPLICATION",
       description: "Initial Process",
+      descriptionDetails: "Secure your legal right to reside in Portugal with strategic visa planning and expert application support.",
       duration: "4-6 weeks",
       details: [
-        "Digital Nomad visa processing",
+        "Determination of best suitable visa",
         "Document preparation",
         "Application submission",
         "Status tracking"
       ],
-      tips: "Ensure all documents are translated to Portuguese",
-      requiredDocs: ["Valid passport", "Proof of income", "Criminal record", "Health insurance"]
+      tips: "Begin the process at least 3-4 months before your intended move date",
+      requiredDocs: ["Passport", "Proof of income", "Criminal record certificate", "Health insurance", "Proof of accommodation"]
     },
     {
       title: "RELOCATION",
       description: "Moving Process",
+      descriptionDetails: "Navigate pre-arrival preparations and essential administrative steps for a smooth transition.",
       duration: "2-3 weeks",
       details: [
         "Housing arrangement",
@@ -59,21 +62,22 @@ const InstallationPortugal = () => {
         "NIF registration",
         "Healthcare registration"
       ],
-      tips: "Start bank account process early",
-      requiredDocs: ["Proof of address", "Employment contract", "Tax documents"]
+      tips: "Consider temporary accommodation first to allow for in-person property viewing before long-term commitment",
+      requiredDocs: ["Proof of address", "Employment contract or proof of self-employment", "Tax documents", "Visa approval"]
     },
     {
       title: "SETTLEMENT",
       description: "Final Steps",
+      descriptionDetails: "Complete your integration with residency registration, healthcare enrollment, and community establishment.",
       duration: "2-4 weeks",
       details: [
         "Residency registration",
-        "Social security setup",
-        "Healthcare enrollment",
+        "Social security enrollment",
+        "Embassy Registration",
         "Community integration"
       ],
-      tips: "Register with local authorities within 3 days of arrival",
-      requiredDocs: ["Visa approval", "Rental contract", "Bank statements"]
+      tips: "Consider Portuguese language courses to facilitate integration and daily interactions.",
+      requiredDocs: ["Visa approval documentation", "Rental contract or property deed", "Bank statements from your Portuguese account", "Proof of health insurance coverage"]
     }
   ];
 
@@ -81,40 +85,40 @@ const InstallationPortugal = () => {
     {
       title: "REGISTRATION",
       description: "Initial Setup",
+      descriptionDetails: "Begin your journey with essential registrations and document preparations for EU citizens.",
       duration: "1-2 weeks",
       details: [
         "EU citizenship verification",
-        "Registration certificate",
+        "NIF Registration",
         "Address registration",
-        "Document preparation"
+        "Registration certificate"
       ],
-      tips: "EU citizens must register if staying over 3 months",
-      requiredDocs: ["EU ID/Passport", "Proof of address", "Employment details"]
+      tips: "Get your NIF before moving to Portugal",
+      requiredDocs: ["EU ID/Passport", "Proof of address", "Employment details or proof of sufficient financial means"]
     },
     {
       title: "ESTABLISHMENT",
       description: "Local Setup",
+      descriptionDetails: "Secure your local administrative foundation with banking, healthcare, and residential documentation.",
       duration: "2-3 weeks",
       details: [
-        "NIF acquisition",
         "Bank account opening",
         "Healthcare registration",
-        "Social security"
+        "Social security registration"
       ],
-      tips: "NIF is essential for most services",
-      requiredDocs: ["ID documents", "Proof of address", "Employment contract"]
+      tips: "Registration with the Portuguese system is mandatory for EU citizens staying more than 3 months in Portugal",
+      requiredDocs: ["ID documents", "Proof of address", "Employment contract or proof of financial means", "Tax registration certificate"]
     },
     {
       title: "INTEGRATION",
       description: "Final Process",
+      descriptionDetails: "Complete your transition with long-term administrative requirements and consider citizenship.",
       duration: "2-4 weeks",
       details: [
         "Permanent registration",
-        "Community integration",
-        "Local services setup",
-        "Administrative completion"
+        "Citizenship"
       ],
-      tips: "Consider Portuguese language courses",
+      tips: "Consider Portuguese language courses for better integration and professional opportunities",
       requiredDocs: ["Registration certificate", "Residence proof", "Tax documents"]
     }
   ];
@@ -154,11 +158,11 @@ const InstallationPortugal = () => {
       {/* Header Section with Background */}
       <div className="relative mb-12">
         {/* Background Image with Overlay */}
-        <div 
+        <div
           className="absolute inset-0 z-0"
           style={{
             backgroundImage: "url('/passportPP.jpeg')", // Use your image path
-          
+
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
             opacity: '0.3' // Adjust opacity as needed
@@ -178,9 +182,7 @@ const InstallationPortugal = () => {
             variants={serviceVariants}
             className="text-xl text-center text-gray-600 max-w-3xl mx-auto mb-16"
           >
-            Seamless transition support for individuals looking to make Portugal
-            their new home, with personalized guidance through administrative and
-            legal processes.
+            Expert legal guidance for a smooth transition to Portugal, with personalized support through every administrative step of your relocation journey.
           </motion.p>
 
           {/* Citizenship Type Tabs */}
@@ -188,26 +190,24 @@ const InstallationPortugal = () => {
             <motion.button
               variants={serviceVariants}
               onClick={() => setActiveTab('global')}
-              className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-8 py-2 sm:py-4 rounded-xl transition-all text-sm sm:text-lg ${
-                activeTab === 'global'
-                  ? 'bg-[#039B9B] text-white shadow-lg'
-                  : 'bg-white text-primary-dark hover:bg-[#039B9B]/10'
-              }`}
+              className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-8 py-2 sm:py-4 rounded-xl transition-all text-sm sm:text-lg ${activeTab === 'global'
+                ? 'bg-[#039B9B] text-white shadow-lg'
+                : 'bg-white text-primary-dark hover:bg-[#039B9B]/10'
+                }`}
             >
               <Globe className="w-4 h-4 sm:w-6 sm:h-6" />
-              <span className="font-semibold">Global Citizens</span>
+              <span className="font-semibold">Non-EU Citizens - Complete Visa Process</span>
             </motion.button>
             <motion.button
               variants={serviceVariants}
               onClick={() => setActiveTab('eu')}
-              className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-8 py-2 sm:py-4 rounded-xl transition-all text-sm sm:text-lg ${
-                activeTab === 'eu'
-                  ? 'bg-[#039B9B] text-white shadow-lg'
-                  : 'bg-white text-primary-dark hover:bg-[#039B9B]/10'
-              }`}
+              className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-8 py-2 sm:py-4 rounded-xl transition-all text-sm sm:text-lg ${activeTab === 'eu'
+                ? 'bg-[#039B9B] text-white shadow-lg'
+                : 'bg-white text-primary-dark hover:bg-[#039B9B]/10'
+                }`}
             >
               <Image src={EUImag} alt="eu citizen" width={20} height={20} className="w-4 h-4 sm:w-6 sm:h-6" />
-              <span className="font-semibold">EU Citizens</span>
+              <span className="font-semibold">EU Citizens - Streamlined Process</span>
             </motion.button>
           </div>
         </div>
@@ -227,14 +227,13 @@ const InstallationPortugal = () => {
 
           <div className="relative mb-12">
             <div className="absolute top-8 left-0 w-full h-1 bg-[#039B9B]/10" />
-            
+
             <div className="relative flex justify-between">
               {currentSteps.map((step, index) => (
                 <motion.div
                   key={index}
-                  className={`relative flex flex-col items-center w-48 group ${
-                    index === activeStep ? 'scale-105' : ''
-                  }`}
+                  className={`relative flex flex-col items-center w-48 group ${index === activeStep ? 'scale-105' : ''
+                    }`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
@@ -250,44 +249,42 @@ const InstallationPortugal = () => {
                     <span className="font-medium">{index + 1}</span>
                   </button>
 
-                  <div className={`text-center mt-4 transition-colors duration-300 ${
-                    index === activeStep ? 'text-primary-dark' : 'text-gray-600'
-                  }`}>
+                  <div className={`text-center mt-4 transition-colors duration-300 ${index === activeStep ? 'text-primary-dark' : 'text-gray-600'
+                    }`}>
                     <h3 className="font-bold text-xs mb-1">{step.title}</h3>
                     <p className="text-xs mb-1 opacity-80">{step.description}</p>
-                    
+
                   </div>
                 </motion.div>
               ))}
             </div>
           </div>
-      
+
           <div className="flex justify-between mb-8">
             <button
               onClick={handlePrevious}
               disabled={activeStep === 0}
-              className={`px-6 py-3 rounded-lg transition-all flex items-center gap-2 ${
-                activeStep > 0
-                  ? 'bg-[#039B9B] text-white hover:shadow-lg'
-                  : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-              }`}
+              className={`px-6 py-3 rounded-lg transition-all flex items-center gap-2 ${activeStep > 0
+                ? 'bg-[#039B9B] text-white hover:shadow-lg'
+                : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                }`}
             >
               <ChevronLeft className="w-4 h-4" /> Previous
             </button>
             <button
               onClick={handleNext}
               disabled={activeStep === currentSteps.length - 1}
-              className={`px-6 py-3 rounded-lg transition-all flex items-center gap-2 ${
-                activeStep < currentSteps.length - 1
-                  ? 'bg-[#039B9B] text-white hover:shadow-lg'
-                  : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-              }`}
+              className={`px-6 py-3 rounded-lg transition-all flex items-center gap-2 ${activeStep < currentSteps.length - 1
+                ? 'bg-[#039B9B] text-white hover:shadow-lg'
+                : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                }`}
             >
               Next <ChevronRight className="w-4 h-4" />
             </button>
           </div>
 
           <AnimatePresence mode="wait">
+
             <motion.div
               key={activeStep}
               initial={{ opacity: 0, y: 20 }}
@@ -297,9 +294,15 @@ const InstallationPortugal = () => {
             >
               <div>
                 <div className="flex items-center gap-2 mb-6">
+                  <BookMarked className="w-6 h-6 text-primary-dark" />
+                  <h4 className="font-semibold text-primary-dark text-lg">Description</h4>
+                </div>
+                <p className="bg-[#039B9B]/10 rounded-lg p-6">{currentStep.descriptionDetails}</p>
+                <div className="flex items-center gap-2 my-6">
                   <LucideFileCheck className="w-6 h-6 text-primary-dark" />
                   <h4 className="font-semibold text-primary-dark text-lg">Key Tasks</h4>
                 </div>
+
                 <ul className="space-y-4">
                   {currentStep.details.map((detail, i) => (
                     <li key={i} className="flex items-start gap-3 bg-[#039B9B]/5 p-3 rounded-lg">
@@ -309,6 +312,7 @@ const InstallationPortugal = () => {
                   ))}
                 </ul>
               </div>
+
 
               <div className="space-y-8">
                 {showTips && (
@@ -347,9 +351,7 @@ const InstallationPortugal = () => {
             Start Your Portugal Journey
           </h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
-            We provide end-to-end support, from initial consultation to complete
-            administrative setup, ensuring a smooth and stress-free transition
-            to your new life in Portugal.
+          Whether you're an EU citizen with streamlined processes or a global citizen navigating visa requirements, my legal expertise ensures a compliant and efficient transition to your new life in Portugal. Let's discuss your unique situation and create a personalized roadmap for your move.
           </p>
         </motion.div>
       </div>

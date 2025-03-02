@@ -25,7 +25,7 @@ export const translations = {
       paragraphs: [
         'De Casablanca à Lisbonne, en passant par Paris et Brisance (Australie), mon parcours d\'avocate reflète ma passion pour l\'international.',
         'J\'ai débuté ma carrière dans des cabinets d\'avocats prestigieux à Paris (Clifford Chance, Allen & Overy, Hogan Lovells), où j\'ai développé une expertise en structuration d\'opérations, notamment immobilières, en prenant en compte les aspects juridiques, fiscaux et pratiques.',
-        'Séduite par la qualité de vie et la sécurité qu\'offre le Portugal, je me suis installée à Lisbonne en 2023.',
+        'Séduite par la qualité de vie et la sécurité qu\'offre le Portugal, je me suis installée à Lisbonne en 2021.',
         'Je mets aujourd\'hui mon expertise au service des particuliers et entrepreneurs souhaitant s\'établir au Portugal, en leur offrant un accompagnement juridique personnalisé et complet grâce à un réseau de partenaires de confiance.',
       ],
       
@@ -65,7 +65,7 @@ export const translations = {
         description: 'Accompagnement juridique complet pour votre installation au Portugal. Expertise en matière de visas (D7/D2), démarches administratives et optimisation fiscale.',
         items: [
           'Obtention du NIF',
-          'Résident Européenne',
+          'Résidence Européenne',
           'Visa et nationalité',
           'Optimisation fiscale',
         ],
@@ -73,7 +73,7 @@ export const translations = {
       },
       realEstate: {
         title: 'Investissement Immobilier',
-        description: 'Sécurisez votre investissement immobilier avec un accompagnement juridique complet. Accès à un réseau de professionnels de confiance.',
+        description: 'Sécurisez votre investissement immobilier grâce à un accompagnement juridique complet et l’accès à un réseau de professionnels de confiance.',
         items: [
           'Achat / Vente',
           'Due diligence juridique',
@@ -138,8 +138,8 @@ export const translations = {
       contact: 'Contact',
     },
     hero: {
-      title: 'Legal Advisory in Portugal',
-      subtitle: 'Expert legal guidance for international relocation, business creation, and property investment in Portugal',
+      title: 'Legal Expertise for Your Portuguese Journey ',
+      subtitle: 'Specialized guidance for relocation, real estate investment, and business creation in Portugal',
       cta: 'Schedule a Discovery Call',
       cta2: '15-min free introduction call',
       imageAlt: {
@@ -152,7 +152,7 @@ export const translations = {
       paragraphs: [
         'From Casablanca to Lisbon, passing through Paris and Brisbane (Australia), my journey as a lawyer reflects my passion for international affairs.',
         'I began my career in prestigious law firms in Paris (Clifford Chance, Allen & Overy, Hogan Lovells), where I developed expertise in structuring transactions, particularly in real estate, considering legal, tax, and practical aspects.',
-        'Attracted by the quality of life and security that Portugal offers, I settled in Lisbon in 2023.',
+        'Attracted by the quality of life and security that Portugal offers, I settled in Lisbon in 2021.',
         'Today, I put my expertise at the service of individuals and entrepreneurs wishing to establish themselves in Portugal, offering them personalized and comprehensive legal support through a network of trusted partners.',
       ],
       
@@ -200,7 +200,7 @@ export const translations = {
       },
       realEstate: {
         title: 'Real Estate Investment',
-        description: 'Secure your property investment with end-to-end legal support. Access to a trusted network of real estate professionals',
+        description: 'Secure your property investment with end-to-end legal support. Access to a trusted network of Real Estate professionals',
         items: [
           'Purchase / Sale',
           'Legal due diligence',
@@ -211,7 +211,7 @@ export const translations = {
       },
       business: {
         title: 'Entrepreneurship',
-        description: 'Launch your business in Portugal with confidence. Complete legal guidance from structure selection to company registration.',
+        description: 'Launch your business in Portugal with confidence. Complete legal guidance from company set-up to on-going legal support.',
         items: [
           'Legal structure selection',
           'Company creation',

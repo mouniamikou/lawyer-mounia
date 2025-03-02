@@ -1,8 +1,9 @@
 import { client } from "@/sanity/lib/client";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
-import { urlForImage } from "@/sanity/lib/image"; // Make sure you have this utility
+import { urlForImage } from "../../../sanity/lib/image"; // Ensure this utility is properly set up
 
+// Fetch data for the blog post
 async function getData(slug) {
   const query = `
     *[_type == "blogPost" && slug.current == $slug][0] {
@@ -31,23 +32,26 @@ async function getData(slug) {
   return data;
 }
 
+// PortableText Components for Custom Rendering
 const components = {
   types: {
     image: ({ value }) => {
-      if (!value?.asset?._id) {
-        return null;
-      }
+      if (!value?.asset?._id) return null;
+
+      const imageUrl = urlForImage(value).width(800).url(); // Generate optimized image URL
+
       return (
         <div className="relative w-full my-8">
           <figure>
             <div className="relative h-[400px] w-full">
               <Image
-                src={value.asset.url}
-                alt={value.alt || ' '}
-                fill
+                src={imageUrl}
+                alt={value.alt || "Sanity Image"}
+                layout="fill"
                 className="object-contain"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                quality={100}
+                
+                quality={90}
+          
               />
             </div>
             {value.caption && (
@@ -61,47 +65,46 @@ const components = {
     },
   },
   block: {
-    h1: ({children}) => <h1 className="text-4xl font-bold my-6">{children}</h1>,
-    h2: ({children}) => <h2 className="text-3xl font-bold my-5">{children}</h2>,
-    h3: ({children}) => <h3 className="text-2xl font-bold my-4">{children}</h3>,
-    h4: ({children}) => <h4 className="text-xl font-bold my-4">{children}</h4>,
-    normal: ({children}) => <p className="text-lg my-4 leading-relaxed">{children}</p>,
-    blockquote: ({children}) => (
+    h1: ({ children }) => <h1 className="text-4xl font-bold my-6">{children}</h1>,
+    h2: ({ children }) => <h2 className="text-3xl font-bold my-5">{children}</h2>,
+    h3: ({ children }) => <h3 className="text-2xl font-bold my-4">{children}</h3>,
+    h4: ({ children }) => <h4 className="text-xl font-bold my-4">{children}</h4>,
+    normal: ({ children }) => <p className="text-lg my-4 leading-relaxed">{children}</p>,
+    blockquote: ({ children }) => (
       <blockquote className="border-l-4 border-blue-500 pl-4 my-6 italic">
         {children}
       </blockquote>
     ),
   },
   list: {
-    bullet: ({children}) => (
+    bullet: ({ children }) => (
       <ul className="list-disc list-inside my-4 space-y-2">{children}</ul>
     ),
-    number: ({children}) => (
+    number: ({ children }) => (
       <ol className="list-decimal list-inside my-4 space-y-2">{children}</ol>
     ),
   },
   listItem: {
-    bullet: ({children}) => <li className="text-lg leading-relaxed">{children}</li>,
-    number: ({children}) => <li className="text-lg leading-relaxed">{children}</li>,
+    bullet: ({ children }) => <li className="text-lg leading-relaxed">{children}</li>,
+    number: ({ children }) => <li className="text-lg leading-relaxed">{children}</li>,
   },
   marks: {
-    link: ({children, value}) => {
-      return (
-        <a 
-          href={value.href} 
-          className="text-blue-600 hover:underline"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {children}
-        </a>
-      );
-    },
-    strong: ({children}) => <strong className="font-semibold">{children}</strong>,
-    em: ({children}) => <em className="italic">{children}</em>,
+    link: ({ children, value }) => (
+      <a 
+        href={value.href} 
+        className="text-blue-600 hover:underline"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {children}
+      </a>
+    ),
+    strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
+    em: ({ children }) => <em className="italic">{children}</em>,
   },
 };
 
+// Generate SEO Metadata
 export async function generateMetadata({ params }) {
   const post = await getData(params.slug);
   if (!post?.seo) return { title: post?.title };
@@ -117,6 +120,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
+// BlogPost Component
 export default async function BlogPost({ params }) {
   const post = await getData(params.slug);
   
@@ -130,9 +134,9 @@ export default async function BlogPost({ params }) {
 
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+      year: "numeric",
+      month: "long",
+      day: "numeric"
     });
   };
 
@@ -154,9 +158,7 @@ export default async function BlogPost({ params }) {
             src={post.mainImage.asset.url}
             alt={post.title}
             fill
-            priority
             className="object-cover rounded-lg"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             quality={100}
           />
         </div>

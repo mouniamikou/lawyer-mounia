@@ -7,13 +7,13 @@ export default {
         name: 'metaTitle',
         title: 'Meta Title',
         type: 'string',
-        validation: Rule => Rule.max(60).required(),
+      
       },
       {
         name: 'metaDescription',
         title: 'Meta Description',
         type: 'text',
-        validation: Rule => Rule.max(160).required(),
+       
       },
       {
         name: 'keywords',

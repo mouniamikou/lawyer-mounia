@@ -51,7 +51,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <Link
-                href="/contact"
+                href="https://calendly.com/mouniamikou/discovery-call"
                 className="bg-primary text-white px-2 lg:px-8 py-3 rounded-lg font-medium hover:bg-primary-dark transition-colors"
               >
                 {t.cta}

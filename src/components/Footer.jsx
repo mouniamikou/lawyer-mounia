@@ -1,10 +1,25 @@
 "use client";
 import { MapPin, Mail, Linkedin, Instagram } from "lucide-react";
 import Link from 'next/link';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations';
+import LanguageSelector from './LanguageSelector';
 
 export default function Footer() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
+
+  const navItems = [
+    { label: t.nav.about, href: '/about' },
+    { label: t.nav.installP, href: '/installationportugal' },
+    { label: t.nav.realestate, href: '/Realestate' },
+    { label: t.nav.business, href: '/business' },
+    { label: t.nav.blogs, href: '/blogs' },
+ 
+  ];
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gray-900  text-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-12">
         
         {/* Left Section - Address & Contact */}
@@ -37,14 +52,19 @@ export default function Footer() {
         </div>
         
         {/* Center Section - Navigation */}
-        <div>
-          <h3 className="text-xl font-semibold mb-4">Navigation</h3>
-          <ul className="space-y-2">
-            <li><Link href="/about" className="hover:text-primary transition-colors">About</Link></li>
-            <li><Link href="/services" className="hover:text-primary transition-colors">Services</Link></li>
-            <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
-          </ul>
-        </div>
+       <div>
+  <h3 className="text-xl font-semibold mb-4">Navigation</h3>
+  <ul className="space-y-2">
+    {navItems.map((item, index) => (
+      <li key={index}>
+        <Link href={item.href} className="hover:text-primary transition-colors">
+          {item.label}
+        </Link>
+      </li>
+    ))}
+  </ul>
+</div>
+
         
         {/* Right Section - Legal Consultation Box */}
         <div className=" p-6 rounded-lg text-center">
@@ -71,8 +91,7 @@ export default function Footer() {
       </div>
 
       {/* Legal Links */}
-      <div className="mt-12 text-center text-sm text-gray-400 border-t border-gray-800 pt-6">
-       
+      <div className="text-center pb-6 text-sm text-gray-400 border-t border-gray-800 pt-6">   
         <p className="mt-2">© {new Date().getFullYear()} Cabinet Juridique. All rights reserved.</p>
       </div>
     </footer>

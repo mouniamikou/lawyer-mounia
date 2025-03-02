@@ -1,10 +1,21 @@
-import createImageUrlBuilder from '@sanity/image-url'
+import { createClient } from "next-sanity";
+import imageUrlBuilder from "@sanity/image-url";
 
-import { dataset, projectId } from '../env'
+// Create the Sanity client
+const client = createClient({
+  projectId: 'bfaunxy0',  
+  dataset: 'production',
+  useCdn: true,
+  apiVersion: "2023-01-01",
+});
 
-// https://www.sanity.io/docs/image-url
-const builder = createImageUrlBuilder({ projectId, dataset })
+// Create the image URL builder
+const builder = imageUrlBuilder(client);
 
-export const urlFor = (source) => {
-  return builder.image(source)
+// Function to generate image URLs
+export function urlForImage(source) {
+  return builder.image(source);
 }
+
+// Export client in case you need it elsewhere
+export { client };

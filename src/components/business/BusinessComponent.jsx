@@ -7,6 +7,7 @@ import {
   FileText,
   CheckCircle,
   AlertTriangle,
+  AlertCircle,
   Info,
   ChevronLeft,
   ChevronRight,
@@ -23,97 +24,77 @@ const BusinessFormationService = () => {
   const [currentStep, setCurrentStep] = useState(null);
 
   const steps = [
-    {
-      title: "COLLECTION",
-      description: "Information & Documents",
-      icon: <Download className="w-6 h-6 text-[#039B9B]" />,
-      details: [
-        "Gathering required information",
-        "Identity document verification",
-        "Share capital confirmation",
-        "Business sector validation"
-      ],
-      tips: "Ensure all documents are translated and certified if required",
-      requiredDocs: [
-        "Identity document",
-        "Proof of address",
-        "Tax number (NIF)",
-        "Proof of capital"
-      ]
-    },
-    {
-      title: "FORMATION",
-      description: "Company Setup",
-      icon: <Building className="w-6 h-6 text-[#039B9B]" />,
-      details: [
-        "Articles of association drafting",
-        "Constitutional documents preparation",
-        "Legal structure setup",
-        "Share capital arrangement"
-      ],
-      tips: "Standard processing time is 3 business days for our services",
-      requiredDocs: [
-        "Shareholders' agreement (if needed)",
-        "Capital structure",
-        "Power of attorney",
-        "Constitutional documents"
-      ]
-    },
-    {
-      title: "REGISTRATION",
-      description: "Official Filing",
-      icon: <FileCheck className="w-6 h-6 text-[#039B9B]" />,
-      details: [
-        "Commercial registry filing",
-        "Tax number obtainment",
-        "Social security registration",
-        "Specific licenses"
-      ],
-      tips: "Processing time varies from 12 hours to 1 month depending on the registry",
-      requiredDocs: [
-        "Registration forms",
-        "Constitutional documents",
-        "Address verification",
-        "Registration fees (220€)"
-      ]
-    },
-    {
-      title: "BENEFICIARIES",
-      description: "UBO Declaration",
-      icon: <Users className="w-6 h-6 text-[#039B9B]" />,
-      details: [
-        "Beneficial owners identification",
-        "Official declaration",
-        "Information verification",
-        "Legal compliance"
-      ],
-      tips: "This step is crucial for regulatory compliance",
-      requiredDocs: [
-        "Beneficiaries' identification",
-        "Ownership structure",
-        "Required certifications",
-        "UBO forms"
-      ]
-    },
-    {
-      title: "COMPLETION",
-      description: "Company Documentation",
-      icon: <Scale className="w-6 h-6 text-[#039B9B]" />,
-      details: [
-        "Corporate documents delivery",
-        "Management instructions",
-        "Compliance guidelines",
-        "Banking assistance"
-      ],
-      tips: "Keep all provided documents in a safe place",
-      requiredDocs: [
-        "Corporate documents",
-        "Legal registers",
-        "Official certificates",
-        "User guidelines"
-      ]
-    }
-  ];
+      {
+        title: "COLLECTION",
+        description: "Gathering Documents",
+        icon: <Download className="w-6 h-6 text-[#039B9B]" />, 
+        duration: "1-2 weeks",
+        details: [
+          "Gathering required information",
+          "Identity document verification",
+          "Confirmation of the business key elements",
+          "Strategic analysis"
+        ],
+        tips: "Consider future business expansion when selecting your business activities scope.",
+        requiredDocs: ["Identity document", "Proof of address", "NIF"]
+      },
+      {
+        title: "FORMATION",
+        description: "Company Names",
+        icon: <Building className="w-6 h-6 text-[#039B9B]" />, 
+        duration: "1-2 weeks",
+        details: [
+          "Name reservation",
+          "Share structure design",
+          "Capital deposit options",
+          "Articles of association"
+        ],
+        tips: "Choose multiple alternative company names as your first choice may not be available.",
+        requiredDocs: ["Name reservation application", "Draft articles of association", "Shareholder information"]
+      },
+      {
+        title: "REGISTRATION",
+        description: "Official Filing",
+        icon: <FileCheck className="w-6 h-6 text-[#039B9B]" />, 
+        duration: "1-3 business days",
+        details: [
+          "Documentation submission",
+          "Registration monitoring",
+          "Corporate governance setup",
+          "Initial compliance setup"
+        ],
+        tips: "Registration can be completed within 1-3 business days if all documentation is properly prepared.",
+        requiredDocs: ["Proof of name reservation", "Signed articles of association", "Powers of attorney (if applicable)"]
+      },
+      {
+        title: "BENEFICIARIES",
+        description: "UBO Registration",
+        icon: <Users className="w-6 h-6 text-[#039B9B]" />, 
+        duration: "1-2 weeks",
+        details: [
+          "Ultimate Beneficial Owner identification",
+          "UBO declaration preparation",
+          "Compliance verification",
+          "Registry submission"
+        ],
+        tips: "UBO registration is mandatory.",
+        requiredDocs: ["Beneficial owners' identification documents", "Proof of ownership/control structure", "Chain of ownership documentation", "Beneficial owner declarations"]
+      },
+      {
+        title: "COMPLETION",
+        description: "Company Documentation",
+        icon: <Scale className="w-6 h-6 text-[#039B9B]" />, 
+        duration: "1-2 weeks",
+        details: [
+          "Documentation delivery",
+          "Post-formation filings",
+          "Creation of the minutes book",
+          "On-going legal assistance"
+        ],
+        tips: "Register for specific industry permits or licenses if required for your business activity.",
+        requiredDocs: ["Company registration certificate", "Tax registration documentation", "Social security registration", "Company seal and deed book"]
+      }
+    ];
 
   useEffect(() => {
     setCurrentStep(steps[activeStep]);
@@ -271,9 +252,9 @@ const BusinessFormationService = () => {
                 {showTips && (
                   <div className="bg-[#039B9B]/10 rounded-lg p-4 sm:p-6">
                     <div className="flex items-start gap-3">
-                      <AlertTriangle className="w-5 h-5 sm:w-6 sm:h-6 text-primary-dark mt-1" />
+                    <AlertCircle className="w-6 h-6 text-primary-dark mt-1" />
                       <div>
-                        <h4 className="font-semibold text-primary-dark mb-2 text-sm sm:text-base">Important Note</h4>
+                        <h4 className="font-semibold text-primary-dark mb-2 text-sm sm:text-base">Helpful Tip</h4>
                         <p className="text-gray-600 text-sm sm:text-base">{currentStep.tips}</p>
                       </div>
                     </div>
@@ -308,7 +289,7 @@ const BusinessFormationService = () => {
             Start Your Business Journey Today
           </h2>
           <p className="text-gray-600 text-sm sm:text-base max-w-3xl mx-auto">
-            We provide comprehensive support and guidance throughout your company formation process in Portugal.
+          From concept to operation, establishing a business in Portugal requires navigating complex legal requirements. My comprehensive legal guidance ensures your company formation proceeds efficiently while building a solid legal foundation for your business success. Let's discuss your entrepreneurial vision and create a tailored formation strategy that aligns with your goals.
           </p>
         </motion.div>
       </div>

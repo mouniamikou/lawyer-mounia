@@ -50,10 +50,9 @@ export default {
       },
       {
         name: 'excerpt',
-        title: 'Excerpt',
+        title: 'Description',
         type: 'text',
         description: 'A brief summary of the blog post (for SEO and previews).',
-        validation: Rule => Rule.max(250),
       },
       {
         name: 'body',

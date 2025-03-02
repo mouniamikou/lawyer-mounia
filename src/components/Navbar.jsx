@@ -21,19 +21,15 @@ export default function Navbar() {
     { label: t.nav.blogs, href: '/blogs' },
  
   ];
-
+  
   return (
     <div className="fixed w-full bg-white/90 backdrop-blur-sm  z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-      
+        <div className="flex items-center justify-between h-16">   
             <Link   href="/"
-            className="text-xl font-bold w-16 h-16">
-            
+            className="text-xl font-bold w-16 h-16">         
             <Image src="/Logo blanc_page-0001.jpg" alt="logo lawyer" width={100} height={20}/>
             </Link>
-       
-
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
