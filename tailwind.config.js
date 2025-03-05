@@ -11,6 +11,7 @@ module.exports = {
      
         "primary": '#039B9B',
         'primary-dark': '#028787',
+        "primary-light":"#6FCFCF",
       },
       height:{
         '600':"510px"

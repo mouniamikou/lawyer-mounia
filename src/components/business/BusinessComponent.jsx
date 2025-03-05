@@ -126,11 +126,11 @@ const BusinessFormationService = () => {
         <div 
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: "url('/DSCF1361.jpg')", // Use your image path
-          
+            backgroundImage: "url('/krakenimages-376KN_ISplE-unsplash.jpg')",
+            backgroundSize: '60%',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
-            opacity: '0.3' // Adjust opacity as needed
+            opacity: '0.3'
           }}
         />
 

@@ -35,14 +35,14 @@ export default function Services() {
       title: t.services.business.title,
       description: t.services.business.description,
       items: t.services.business.items,
-      image: "/DSCF1361.jpg",
+      image: "/krakenimages-376KN_ISplE-unsplash.jpg",
       buttonText: t.services.business.cta,
       link: "/business"
     }
   ];
 
   return (
-    <section id="services" className="py-24 bg-gray-50">
+    <section id="services" className="py-24 bg-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -51,7 +51,7 @@ export default function Services() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold text-primary">{t.services.title}</h2>
+          <h2 className="text-5xl font-bold text-white">{t.services.title}</h2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

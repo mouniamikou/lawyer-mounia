@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-
+import { Home, Building, Briefcase, FileText } from "lucide-react";
 import PersonalInfoForm from './PersonalInfo';
 import InstallationForm from './ContactForm';
 import RealEstateForm from './RealEtateform';
@@ -101,10 +101,10 @@ const MainContactForm = () => {
               <>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {[
-                    { value: 'installation', label: 'Installation in Portugal', icon: '🏠' },
-                    { value: 'realEstate', label: 'Real Estate', icon: '🏢' },
-                    { value: 'business', label: 'Business', icon: '💼' },
-                    { value: 'other', label: 'Other Services', icon: '📝' }
+                    { value: "installation", label: "Installation in Portugal", icon: <Home size={20} /> },
+                    { value: "realEstate", label: "Real Estate", icon: <Building size={20} /> },
+                    { value: "business", label: "Business", icon: <Briefcase size={20} /> },
+                    { value: "other", label: "Other Services", icon: <FileText size={20} /> },
                   ].map((service) => (
                     <div
                       key={service.value}
@@ -116,7 +116,7 @@ const MainContactForm = () => {
                         setStep(2);
                       }}
                     >
-                      <div className="text-4xl mb-4">{service.icon}</div>
+                      <div className="text-4xl text-primary mb-4">{service.icon}</div>
                       <h3 className="text-xl font-semibold text-gray-800">{service.label}</h3>
                       <p className="mt-2 text-gray-600">Click to select this service type</p>
                     </div>

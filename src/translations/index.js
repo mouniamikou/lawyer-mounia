@@ -4,6 +4,7 @@ export const translations = {
     nav: {
       home: 'Accueil',
       about: 'À Propos',
+      services:"Services",
       installP: "S'installer au Portugal",
       realestate: 'Investissement Immobilier',
       business: 'Création d\'Entreprise',
@@ -131,6 +132,7 @@ export const translations = {
     nav: {
       home: 'Home',
       about: 'About',
+      services:"Services",
       installP: 'Settling in Portugal',
       realestate: 'Real Estate Investment',
       business: 'Business Creation',
@@ -159,7 +161,7 @@ export const translations = {
       languages: 'Languages spoken',
     },
     values: {
-      title: 'Our Values',
+      title: 'Values',
       trust: {
         title: 'Trust',
         points: [
