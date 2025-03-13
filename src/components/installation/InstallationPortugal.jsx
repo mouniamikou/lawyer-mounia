@@ -63,7 +63,7 @@ const InstallationPortugal = () => {
         "Healthcare registration"
       ],
       tips: "Consider temporary accommodation first to allow for in-person property viewing before long-term commitment",
-      requiredDocs: ["Proof of address", "Employment contract or proof of self-employment", "Tax documents", "Visa approval"]
+      requiredDocs: ["Proof of address", "Proof of Financial capacity", "Tax documents", "Visa approval"]
     },
     {
       title: "SETTLEMENT",
@@ -162,8 +162,8 @@ const InstallationPortugal = () => {
           className="absolute inset-0 z-0"
           style={{
             backgroundImage: "url('/passportPP.jpeg')", // Use your image path
-
             backgroundPosition: 'center',
+            backgroundSize: '60%',
             backgroundRepeat: 'no-repeat',
             opacity: '0.3' // Adjust opacity as needed
           }}
@@ -186,28 +186,28 @@ const InstallationPortugal = () => {
           </motion.p>
 
           {/* Citizenship Type Tabs */}
-          <div className="flex justify-center gap-6">
+          <div className="flex justify-center gap-6 mb-12">
             <motion.button
               variants={serviceVariants}
               onClick={() => setActiveTab('global')}
-              className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-8 py-2 sm:py-4 rounded-xl transition-all text-sm sm:text-lg ${activeTab === 'global'
+              className={`flex items-center gap-1.5 px-3 py-2.5 rounded-xl transition-all ${activeTab === 'purchase'
                 ? 'bg-[#039B9B] text-white shadow-lg'
-                : 'bg-white text-primary-dark hover:bg-[#039B9B]/10'
-                }`}
-            >
-              <Globe className="w-4 h-4 sm:w-6 sm:h-6" />
-              <span className="font-semibold">Non-EU Citizens - Complete Visa Process</span>
+                : 'bg-white text-primary-dark hover:text-white hover:bg-primary-dark'
+              }`}
+          >
+              <Globe className=" w-5 h-5" />
+              <span className="text-base font-semibold">Non-EU Citizens</span>
             </motion.button>
             <motion.button
               variants={serviceVariants}
               onClick={() => setActiveTab('eu')}
-              className={`flex items-center gap-2 sm:gap-3 px-4 sm:px-8 py-2 sm:py-4 rounded-xl transition-all text-sm sm:text-lg ${activeTab === 'eu'
+              className={`flex items-center gap-1.5 px-3 py-2.5 rounded-xl transition-all ${activeTab === 'sale'
                 ? 'bg-[#039B9B] text-white shadow-lg'
-                : 'bg-white text-primary-dark hover:bg-[#039B9B]/10'
-                }`}
-            >
+                : 'bg-white text-primary-dark hover:text-white hover:bg-primary-dark'
+              }`}
+          >
               <Image src={EUImag} alt="eu citizen" width={20} height={20} className="w-4 h-4 sm:w-6 sm:h-6" />
-              <span className="font-semibold">EU Citizens - Streamlined Process</span>
+              <span className="text-base  font-semibold">EU Citizens</span>
             </motion.button>
           </div>
         </div>

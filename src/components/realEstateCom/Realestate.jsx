@@ -73,7 +73,7 @@ const RealEstateServicesPage = () => {
         "Verification of preemptive rights",
         "Obtention of tax forms"
       ],
-      tips: "For apartments, review condominium regulations and confirm no outstanding fees.",
+      tips: "For apartments, review condominium regulations and confirm absence outstanding fees.",
       requiredDocs: ["Land registry certificate (less than 6 months old)", "Property tax certificate", "Condominium certificate (if applicable)", "Habitation license"]
     },
     {
@@ -186,10 +186,10 @@ const saleSteps = [
           className="absolute inset-0 z-0"
           style={{
             backgroundImage: "url('/core-architects_portuguese-architecture99-1160x613.jpg')", // Replace with your image path
-
             backgroundPosition: 'center',
+            backgroundSize: '60%',
             backgroundRepeat: 'no-repeat',
-            opacity: '0.4' // Adjust opacity as needed
+            opacity: '0.3' // Adjust opacity as needed
           }}
         />
 
@@ -204,7 +204,7 @@ const saleSteps = [
 
           <motion.p
             variants={serviceVariants}
-            className="text-xl text-center text-gray-800 max-w-3xl mx-auto mb-16"
+            className="text-xl text-center text-gray-600 max-w-3xl mx-auto mb-16"
           >
           Expert legal guidance through every stage of your property transaction in Portugal - ensuring security, compliance, and peace of mind.
           </motion.p>
@@ -216,7 +216,7 @@ const saleSteps = [
               onClick={() => setActiveTab('purchase')}
               className={`flex items-center gap-1.5 px-3 py-2.5 rounded-xl transition-all ${activeTab === 'purchase'
                   ? 'bg-[#039B9B] text-white shadow-lg'
-                  : 'bg-white text-primary-dark hover:bg-[#039B9B]/10'
+                  : 'bg-white text-primary-dark hover:text-white hover:bg-primary-dark'
                 }`}
             >
               <Home className="w-5 h-5" />
@@ -227,7 +227,7 @@ const saleSteps = [
               onClick={() => setActiveTab('sale')}
               className={`flex items-center gap-1.5 px-3 py-2.5 rounded-xl transition-all ${activeTab === 'sale'
                   ? 'bg-[#039B9B] text-white shadow-lg'
-                  : 'bg-white text-primary-dark hover:bg-[#039B9B]/10'
+                  : 'bg-white text-primary-dark hover:text-white hover:bg-primary-dark'
                 }`}
             >
               <Building2 className="w-6 h-6" />
@@ -254,7 +254,7 @@ const saleSteps = [
 
             {/* Added overflow container */}
             <div className="overflow-x-auto pb-4 hide-scrollbar">
-              <div className="flex min-w-max gap-4">
+              <div className="flex justify-between">
                 {currentSteps.map((step, index) => (
                   <motion.div
                     key={index}
@@ -266,13 +266,13 @@ const saleSteps = [
                   >
                     <button
                       onClick={() => handleStepClick(index)}
-                      className={`w-8 h-8 rounded-full flex items-center justify-center
+                      className={`w-8 h-8 mt-1 rounded-full flex items-center justify-center
                         ${index <= activeStep ? 'text-primary-dark' : 'text-gray-400'} 
                         ${index === activeStep ? 'ring-4 ring-[#039B9B]/20' : ''}
                         bg-white border-2 border-current
                         transition-all duration-300 cursor-pointer group-hover:shadow-lg`}
                     >
-                      <span className="font-medium">{index + 1}</span>
+                     <span className="font-medium">{index + 1}</span>
                     </button>
 
                     <div className={`text-center mt-4 transition-colors duration-300 ${index === activeStep ? 'text-primary-dark' : 'text-gray-600'

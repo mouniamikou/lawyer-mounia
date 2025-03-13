@@ -23,6 +23,19 @@ const BusinessFormationService = () => {
   const [showTips, setShowTips] = useState(true);
   const [currentStep, setCurrentStep] = useState(null);
 
+
+  const serviceVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
   const steps = [
       {
         title: "COLLECTION",
@@ -126,7 +139,7 @@ const BusinessFormationService = () => {
         <div 
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: "url('/krakenimages-376KN_ISplE-unsplash.jpg')",
+            backgroundImage: "url('/GettyImages-1084171152-8445a490b5894f0a9bb588dbfc2ac22d.jpg')",
             backgroundSize: '60%',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
@@ -135,16 +148,22 @@ const BusinessFormationService = () => {
         />
 
         {/* Header Content */}
-        <div className="relative z-10 py-12">
-          <div className="text-center mb-12">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary-dark mb-4">
-              Business Formation Package
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              Complete legal assistance for company formation in Portugal
-            </p>
+        <div className="relative z-10  py-12">
+      
+          <motion.h1
+            variants={serviceVariants}
+            className="text-4xl md:text-5xl font-bold text-center text-primary-dark mb-8"
+          >
+            Business Formation Package
+          </motion.h1>
+          <motion.p
+            variants={serviceVariants}
+            className="text-xl text-center text-gray-600 max-w-3xl mx-auto mb-16"
+          >
+            Complete legal assistance for company formation in Portugal
+          </motion.p>
           </div>
-        </div>
+          
       </div>
 
       <div className="max-w-6xl mx-auto">
@@ -176,7 +195,7 @@ const BusinessFormationService = () => {
                 >
                   <button
                     onClick={() => handleStepClick(index)}
-                    className={`w-8 h-8 rounded-full flex items-center justify-center
+                    className={`w-8 h-8 mt-1 rounded-full flex items-center justify-center
                       ${index <= activeStep ? 'text-primary-dark' : 'text-gray-400'} 
                       ${index === activeStep ? 'ring-4 ring-[#039B9B]/20' : ''}
                       bg-white border-2 border-current

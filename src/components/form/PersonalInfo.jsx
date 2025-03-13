@@ -89,7 +89,7 @@ const PersonalInfoForm = ({ formData, onFormDataChange }) => {
 
       {/* Project Status */}
       <motion.section variants={fadeIn} className="space-y-4">
-        <h2 className="text-xl font-semibold text-gray-800">Where are you in your project?</h2>
+        <h2 className="text-xl font-semibold text-gray-800">Where are you at with your project?</h2>
         <div className="space-y-2">
           {[
             'Currently considering',

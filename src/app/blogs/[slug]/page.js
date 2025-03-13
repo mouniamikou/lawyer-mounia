@@ -1,7 +1,11 @@
+"use client"
+
 import { client } from "@/sanity/lib/client";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import { urlForImage } from "../../../sanity/lib/image"; // Ensure this utility is properly set up
+import { useLanguage } from "@/context/LanguageContext";
+import { useEffect, useState } from "react";
 
 // Fetch data for the blog post
 async function getData(slug) {
@@ -105,46 +109,121 @@ const components = {
 };
 
 // Generate SEO Metadata
-export async function generateMetadata({ params }) {
-  const post = await getData(params.slug);
-  if (!post?.seo) return { title: post?.title };
+// export async function generateMetadata({ params }) {
+//   const post = await getData(params.slug);
+//   if (!post?.seo) return { title: post?.title };
 
-  return {
-    title: post.seo.title || post.title,
-    description: post.seo.description || post.excerpt,
-    openGraph: {
-      title: post.seo.title || post.title,
-      description: post.seo.description || post.excerpt,
-      images: post.mainImage ? [post.mainImage.asset.url] : [],
-    },
-  };
-}
+//   return {
+//     title: post.seo.title || post.title,
+//     description: post.seo.description || post.excerpt,
+//     openGraph: {
+//       title: post.seo.title || post.title,
+//       description: post.seo.description || post.excerpt,
+//       images: post.mainImage ? [post.mainImage.asset.url] : [],
+//     },
+//   };
+// }
 
 // BlogPost Component
-export default async function BlogPost({ params }) {
-  const post = await getData(params.slug);
-  
-  if (!post) {
+const BlogPost = ({ params }) => {
+  const { language } = useLanguage();
+  const [post, setPost] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const query = `
+          *[_type == "blogPost" && slug.current == $slug][0] {
+            title,
+            mainImage {
+              asset-> {
+                _id,
+                url
+              }
+            },
+            body,
+            publishedAt,
+            category,
+            excerpt,
+            seo
+          }
+        `;
+        
+        const data = await client.fetch(query, { slug: params.slug });
+        
+        // Transform the data to use the correct language version
+        const localizedData = {
+          ...data,
+          title: data.title[language],
+          excerpt: data.excerpt[language],
+          body: data.body[language],
+          seo: data.seo[language],
+        };
+
+        setPost(localizedData);
+      } catch (error) {
+        console.error("Error fetching blog post:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [params.slug, language]);
+
+  const formatDate = (dateString) => {
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    };
+    
+    return new Date(dateString).toLocaleDateString(
+      language === 'fr' ? 'fr-FR' : 'en-US', 
+      options
+    );
+  };
+
+  if (isLoading) {
     return (
       <div className="container mx-auto py-24 px-4">
-        <h1 className="text-4xl font-bold">Post not found</h1>
+        <div className="animate-pulse">
+          <div className="h-8 bg-gray-200 rounded w-48 mb-4"></div>
+          <div className="h-16 bg-gray-200 rounded w-full mb-6"></div>
+          <div className="h-96 bg-gray-200 rounded w-full"></div>
+        </div>
       </div>
     );
   }
 
-  const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: "numeric",
-      month: "long",
-      day: "numeric"
-    });
+  if (!post) {
+    return (
+      <div className="container mx-auto py-24 px-4">
+        <h1 className="text-4xl font-bold">
+          {language === 'en' ? 'Post not found' : 'Article non trouvé'}
+        </h1>
+      </div>
+    );
+  }
+
+  // Get category label based on language
+  const getCategoryLabel = (categoryId) => {
+    const categories = {
+      'visa-portugal': { en: 'Visa Portugal', fr: 'Visa Portugal' },
+      'real-estate': { en: 'Real Estate', fr: 'Immobilier' },
+      'business': { en: 'Business', fr: 'Entreprise' },
+      'others': { en: 'Others', fr: 'Autres' }
+    };
+
+    return categories[categoryId]?.[language] || categoryId;
   };
 
   return (
     <article className="container mx-auto py-24 px-4 max-w-4xl">
       <div className="mb-12">
         <span className="inline-block px-3 py-1 text-sm rounded-full bg-blue-100 text-blue-800 mb-4">
-          {post.category}
+          {getCategoryLabel(post.category)}
         </span>
         <h1 className="text-5xl font-bold mb-4">{post.title}</h1>
         <time className="text-gray-600 block mb-6">
@@ -169,4 +248,6 @@ export default async function BlogPost({ params }) {
       </div>
     </article>
   );
-}
+};
+
+export default BlogPost;
