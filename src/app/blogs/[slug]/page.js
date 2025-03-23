@@ -1,130 +1,94 @@
-"use client"
+"use client";
 
-import { client } from "@/sanity/lib/client";
-import Image from "next/image";
-import { PortableText } from "@portabletext/react";
-import { urlForImage } from "../../../sanity/lib/image"; // Ensure this utility is properly set up
-import { useLanguage } from "@/context/LanguageContext";
 import { useEffect, useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
+import { client } from "@/sanity/lib/client";
+import { PortableText } from "@portabletext/react";
+import { urlForImage } from "@/sanity/lib/image";
+import Image from "next/image";
 
-// Fetch data for the blog post
+// ✅ Fetch Blog Post Data
 async function getData(slug) {
-  const query = `
-    *[_type == "blogPost" && slug.current == $slug][0] {
-      title,
-      mainImage {
-        asset-> {
-          _id,
-          url
-        }
-      },
-      body[] {
-        ...,
-        _type == "image" => {
-          ...,
-          asset->
-        }
-      },
-      publishedAt,
-      category,
-      excerpt,
-      seo
+  const query = `*[_type == "blogPost" && slug.current == $slug][0] {
+    title { en, fr },
+    mainImage { asset-> { url } },
+    excerpt { en, fr },
+    publishedAt,
+    category,
+    seo { en, fr },
+    summary[] {
+      en, fr, linkedSectionKey
+    },
+    sections[] {
+      _key,
+      title { en, fr },
+      content { en, fr }
     }
-  `;
-  
-  const data = await client.fetch(query, { slug });
-  return data;
+  }`;
+  return await client.fetch(query, { slug });
 }
 
-// PortableText Components for Custom Rendering
+// ✅ PortableText Components
 const components = {
+  block: {
+    h2: ({ children }) => {
+      const text = children
+        .map(child => (typeof child === "string" ? child : child?.text || ""))
+        .join(" ")
+        .trim();
+
+      if (!text) return <h2 className="text-3xl font-bold my-5">{children}</h2>;
+
+      const id = text
+        .toLowerCase()
+        .replace(/\s+/g, "-")
+        .replace(/[^a-z0-9-]/g, "");
+
+      return <h2 id={id} className="text-3xl font-bold my-5 scroll-mt-20">{children}</h2>;
+    },
+    h3: ({ children }) => <h3 className="text-2xl font-bold my-4">{children}</h3>,
+    normal: ({ children }) => <p className="text-lg my-4 leading-relaxed">{children}</p>,
+    blockquote: ({ children }) => (
+      <blockquote className="border-l-4 border-blue-500 pl-4 my-6 italic">{children}</blockquote>
+    ),
+  },
   types: {
     image: ({ value }) => {
       if (!value?.asset?._id) return null;
-
-      const imageUrl = urlForImage(value).width(800).url(); // Generate optimized image URL
-
       return (
         <div className="relative w-full my-8">
           <figure>
             <div className="relative h-[400px] w-full">
               <Image
-                src={imageUrl}
+                src={urlForImage(value).width(800).url()}
                 alt={value.alt || "Sanity Image"}
                 layout="fill"
                 className="object-contain"
-                
                 quality={90}
-          
               />
             </div>
-            {value.caption && (
-              <figcaption className="text-center text-sm text-gray-500 mt-2">
-                {value.caption}
-              </figcaption>
-            )}
+            {value.caption && <figcaption className="text-center text-sm text-gray-500 mt-2">{value.caption}</figcaption>}
           </figure>
         </div>
       );
     },
   },
-  block: {
-    h1: ({ children }) => <h1 className="text-4xl font-bold my-6">{children}</h1>,
-    h2: ({ children }) => <h2 className="text-3xl font-bold my-5">{children}</h2>,
-    h3: ({ children }) => <h3 className="text-2xl font-bold my-4">{children}</h3>,
-    h4: ({ children }) => <h4 className="text-xl font-bold my-4">{children}</h4>,
-    normal: ({ children }) => <p className="text-lg my-4 leading-relaxed">{children}</p>,
-    blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-blue-500 pl-4 my-6 italic">
-        {children}
-      </blockquote>
-    ),
-  },
-  list: {
-    bullet: ({ children }) => (
-      <ul className="list-disc list-inside my-4 space-y-2">{children}</ul>
-    ),
-    number: ({ children }) => (
-      <ol className="list-decimal list-inside my-4 space-y-2">{children}</ol>
-    ),
-  },
-  listItem: {
-    bullet: ({ children }) => <li className="text-lg leading-relaxed">{children}</li>,
-    number: ({ children }) => <li className="text-lg leading-relaxed">{children}</li>,
-  },
   marks: {
-    link: ({ children, value }) => (
-      <a 
-        href={value.href} 
-        className="text-blue-600 hover:underline"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {children}
-      </a>
-    ),
-    strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
-    em: ({ children }) => <em className="italic">{children}</em>,
+    link: ({ children, value }) => {
+      const isInternal = value?.href?.startsWith("#");
+      return (
+        <a
+          href={value.href}
+          className={`text-blue-600 hover:underline ${isInternal ? "scroll-smooth" : ""}`}
+        >
+          {children}
+        </a>
+      );
+    },
   },
 };
 
-// Generate SEO Metadata
-// export async function generateMetadata({ params }) {
-//   const post = await getData(params.slug);
-//   if (!post?.seo) return { title: post?.title };
-
-//   return {
-//     title: post.seo.title || post.title,
-//     description: post.seo.description || post.excerpt,
-//     openGraph: {
-//       title: post.seo.title || post.title,
-//       description: post.seo.description || post.excerpt,
-//       images: post.mainImage ? [post.mainImage.asset.url] : [],
-//     },
-//   };
-// }
-
-// BlogPost Component
+// ✅ BlogPost Component
 const BlogPost = ({ params }) => {
   const { language } = useLanguage();
   const [post, setPost] = useState(null);
@@ -133,37 +97,30 @@ const BlogPost = ({ params }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const query = `
-          *[_type == "blogPost" && slug.current == $slug][0] {
-            title,
-            mainImage {
-              asset-> {
-                _id,
-                url
-              }
-            },
-            body,
-            publishedAt,
-            category,
-            excerpt,
-            seo
-          }
-        `;
-        
-        const data = await client.fetch(query, { slug: params.slug });
-        
-        // Transform the data to use the correct language version
-        const localizedData = {
-          ...data,
-          title: data.title[language],
-          excerpt: data.excerpt[language],
-          body: data.body[language],
-          seo: data.seo[language],
-        };
+        const data = await getData(params.slug);
+        if (!data) {
+          setPost(null);
+          return;
+        }
 
-        setPost(localizedData);
+        setPost({
+          ...data,
+          title: data.title?.[language] || data.title?.en || "",
+          excerpt: data.excerpt?.[language] || data.excerpt?.en || "",
+          seo: data.seo?.[language] || {},
+          summary: data.summary?.map(s => ({
+            text: s?.[language] || s?.en || "",
+            linkedSectionKey: s.linkedSectionKey
+          })),
+          sections: data.sections?.map(s => ({
+            _key: s._key,
+            title: s.title?.[language] || "",
+            content: s.content?.[language] || []
+          }))
+        });
       } catch (error) {
         console.error("Error fetching blog post:", error);
+        setPost(null);
       } finally {
         setIsLoading(false);
       }
@@ -173,15 +130,13 @@ const BlogPost = ({ params }) => {
   }, [params.slug, language]);
 
   const formatDate = (dateString) => {
-    const options = {
-      year: "numeric",
-      month: "long",
-      day: "numeric"
-    };
-    
     return new Date(dateString).toLocaleDateString(
-      language === 'fr' ? 'fr-FR' : 'en-US', 
-      options
+      language === "fr" ? "fr-FR" : "en-US",
+      {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }
     );
   };
 
@@ -201,34 +156,20 @@ const BlogPost = ({ params }) => {
     return (
       <div className="container mx-auto py-24 px-4">
         <h1 className="text-4xl font-bold">
-          {language === 'en' ? 'Post not found' : 'Article non trouvé'}
+          {language === "en" ? "Post not found" : "Article non trouvé"}
         </h1>
       </div>
     );
   }
 
-  // Get category label based on language
-  const getCategoryLabel = (categoryId) => {
-    const categories = {
-      'visa-portugal': { en: 'Visa Portugal', fr: 'Visa Portugal' },
-      'real-estate': { en: 'Real Estate', fr: 'Immobilier' },
-      'business': { en: 'Business', fr: 'Entreprise' },
-      'others': { en: 'Others', fr: 'Autres' }
-    };
-
-    return categories[categoryId]?.[language] || categoryId;
-  };
-
   return (
     <article className="container mx-auto py-24 px-4 max-w-4xl">
       <div className="mb-12">
         <span className="inline-block px-3 py-1 text-sm rounded-full bg-blue-100 text-blue-800 mb-4">
-          {getCategoryLabel(post.category)}
+          {post.category}
         </span>
         <h1 className="text-5xl font-bold mb-4">{post.title}</h1>
-        <time className="text-gray-600 block mb-6">
-          {formatDate(post.publishedAt)}
-        </time>
+        <time className="text-gray-600 block mb-6">{formatDate(post.publishedAt)}</time>
       </div>
 
       {post.mainImage && (
@@ -243,8 +184,37 @@ const BlogPost = ({ params }) => {
         </div>
       )}
 
-      <div className="prose prose-lg max-w-none">
-        <PortableText value={post.body} components={components} />
+      {/* ✅ Summary Steps */}
+      {post.summary?.length > 0 && (
+        <nav className="mb-16">
+          <h2 className="text-2xl font-semibold mb-2">
+            {language === "en" ? "Steps Summary" : "Résumé des étapes"}
+          </h2>
+          <ul className="list-disc pl-6 space-y-1">
+            {post.summary.map((step, index) => (
+              <li key={index}>
+                <a
+                  href={`#${step.linkedSectionKey}`}
+                  className="text-blue-600 hover:underline scroll-smooth"
+                >
+                  {step.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
+
+      {/* ✅ Content Sections */}
+      <div className="space-y-16">
+        {post.sections?.map((section) => (
+          <section key={section._key} id={section._key} className="scroll-mt-24">
+            <h2 className="text-3xl font-bold mb-4">{section.title}</h2>
+            <div className="prose prose-lg max-w-none">
+              <PortableText value={section.content} components={components} />
+            </div>
+          </section>
+        ))}
       </div>
     </article>
   );

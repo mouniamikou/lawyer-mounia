@@ -18,28 +18,29 @@ const BlogList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await client.fetch(`
+        const query = `
           *[_type == "blogPost"] | order(publishedAt desc) {
             _id,
-            title,
+            title { en, fr },
             slug,
-            mainImage{
-              asset->{
+            mainImage {
+              asset-> {
                 url
               }
             },
-            excerpt,
+            excerpt { en, fr },
             category,
             publishedAt,
-            "estimatedReadTime": length(pt::text(body[${language}])) / 5 / 180
+            "estimatedReadTime": length(pt::text(body[$language])) / 5 / 180
           }
-        `);
+        `;
 
-        // Transform the data to use the correct language version
+        const data = await client.fetch(query, { language });
+
         const localizedData = data.map(post => ({
           ...post,
-          title: post.title[language],
-          excerpt: post.excerpt[language],
+          title: post.title?.[language] || post.title?.en || "",
+          excerpt: post.excerpt?.[language] || post.excerpt?.en || "",
         }));
 
         setBlogs(localizedData);
@@ -52,9 +53,8 @@ const BlogList = () => {
     };
 
     fetchData();
-  }, [language]); // Re-fetch when language changes
+  }, [language]);
 
-  // Update category labels based on language
   const categories = [
     { id: "All", en: "All", fr: "Tous" },
     { id: "visa-portugal", en: "Visa Portugal", fr: "Visa Portugal" },
@@ -66,7 +66,7 @@ const BlogList = () => {
   const handleFilterChange = (category) => {
     setSelectedCategory(category);
     setVisiblePosts(6);
-    
+
     if (category === "All") {
       setFilteredBlogs(blogs);
     } else {
@@ -80,11 +80,10 @@ const BlogList = () => {
   };
 
   const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
+    return new Date(dateString).toLocaleDateString(
+      language === 'fr' ? 'fr-FR' : 'en-US',
+      { year: 'numeric', month: 'long', day: 'numeric' }
+    );
   };
 
   if (isLoading) {
@@ -147,29 +146,29 @@ const BlogList = () => {
                 />
               </div>
             )}
-            
+
             <div className="p-6">
               <span className="inline-block px-3 py-1 text-sm rounded-full bg-primary text-white mb-4">
                 {categories.find(cat => cat.id === blog.category)?.[language] || blog.category}
               </span>
-              
+
               <h2 className="text-xl font-semibold mb-2 line-clamp-2">
                 {blog.title}
               </h2>
-              
+
               <p className="text-gray-600 mb-4 line-clamp-3">
                 {blog.excerpt}
               </p>
-              
+
               <div className="flex justify-between items-center">
                 <div className="flex flex-col">
                   <span className="text-sm text-gray-500">
                     {formatDate(blog.publishedAt)}
                   </span>
                 </div>
-                
+
                 <Link 
-                  href={`/blogs/${blog.slug.current}`}
+                  href={`/blogs/${blog.slug?.current}`}
                   className="px-4 py-2 text-sm rounded-md border border-gray-300 
                     hover:bg-gray-50 transition-colors duration-200"
                 >
