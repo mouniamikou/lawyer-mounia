@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import {
   CheckCircle,
@@ -14,15 +14,21 @@ import {
   FileText,
   LucideFileCheck,
   Globe,
-  Flag
-} from 'lucide-react';
+  Flag,
+} from "lucide-react";
 import EUImag from "../../../public/european.png";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/translations";
 
 const InstallationPortugal = () => {
-  const [activeTab, setActiveTab] = useState('global');
+  const [activeTab, setActiveTab] = useState("global");
   const [activeStep, setActiveStep] = useState(0);
   const [showTips, setShowTips] = useState(true);
   const [currentStep, setCurrentStep] = useState(null);
+  const { language } = useLanguage();
+  const t =
+    translations[language]?.installationPortugal ||
+    translations.en.installationPortugal;
 
   const serviceVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -36,94 +42,7 @@ const InstallationPortugal = () => {
     },
   };
 
-  const globalSteps = [
-    {
-      title: "VISA APPLICATION",
-      description: "Initial Process",
-      descriptionDetails: "Secure your legal right to reside in Portugal with strategic visa planning and expert application support.",
-      duration: "4-6 weeks",
-      details: [
-        "Determination of best suitable visa",
-        "Document preparation",
-        "Application submission",
-        "Status tracking"
-      ],
-      tips: "Begin the process at least 3-4 months before your intended move date",
-      requiredDocs: ["Passport", "Proof of income", "Criminal record certificate", "Health insurance", "Proof of accommodation"]
-    },
-    {
-      title: "RELOCATION",
-      description: "Moving Process",
-      descriptionDetails: "Navigate pre-arrival preparations and essential administrative steps for a smooth transition.",
-      duration: "2-3 weeks",
-      details: [
-        "Housing arrangement",
-        "Bank account setup",
-        "NIF registration",
-        "Healthcare registration"
-      ],
-      tips: "Consider temporary accommodation first to allow for in-person property viewing before long-term commitment",
-      requiredDocs: ["Proof of address", "Proof of Financial capacity", "Tax documents", "Visa approval"]
-    },
-    {
-      title: "SETTLEMENT",
-      description: "Final Steps",
-      descriptionDetails: "Complete your integration with residency registration, healthcare enrollment, and community establishment.",
-      duration: "2-4 weeks",
-      details: [
-        "Residency registration",
-        "Social security enrollment",
-        "Embassy Registration",
-        "Community integration"
-      ],
-      tips: "Consider Portuguese language courses to facilitate integration and daily interactions.",
-      requiredDocs: ["Visa approval documentation", "Rental contract or property deed", "Bank statements from your Portuguese account", "Proof of health insurance coverage"]
-    }
-  ];
-
-  const euSteps = [
-    {
-      title: "REGISTRATION",
-      description: "Initial Setup",
-      descriptionDetails: "Begin your journey with essential registrations and document preparations for EU citizens.",
-      duration: "1-2 weeks",
-      details: [
-        "EU citizenship verification",
-        "NIF Registration",
-        "Address registration",
-        "Registration certificate"
-      ],
-      tips: "Get your NIF before moving to Portugal",
-      requiredDocs: ["EU ID/Passport", "Proof of address", "Employment details or proof of sufficient financial means"]
-    },
-    {
-      title: "ESTABLISHMENT",
-      description: "Local Setup",
-      descriptionDetails: "Secure your local administrative foundation with banking, healthcare, and residential documentation.",
-      duration: "2-3 weeks",
-      details: [
-        "Bank account opening",
-        "Healthcare registration",
-        "Social security registration"
-      ],
-      tips: "Registration with the Portuguese system is mandatory for EU citizens staying more than 3 months in Portugal",
-      requiredDocs: ["ID documents", "Proof of address", "Employment contract or proof of financial means", "Tax registration certificate"]
-    },
-    {
-      title: "INTEGRATION",
-      description: "Final Process",
-      descriptionDetails: "Complete your transition with long-term administrative requirements and consider citizenship.",
-      duration: "2-4 weeks",
-      details: [
-        "Permanent registration",
-        "Citizenship"
-      ],
-      tips: "Consider Portuguese language courses for better integration and professional opportunities",
-      requiredDocs: ["Registration certificate", "Residence proof", "Tax documents"]
-    }
-  ];
-
-  const currentSteps = activeTab === 'global' ? globalSteps : euSteps;
+  const currentSteps = activeTab === "global" ? t.globalSteps : t.euSteps;
 
   useEffect(() => {
     setActiveStep(0);
@@ -133,17 +52,17 @@ const InstallationPortugal = () => {
     if (currentSteps && activeStep >= 0) {
       setCurrentStep(currentSteps[activeStep]);
     }
-  }, [activeStep, activeTab]);
+  }, [activeStep, activeTab, currentSteps]);
 
   const handleNext = () => {
     if (activeStep < currentSteps.length - 1) {
-      setActiveStep(prevStep => prevStep + 1);
+      setActiveStep((prevStep) => prevStep + 1);
     }
   };
 
   const handlePrevious = () => {
     if (activeStep > 0) {
-      setActiveStep(prevStep => prevStep - 1);
+      setActiveStep((prevStep) => prevStep - 1);
     }
   };
 
@@ -162,10 +81,10 @@ const InstallationPortugal = () => {
           className="absolute inset-0 z-0"
           style={{
             backgroundImage: "url('/passportPP.jpeg')", // Use your image path
-            backgroundPosition: 'center',
-            backgroundSize: '60%',
-            backgroundRepeat: 'no-repeat',
-            opacity: '0.3' // Adjust opacity as needed
+            backgroundPosition: "center",
+            backgroundSize: "60%",
+            backgroundRepeat: "no-repeat",
+            opacity: "0.3", // Adjust opacity as needed
           }}
         />
 
@@ -175,39 +94,47 @@ const InstallationPortugal = () => {
             variants={serviceVariants}
             className="text-4xl md:text-5xl font-bold text-center text-primary-dark mb-8"
           >
-            Installation in Portugal
+            {t.title}
           </motion.h1>
 
           <motion.p
             variants={serviceVariants}
             className="text-xl text-center text-gray-600 max-w-3xl mx-auto mb-16"
           >
-            Expert legal guidance for a smooth transition to Portugal, with personalized support through every administrative step of your relocation journey.
+            {t.subtitle}
           </motion.p>
 
           {/* Citizenship Type Tabs */}
           <div className="flex justify-center gap-6 mb-12">
             <motion.button
               variants={serviceVariants}
-              onClick={() => setActiveTab('global')}
-              className={`flex items-center gap-1.5 px-3 py-2.5 rounded-xl transition-all ${activeTab === 'purchase'
-                ? 'bg-[#039B9B] text-white shadow-lg'
-                : 'bg-white text-primary-dark hover:text-white hover:bg-primary-dark'
+              onClick={() => setActiveTab("global")}
+              className={`flex items-center gap-1.5 px-3 py-2.5 rounded-xl transition-all ${
+                activeTab === "global"
+                  ? "bg-[#039B9B] text-white shadow-lg"
+                  : "bg-white text-primary-dark hover:text-white hover:bg-primary-dark"
               }`}
-          >
+            >
               <Globe className=" w-5 h-5" />
-              <span className="text-base font-semibold">Non-EU Citizens</span>
+              <span className="text-base font-semibold">{t.tabs.nonEU}</span>
             </motion.button>
             <motion.button
               variants={serviceVariants}
-              onClick={() => setActiveTab('eu')}
-              className={`flex items-center gap-1.5 px-3 py-2.5 rounded-xl transition-all ${activeTab === 'sale'
-                ? 'bg-[#039B9B] text-white shadow-lg'
-                : 'bg-white text-primary-dark hover:text-white hover:bg-primary-dark'
+              onClick={() => setActiveTab("eu")}
+              className={`flex items-center gap-1.5 px-3 py-2.5 rounded-xl transition-all ${
+                activeTab === "eu"
+                  ? "bg-[#039B9B] text-white shadow-lg"
+                  : "bg-white text-primary-dark hover:text-white hover:bg-primary-dark"
               }`}
-          >
-              <Image src={EUImag} alt="eu citizen" width={20} height={20} className="w-4 h-4 sm:w-6 sm:h-6" />
-              <span className="text-base  font-semibold">EU Citizens</span>
+            >
+              <Image
+                src={EUImag}
+                alt="eu citizen"
+                width={20}
+                height={20}
+                className="w-4 h-4 sm:w-6 sm:h-6"
+              />
+              <span className="text-base  font-semibold">{t.tabs.eu}</span>
             </motion.button>
           </div>
         </div>
@@ -216,12 +143,16 @@ const InstallationPortugal = () => {
       <div className="max-w-6xl mx-auto">
         <div className="bg-white rounded-xl shadow-lg p-8">
           <div className="flex justify-between items-center mb-8">
-            <h2 className="text-2xl font-bold text-primary-dark">Process Timeline</h2>
+            <h2 className="text-2xl font-bold text-primary-dark">
+              {t.timeline}
+            </h2>
             <button
               onClick={() => setShowTips(!showTips)}
               className="p-2 rounded-full hover:bg-[#039B9B]/10 transition-colors"
             >
-              <Info className={`w-6 h-6 ${showTips ? 'text-primary-dark' : 'text-gray-400'}`} />
+              <Info
+                className={`w-6 h-6 ${showTips ? "text-primary-dark" : "text-gray-400"}`}
+              />
             </button>
           </div>
 
@@ -232,8 +163,9 @@ const InstallationPortugal = () => {
               {currentSteps.map((step, index) => (
                 <motion.div
                   key={index}
-                  className={`relative flex flex-col items-center w-48 group ${index === activeStep ? 'scale-105' : ''
-                    }`}
+                  className={`relative flex flex-col items-center w-48 group ${
+                    index === activeStep ? "scale-105" : ""
+                  }`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
@@ -241,102 +173,92 @@ const InstallationPortugal = () => {
                   <button
                     onClick={() => handleStepClick(index)}
                     className={`w-8 h-8 rounded-full flex items-center justify-center
-                      ${index <= activeStep ? 'text-primary-dark' : 'text-gray-400'} 
-                      ${index === activeStep ? 'ring-4 ring-[#039B9B]/20' : ''}
+                      ${index <= activeStep ? "text-primary-dark" : "text-gray-400"} 
+                      ${index === activeStep ? "ring-4 ring-[#039B9B]/20" : ""}
                       bg-white border-2 border-current
                       transition-all duration-300 cursor-pointer group-hover:shadow-lg`}
                   >
                     <span className="font-medium">{index + 1}</span>
                   </button>
-
-                  <div className={`text-center mt-4 transition-colors duration-300 ${index === activeStep ? 'text-primary-dark' : 'text-gray-600'
-                    }`}>
-                    <h3 className="font-bold text-xs mb-1">{step.title}</h3>
-                    <p className="text-xs mb-1 opacity-80">{step.description}</p>
-
-                  </div>
+                  <span className="text-center text-sm text-gray-600 mt-2 font-medium">
+                    {step.description}
+                  </span>
                 </motion.div>
               ))}
             </div>
           </div>
 
-          <div className="flex justify-between mb-8">
-            <button
-              onClick={handlePrevious}
-              disabled={activeStep === 0}
-              className={`px-6 py-3 rounded-lg transition-all flex items-center gap-2 ${activeStep > 0
-                ? 'bg-[#039B9B] text-white hover:shadow-lg'
-                : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                }`}
-            >
-              <ChevronLeft className="w-4 h-4" /> Previous
-            </button>
-            <button
-              onClick={handleNext}
-              disabled={activeStep === currentSteps.length - 1}
-              className={`px-6 py-3 rounded-lg transition-all flex items-center gap-2 ${activeStep < currentSteps.length - 1
-                ? 'bg-[#039B9B] text-white hover:shadow-lg'
-                : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                }`}
-            >
-              Next <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
-
           <AnimatePresence mode="wait">
-
             <motion.div
               key={activeStep}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-8"
+              transition={{ duration: 0.4 }}
+              className="mb-8"
             >
-              <div>
-                <div className="flex items-center gap-2 mb-6">
-                  <BookMarked className="w-6 h-6 text-primary-dark" />
-                  <h4 className="font-semibold text-primary-dark text-lg">Description</h4>
-                </div>
-                <p className="bg-[#039B9B]/10 rounded-lg p-6">{currentStep.descriptionDetails}</p>
-                <div className="flex items-center gap-2 my-6">
-                  <LucideFileCheck className="w-6 h-6 text-primary-dark" />
-                  <h4 className="font-semibold text-primary-dark text-lg">Key Tasks</h4>
-                </div>
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {/* Left Column - Main Step Info */}
+                <div className="lg:col-span-2">
+                  <h3 className="text-3xl font-bold text-primary-dark mb-3">
+                    {currentStep.title}
+                  </h3>
+                  <p className="text-gray-600 mb-6">
+                    {currentStep.descriptionDetails}
+                  </p>
 
-                <ul className="space-y-4">
-                  {currentStep.details.map((detail, i) => (
-                    <li key={i} className="flex items-start gap-3 bg-[#039B9B]/5 p-3 rounded-lg">
-                      <CheckCircle className="w-5 h-5 text-primary-dark mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{detail}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                  <div className="mb-8">
+                    <h4 className="text-lg font-semibold text-primary-dark mb-3 flex items-center">
+                      <LucideFileCheck className="mr-2 text-primary" />
+                      {t.stepInfo.details}
+                    </h4>
+                    <ul className="space-y-3">
+                      {currentStep.details.map((detail, index) => (
+                        <li key={index} className="flex items-start">
+                          <CheckCircle className="text-green-500 h-5 w-5 mt-0.5 mr-2 shrink-0" />
+                          <span>{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-
-              <div className="space-y-8">
-                {showTips && (
-                  <div className="bg-[#039B9B]/10 rounded-lg p-6">
-                    <div className="flex items-start gap-3">
-                      <AlertCircle className="w-6 h-6 text-primary-dark mt-1" />
-                      <div>
-                        <h4 className="font-semibold text-primary-dark mb-2">Helpful Tip</h4>
-                        <p className="text-gray-600">{currentStep.tips}</p>
-                      </div>
+                  <div className="mb-8">
+                    <h4 className="text-lg font-semibold text-primary-dark mb-3 flex items-center">
+                      <Clock className="mr-2 text-primary" />
+                      {t.stepInfo.duration}
+                    </h4>
+                    <div className="px-4 py-3 bg-blue-50 text-blue-800 rounded-lg">
+                      {currentStep.duration}
                     </div>
                   </div>
-                )}
 
-                <div>
-                  <div className="flex items-center gap-2 mb-4">
-                    <FileText className="w-6 h-6 text-primary-dark" />
-                    <h4 className="font-semibold text-primary-dark">Required Documents</h4>
-                  </div>
+                  {showTips && (
+                    <div className="mb-8">
+                      <h4 className="text-lg font-semibold text-primary-dark mb-3 flex items-center">
+                        <AlertCircle className="mr-2 text-amber-500" />
+                        {t.stepInfo.tips}
+                      </h4>
+                      <div className="px-4 py-3 bg-amber-50 text-amber-800 rounded-lg">
+                        {currentStep.tips}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Right Column - Required Documents */}
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h4 className="text-lg font-semibold text-primary-dark mb-4 flex items-center">
+                    <FileText className="mr-2 text-primary" />
+                    {t.stepInfo.requiredDocs}
+                  </h4>
                   <ul className="space-y-3">
-                    {currentStep.requiredDocs.map((doc, i) => (
-                      <li key={i} className="flex items-center gap-3 text-gray-600 bg-[#039B9B]/5 p-3 rounded-lg">
-                        <div className="w-2 h-2 rounded-full bg-[#039B9B]" />
-                        {doc}
+                    {currentStep.requiredDocs.map((doc, index) => (
+                      <li
+                        key={index}
+                        className="flex items-start border-b border-gray-200 pb-2"
+                      >
+                        <BookMarked className="text-primary h-5 w-5 mt-0.5 mr-2 shrink-0" />
+                        <span>{doc}</span>
                       </li>
                     ))}
                   </ul>
@@ -344,16 +266,34 @@ const InstallationPortugal = () => {
               </div>
             </motion.div>
           </AnimatePresence>
-        </div>
 
-        <motion.div variants={serviceVariants} className="mt-16 text-center">
-          <h2 className="text-3xl font-bold text-primary-dark mb-8">
-            Start Your Portugal Journey
-          </h2>
-          <p className="text-gray-600 max-w-3xl mx-auto">
-          Whether you're an EU citizen with streamlined processes or a global citizen navigating visa requirements, my legal expertise ensures a compliant and efficient transition to your new life in Portugal. Let's discuss your unique situation and create a personalized roadmap for your move.
-          </p>
-        </motion.div>
+          <div className="flex justify-between pt-4">
+            <button
+              onClick={handlePrevious}
+              disabled={activeStep === 0}
+              className={`flex items-center px-4 py-2 rounded-lg transition-colors ${
+                activeStep === 0
+                  ? "text-gray-400 cursor-not-allowed"
+                  : "text-gray-700 hover:bg-gray-100"
+              }`}
+            >
+              <ChevronLeft className="w-5 h-5 mr-1" />
+              {t.stepAction.previous}
+            </button>
+            <button
+              onClick={handleNext}
+              disabled={activeStep === currentSteps.length - 1}
+              className={`flex items-center px-4 py-2 rounded-lg transition-colors ${
+                activeStep === currentSteps.length - 1
+                  ? "text-gray-400 cursor-not-allowed"
+                  : "text-gray-700 hover:bg-gray-100"
+              }`}
+            >
+              {t.stepAction.next}
+              <ChevronRight className="w-5 h-5 ml-1" />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

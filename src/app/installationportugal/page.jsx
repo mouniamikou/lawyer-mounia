@@ -1,19 +1,25 @@
-import InstallationForm from '@/components/form/ContactForm'
-import Navbar from '@/components/Navbar'
-import Instal from '@/components/installation/InstallationPortugal.jsx'
-import React from 'react'
-import Footer from '@/components/Footer'
+"use client";
 
+import InstallationForm from "@/components/form/ContactForm";
+import Navbar from "@/components/Navbar";
+import Instal from "@/components/installation/InstallationPortugal.jsx";
+import React from "react";
+import Footer from "@/components/Footer";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/translations";
 
 function page() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <>
-    <Navbar></Navbar>
-    <Instal></Instal>
-    <InstallationForm></InstallationForm>
-    <Footer></Footer>
+      <Navbar />
+      <Instal />
+      <InstallationForm />
+      <Footer />
     </>
-  )
+  );
 }
 
-export default page
+export default page;

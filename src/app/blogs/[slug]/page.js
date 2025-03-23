@@ -33,27 +33,36 @@ const components = {
     h2: ({ children }) => {
       // Extract text from children (handling cases where children are objects)
       const text = children
-        .map(child => (typeof child === "string" ? child : child?.text || ""))
+        .map((child) => (typeof child === "string" ? child : child?.text || ""))
         .join(" ")
         .trim();
-    
+
       // Ensure text exists before generating ID
       if (!text) return <h2 className="text-3xl font-bold my-5">{children}</h2>;
-    
+
       // Generate an ID from the heading text
       const id = text
         .toLowerCase()
         .replace(/\s+/g, "-") // Replace spaces with dashes
         .replace(/[^a-z0-9-]/g, ""); // Remove special characters
-    
-      return <h2 id={id} className="text-3xl font-bold my-5 scroll-mt-20">{children}</h2>;
+
+      return (
+        <h2 id={id} className="text-3xl font-bold my-5 scroll-mt-20">
+          {children}
+        </h2>
+      );
     },
-    
-    
-    h3: ({ children }) => <h3 className="text-2xl font-bold my-4">{children}</h3>,
-    normal: ({ children }) => <p className="text-lg my-4 leading-relaxed">{children}</p>,
+
+    h3: ({ children }) => (
+      <h3 className="text-2xl font-bold my-4">{children}</h3>
+    ),
+    normal: ({ children }) => (
+      <p className="text-lg my-4 leading-relaxed">{children}</p>
+    ),
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-blue-500 pl-4 my-6 italic">{children}</blockquote>
+      <blockquote className="border-l-4 border-blue-500 pl-4 my-6 italic">
+        {children}
+      </blockquote>
     ),
   },
   types: {
@@ -63,9 +72,19 @@ const components = {
         <div className="relative w-full my-8">
           <figure>
             <div className="relative h-[400px] w-full">
-              <Image src={urlForImage(value).width(800).url()} alt={value.alt || "Sanity Image"} layout="fill" className="object-contain" quality={90} />
+              <Image
+                src={urlForImage(value).width(800).url()}
+                alt={value.alt || "Sanity Image"}
+                layout="fill"
+                className="object-contain"
+                quality={90}
+              />
             </div>
-            {value.caption && <figcaption className="text-center text-sm text-gray-500 mt-2">{value.caption}</figcaption>}
+            {value.caption && (
+              <figcaption className="text-center text-sm text-gray-500 mt-2">
+                {value.caption}
+              </figcaption>
+            )}
           </figure>
         </div>
       );
@@ -75,7 +94,10 @@ const components = {
     link: ({ children, value }) => {
       const isInternal = value?.href?.startsWith("#");
       return (
-        <a href={value.href} className={`text-blue-600 hover:underline ${isInternal ? "scroll-smooth" : ""}`}>
+        <a
+          href={value.href}
+          className={`text-blue-600 hover:underline ${isInternal ? "scroll-smooth" : ""}`}
+        >
           {children}
         </a>
       );
@@ -97,14 +119,16 @@ const BlogPost = ({ params }) => {
           setPost(null);
           return;
         }
-        // ✅ Localize content based on language
-        setPost({
+        const post = {
           ...data,
-          title: data.title?.[language] || data.title?.en || '',
-          excerpt: data.excerpt?.[language] || data.excerpt?.en || '',
+          title: data.title?.[language] || data.title?.en || "",
+          excerpt: data.excerpt?.[language] || data.excerpt?.en || "",
           body: data.body?.[language] || [],
           seo: data.seo?.[language] || {},
-        });
+        };
+        // ✅ Localize content based on language
+        setPost(post);
+        console.log(post);
       } catch (error) {
         console.error("Error fetching blog post:", error);
         setPost(null);
@@ -118,11 +142,14 @@ const BlogPost = ({ params }) => {
 
   // ✅ Format date based on language
   const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString(language === 'fr' ? 'fr-FR' : 'en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    });
+    return new Date(dateString).toLocaleDateString(
+      language === "fr" ? "fr-FR" : "en-US",
+      {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }
+    );
   };
 
   if (isLoading) {
@@ -140,7 +167,9 @@ const BlogPost = ({ params }) => {
   if (!post) {
     return (
       <div className="container mx-auto py-24 px-4">
-        <h1 className="text-4xl font-bold">{language === 'en' ? 'Post not found' : 'Article non trouvé'}</h1>
+        <h1 className="text-4xl font-bold">
+          {language === "en" ? "Post not found" : "Article non trouvé"}
+        </h1>
       </div>
     );
   }
@@ -152,12 +181,20 @@ const BlogPost = ({ params }) => {
           {post.category}
         </span>
         <h1 className="text-5xl font-bold mb-4">{post.title}</h1>
-        <time className="text-gray-600 block mb-6">{formatDate(post.publishedAt)}</time>
+        <time className="text-gray-600 block mb-6">
+          {formatDate(post.publishedAt)}
+        </time>
       </div>
 
       {post.mainImage && (
         <div className="relative w-full h-[500px] mb-12">
-          <Image src={post.mainImage.asset.url} alt={post.title} fill className="object-cover rounded-lg" quality={100} />
+          <Image
+            src={post.mainImage.asset.url}
+            alt={post.title}
+            fill
+            className="object-cover rounded-lg"
+            quality={100}
+          />
         </div>
       )}
 

@@ -1,18 +1,24 @@
-import BusinessServicesPage from '@/components/business/BusinessComponent'
-import Footer from '@/components/Footer'
-import BusinessForm from '@/components/form/BusinessForm'
-import Navbar from '@/components/Navbar'
-import React from 'react'
+"use client";
 
-function page() {
+import BusinessServicesPage from "@/components/business/BusinessComponent";
+import Footer from "@/components/Footer";
+import BusinessForm from "@/components/form/BusinessForm";
+import Navbar from "@/components/Navbar";
+import React from "react";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/translations";
+
+function Page() {
+  const { language } = useLanguage();
+
   return (
     <>
-    <Navbar></Navbar>
-    <BusinessServicesPage></BusinessServicesPage>
-    <BusinessForm></BusinessForm>
-    <Footer></Footer>
+      <Navbar />
+      <BusinessServicesPage />
+      <BusinessForm />
+      <Footer />
     </>
-  )
+  );
 }
 
-export default page
+export default Page;
