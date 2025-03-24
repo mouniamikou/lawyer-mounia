@@ -30,6 +30,7 @@ async function getData(slug) {
 
 // ✅ Custom Components for PortableText Rendering
 const components = {
+  //prettier-ignore
   block: {
     h2: ({ children }) => {
       const text = children
@@ -131,6 +132,7 @@ const components = {
 
 // ✅ Main BlogPost Component
 const BlogPost = () => {
+  //prettier-ignore
   const { language } = useLanguage();
   const params = useParams();
   const [post, setPost] = useState(null);
@@ -169,7 +171,7 @@ const BlogPost = () => {
 
   const generateSummary = (content) => {
     return content
-      .filter((block) => block.style === "h3") // Get only h3 headings
+      .filter((block) => block.style === "h2") // Get only h2 headings
       .map((block) => {
         const text = block.children
           .map((child) =>
