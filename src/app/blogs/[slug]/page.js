@@ -6,6 +6,7 @@ import { client } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
 import { urlForImage } from "../../../sanity/lib/image";
 import Image from "next/image";
+import { useParams } from "next/navigation";
 
 // ✅ Fetch Blog Post Data
 async function getData(slug) {
@@ -33,10 +34,13 @@ const components = {
     h2: ({ children }) => {
       // Extract text from children (handling cases where children are objects)
       const text = children
-        .map((child) => (typeof child === "string" ? child : child?.text || ""))
+        .map((child) =>
+          typeof child.props.text === "string"
+            ? child.props.text
+            : child?.props?.text || ""
+        )
         .join(" ")
         .trim();
-
       // Ensure text exists before generating ID
       if (!text) return <h2 className="text-3xl font-bold my-5">{children}</h2>;
 
@@ -53,9 +57,31 @@ const components = {
       );
     },
 
-    h3: ({ children }) => (
-      <h3 className="text-2xl font-bold my-4">{children}</h3>
-    ),
+    h3: ({ children }) => {
+      // Extract text from children (handling cases where children are objects)
+      const text = children
+        .map((child) =>
+          typeof child.props.text === "string"
+            ? child.props.text
+            : child?.props?.text || ""
+        )
+        .join(" ")
+        .trim();
+      // Ensure text exists before generating ID
+      if (!text) return <h3 className="text-2xl font-bold my-4">{children}</h3>;
+
+      // Generate an ID from the heading text
+      const id = text
+        .toLowerCase()
+        .replace(/\s+/g, "-") // Replace spaces with dashes
+        .replace(/[^a-z0-9-]/g, ""); // Remove special characters
+
+      return (
+        <h3 id={id} className="text-2xl font-bold my-4">
+          {children}
+        </h3>
+      );
+    },
     normal: ({ children }) => (
       <p className="text-lg my-4 leading-relaxed">{children}</p>
     ),
@@ -106,13 +132,16 @@ const components = {
 };
 
 // ✅ Main BlogPost Component
-const BlogPost = ({ params }) => {
+const BlogPost = () => {
   const { language } = useLanguage();
+  const params = useParams();
   const [post, setPost] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
+      if (!params || !params.slug) return;
+
       try {
         const data = await getData(params.slug);
         if (!data) {
@@ -138,8 +167,35 @@ const BlogPost = ({ params }) => {
     };
 
     fetchData();
-  }, [params.slug, language]);
+  }, [params?.slug, language]);
 
+  const generateSummary = (content) => {
+    return content
+      .filter((block) => block.style === "h3") // Get only h3 headings
+      .map((block) => {
+        const text = block.children
+          .map((child) =>
+            typeof child === "string" ? child : child.text || ""
+          )
+          .join(" ")
+          .trim();
+
+        if (!text) return null;
+
+        const id = text
+          .toLowerCase()
+          .replace(/\s+/g, "-")
+          .replace(/[^a-z0-9-]/g, ""); // Same ID logic as in h2
+
+        return (
+          <li key={id}>
+            <a href={`#${id}`} className="text-blue-500 hover:underline">
+              {text}
+            </a>
+          </li>
+        );
+      });
+  };
   // ✅ Format date based on language
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString(
@@ -199,6 +255,10 @@ const BlogPost = ({ params }) => {
       )}
 
       <div className="prose prose-lg max-w-none">
+        <nav className="mb-6 p-4 border rounded-lg bg-gray-100">
+          <h3 className="text-xl font-semibold mb-2">Summary</h3>
+          <ul className="list-disc pl-5">{generateSummary(post.body)}</ul>
+        </nav>
         <PortableText value={post.body} components={components} />
       </div>
     </article>

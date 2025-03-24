@@ -21,9 +21,7 @@ import { translations } from "@/translations";
 
 const RealEstateServicesPage = () => {
   const { language } = useLanguage();
-  const t =
-    translations[language]?.services.realEstate ||
-    translations.en.services.realEstate;
+  const t = translations[language]?.realEstate || translations.en.realEstate;
 
   const [activeTab, setActiveTab] = useState("purchase");
   const [activeStep, setActiveStep] = useState(0);
@@ -50,19 +48,6 @@ const RealEstateServicesPage = () => {
       description: t.purchaseSteps
         ? t.purchaseSteps[0]?.description || "Documentation & Offer"
         : "Documentation & Offer",
-      duration: "1-2 weeks",
-      details: [
-        "Project Analysis",
-        "Legal due diligence",
-        "Purchase offer submission",
-      ],
-      tips: "Get pre-approved for mortgage if needed",
-      requiredDocs: [
-        "Property title",
-        "Tax records",
-        "Building permits",
-        "Energy certificate",
-      ],
     },
     {
       title: t.purchaseSteps
@@ -71,20 +56,6 @@ const RealEstateServicesPage = () => {
       description: t.purchaseSteps
         ? t.purchaseSteps[1]?.description || "Contract & Deposit"
         : "Contract & Deposit",
-      duration: "1-3 weeks",
-      details: [
-        "Conditions structuring",
-        "Contract negotiation",
-        "Signing",
-        "Deposit payment",
-      ],
-      tips: "Standard deposit is 10-30%",
-      requiredDocs: [
-        "Draft preliminary contract",
-        "Proof of funds for deposit",
-        "NIF",
-        "Identification documents",
-      ],
     },
     {
       title: t.purchaseSteps
@@ -93,20 +64,6 @@ const RealEstateServicesPage = () => {
       description: t.purchaseSteps
         ? t.purchaseSteps[2]?.description || "Verification & Funding"
         : "Verification & Funding",
-      duration: "2-8 weeks",
-      details: [
-        "Funding confirmation, if any",
-        "Verification of other conditions precedent",
-        "Verification of preemptive rights",
-        "Obtention of tax forms",
-      ],
-      tips: "For apartments, review condominium regulations and confirm absence outstanding fees.",
-      requiredDocs: [
-        "Land registry certificate (less than 6 months old)",
-        "Property tax certificate",
-        "Condominium certificate (if applicable)",
-        "Habitation license",
-      ],
     },
     {
       title: t.purchaseSteps
@@ -115,20 +72,6 @@ const RealEstateServicesPage = () => {
       description: t.purchaseSteps
         ? t.purchaseSteps[3]?.description || "Final Signature"
         : "Final Signature",
-      duration: "1 week",
-      details: [
-        "Documentation preparation",
-        "Translation if needed",
-        "Legal representation if needed",
-        "Tax payment oversight",
-      ],
-      tips: "Confirm exact payment procedures with your bank in advance, especially for international transfers.",
-      requiredDocs: [
-        "Final purchase contract",
-        "Proof of funds for final payment",
-        "Tax payment forms",
-        "Power of attorney (if applicable)",
-      ],
     },
     {
       title: t.purchaseSteps
@@ -137,20 +80,6 @@ const RealEstateServicesPage = () => {
       description: t.purchaseSteps
         ? t.purchaseSteps[4]?.description || "Registration"
         : "Registration",
-      duration: "2-4 weeks",
-      details: [
-        "Property registration",
-        "Utility transfers",
-        "Tax representation",
-        "Post-acquisition support",
-      ],
-      tips: "Keep all acquisition documents safely stored for future reference and eventual resale.",
-      requiredDocs: [
-        "Signed deed",
-        "Property tax registration form",
-        "Proof of payment of all transaction taxes",
-        "Utility contracts",
-      ],
     },
   ];
 
@@ -162,20 +91,6 @@ const RealEstateServicesPage = () => {
       description: t.saleSteps
         ? t.saleSteps[0]?.description || "Documentation & Marketing"
         : "Documentation & Marketing",
-      duration: "2-3 weeks",
-      details: [
-        "Property evaluation",
-        "Document collection",
-        "Legal verification",
-        "Marketing preparation",
-      ],
-      tips: "Consider obtaining a new energy certificate if your current one is outdated",
-      requiredDocs: [
-        "Property Registration",
-        "Habitation license",
-        "Energy certificate",
-        "Condominium agreements (if applicable)",
-      ],
     },
     {
       title: t.saleSteps
@@ -184,35 +99,12 @@ const RealEstateServicesPage = () => {
       description: t.saleSteps
         ? t.saleSteps[1]?.description || "Offers & Terms"
         : "Offers & Terms",
-      duration: "4-12 weeks",
-      details: ["Offer evaluation", "Terms negotiation", "Contract drafting"],
-      tips: "Negotiate progressive deposit terms for additional security if the closing timeline is extended.",
-      requiredDocs: [
-        "CPCV",
-        "Property valuation documents",
-        "Capital gains tax calculations",
-        "Power of attorney (if selling remotely)",
-      ],
     },
     {
       title: t.saleSteps ? t.saleSteps[2]?.title || "CLOSING" : "CLOSING",
       description: t.saleSteps
         ? t.saleSteps[2]?.description || "Deed & Transfer"
         : "Deed & Transfer",
-      duration: "2-3 weeks",
-      details: [
-        "Final documentation",
-        "Tax compliance",
-        "Translation / Representation at notary",
-        "Fund reception",
-      ],
-      tips: "Make sure all utility contracts are transferred or terminated.",
-      requiredDocs: [
-        "Final deed document",
-        "Bank details for receiving funds",
-        "Utility termination requests",
-        "Capital gain declaration",
-      ],
     },
   ];
 
@@ -415,7 +307,9 @@ const RealEstateServicesPage = () => {
                   </h4>
                 </div>
                 <ul className="space-y-4">
-                  {currentStep.details.map((detail, i) => (
+                  {t[activeTab === "purchase" ? "purchaseSteps" : "saleSteps"][
+                    activeStep
+                  ].details.map((detail, i) => (
                     <li
                       key={i}
                       className="flex items-start gap-3 bg-[#039B9B]/5 p-3 rounded-lg"
@@ -436,7 +330,15 @@ const RealEstateServicesPage = () => {
                         <h4 className="font-semibold text-primary-dark mb-2">
                           {t.stepInfo?.tips || "Helpful Tip"}
                         </h4>
-                        <p className="text-gray-600">{currentStep.tips}</p>
+                        <p className="text-gray-600">
+                          {
+                            t[
+                              activeTab === "purchase"
+                                ? "purchaseSteps"
+                                : "saleSteps"
+                            ][activeStep].tips
+                          }
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -450,7 +352,9 @@ const RealEstateServicesPage = () => {
                     </h4>
                   </div>
                   <ul className="space-y-3">
-                    {currentStep.requiredDocs.map((doc, i) => (
+                    {t[
+                      activeTab === "purchase" ? "purchaseSteps" : "saleSteps"
+                    ][activeStep].requiredDocs.map((doc, i) => (
                       <li
                         key={i}
                         className="flex items-center gap-3 text-gray-600 bg-[#039B9B]/5 p-3 rounded-lg"

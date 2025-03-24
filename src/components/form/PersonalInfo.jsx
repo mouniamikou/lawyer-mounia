@@ -13,11 +13,8 @@ const PersonalInfoForm = ({
 
   // Use the appropriate translation based on form type
   const t =
-    formType === "realEstate"
-      ? translations[language]?.realEstateForm?.personalInfo ||
-        translations.en.realEstateForm.personalInfo
-      : translations[language]?.installationForm ||
-        translations.en.installationForm;
+    translations[language]?.realEstateForm?.personalInfo ||
+    translations.en.realEstateForm.personalInfo;
 
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },

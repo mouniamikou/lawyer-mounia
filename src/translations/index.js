@@ -75,112 +75,16 @@ export const translations = {
         cta: "Explorer les Solutions ",
       },
       realEstate: {
-        title: "Investissement Immobilier au Portugal",
-        subtitle:
-          "Accompagnement juridique expert pour sécuriser vos investissements immobiliers au Portugal",
-        timeline: "Calendrier du Processus",
-        stepAction: {
-          previous: "Précédent",
-          next: "Suivant",
-        },
-        stepInfo: {
-          details: "Tâches Clés",
-          requiredDocs: "Documents Requis",
-          tips: "Conseil Utile",
-          duration: "Durée",
-        },
-        representationOptions: {
-          title: "Options de Représentation",
-          inPerson: {
-            title: "Accompagnement en Personne",
-            description:
-              "Présence juridique complète tout au long de votre parcours immobilier au Portugal. J'assiste personnellement à toutes les réunions et signatures clés, vous assurant une expertise à chaque moment critique, de la première visite à la remise finale. Cette option offre un maximum de sécurité et de soutien, particulièrement recommandée pour les premiers investisseurs dans l'immobilier portugais.",
-          },
-          remote: {
-            title: "Représentation à Distance",
-            description:
-              "Protection juridique complète pour les clients ne pouvant être physiquement présents au Portugal. Grâce à des procurations sécurisées, je gère tous les aspects de votre transaction avec la même attention aux détails que si vous étiez présent. Des consultations vidéo régulières et une documentation détaillée vous tiennent informé et en contrôle tout au long du processus, quelle que soit votre localisation.",
-          },
-        },
-        cta: {
-          title: "Démarrez Votre Parcours Immobilier",
-          description:
-            "Que vous achetiez ou vendiez un bien au Portugal, naviguer dans les complexités juridiques nécessite une expertise. De la préparation initiale à l'enregistrement final, je fournis un accompagnement juridique complet pour protéger vos intérêts et assurer une transaction fluide. Discutons de votre situation spécifique et créons une stratégie personnalisée pour votre parcours immobilier portugais.",
-        },
-        purchaseSteps: [
-          {
-            title: "PRÉPARATION",
-            description: "Documentation & Offre",
-          },
-          {
-            title: "ACCORD",
-            description: "Contrat & Dépôt",
-          },
-          {
-            title: "CONDITIONS PRÉALABLES",
-            description: "Vérification & Financement",
-          },
-          {
-            title: "ACTE NOTARIÉ",
-            description: "Signature Finale",
-          },
-          {
-            title: "TRANSFERT",
-            description: "Enregistrement",
-          },
+        title: "Investissement Immobilier",
+        description:
+          "Sécurisez votre investissement immobilier grâce à un accompagnement juridique complet et l'accès à un réseau de professionnels de confiance.",
+        items: [
+          "Achat / Vente",
+          "Due diligence juridique",
+          " Sécurisation des transactions",
+          "Réseau de professionnels",
         ],
-        saleSteps: [
-          {
-            title: "PRÉPARATION",
-            description: "Documentation & Marketing",
-          },
-          {
-            title: "NÉGOCIATION",
-            description: "Offres & Conditions",
-          },
-          {
-            title: "CLÔTURE",
-            description: "Acte & Transfert",
-          },
-        ],
-        purchase: {
-          title: "Achat de Propriété",
-          description:
-            "Sécurisez votre acquisition immobilière avec un accompagnement juridique complet, de la recherche à la signature de l'acte final.",
-          services: [
-            "Due diligence complète",
-            "Vérification des titres et charges",
-            "Négociation du contrat préliminaire",
-            "Assistance à la signature notariale",
-            "Coordination avec les professionnels impliqués",
-          ],
-        },
-        sale: {
-          title: "Vente de Propriété",
-          description:
-            "Optimisez votre vente immobilière avec un conseil juridique stratégique et une gestion efficace de la transaction.",
-          services: [
-            "Préparation des documents nécessaires",
-            "Conseil sur les implications fiscales",
-            "Négociation des conditions de vente",
-            "Assistance à la signature notariale",
-            "Suivi post-vente",
-          ],
-        },
-        dueDiligence: {
-          title: "Due Diligence",
-          description:
-            "Analyse approfondie des aspects juridiques, administratifs et financiers de votre projet immobilier.",
-          services: [
-            "Vérification du statut juridique du bien",
-            "Contrôle de la conformité urbanistique",
-            "Analyse des charges et servitudes",
-            "Vérification fiscale",
-            "Évaluation des risques potentiels",
-          ],
-        },
-        formTitle: "Formulaire de Contact Immobilier",
-        formcta: "Soumettre votre demande",
+        cta: "Découvrir nos Services",
       },
       business: {
         title: "Entrepreneuriat",
@@ -193,110 +97,6 @@ export const translations = {
           "Suivi juridique",
         ],
         cta: "Créer votre Entreprise",
-        formationPackage: {
-          title: "Pack de Création d'Entreprise",
-          subtitle:
-            "Assistance juridique complète pour la création d'entreprise au Portugal",
-        },
-        formationProcess: "Processus de Formation",
-        stepAction: {
-          previous: "Précédent",
-          next: "Suivant",
-        },
-        stepInfo: {
-          details: "Étapes Clés",
-          requiredDocs: "Documents Requis",
-          tips: "Conseil Utile",
-        },
-        cta: {
-          title: "Démarrez Votre Parcours Entrepreneurial Dès Aujourd'hui",
-          description:
-            "De l'idée à l'exploitation, créer une entreprise au Portugal nécessite de naviguer dans des exigences juridiques complexes. Mon assistance juridique complète garantit que la formation de votre entreprise se déroule efficacement tout en établissant une base juridique solide pour votre réussite commerciale. Discutons de votre vision entrepreneuriale et créons une stratégie de formation adaptée à vos objectifs.",
-        },
-        steps: [
-          {
-            title: "COLLECTE",
-            description: "Recueil des Documents",
-            details: [
-              "Recueil des informations requises",
-              "Vérification des documents d'identité",
-              "Confirmation des éléments clés de l'entreprise",
-              "Analyse stratégique",
-            ],
-            tips: "Tenez compte de l'expansion future de votre entreprise lors de la sélection du champ d'activités.",
-            requiredDocs: [
-              "Document d'identité",
-              "Justificatif de domicile",
-              "NIF",
-            ],
-          },
-          {
-            title: "FORMATION",
-            description: "Noms de l'Entreprise",
-            details: [
-              "Réservation de nom",
-              "Conception de la structure des actions",
-              "Options de dépôt de capital",
-              "Statuts constitutifs",
-            ],
-            tips: "Choisissez plusieurs noms d'entreprise alternatifs car votre premier choix peut ne pas être disponible.",
-            requiredDocs: [
-              "Demande de réservation de nom",
-              "Projet de statuts",
-              "Informations sur les actionnaires",
-            ],
-          },
-          {
-            title: "ENREGISTREMENT",
-            description: "Dépôt Officiel",
-            details: [
-              "Soumission des documents",
-              "Suivi de l'enregistrement",
-              "Configuration de la gouvernance d'entreprise",
-              "Installation initiale de conformité",
-            ],
-            tips: "L'enregistrement peut être complété en 1-3 jours ouvrables si toute la documentation est correctement préparée.",
-            requiredDocs: [
-              "Preuve de réservation de nom",
-              "Statuts signés",
-              "Powers of attorney (le cas échéant)",
-            ],
-          },
-          {
-            title: "BÉNÉFICIAIRES",
-            description: "Enregistrement UBO",
-            details: [
-              "Identification du bénéficiaire effectif",
-              "Préparation de la déclaration UBO",
-              "Vérification de conformité",
-              "Soumission au registre",
-            ],
-            tips: "L'inscription UBO est obligatoire.",
-            requiredDocs: [
-              "Documents d'identification des bénéficiaires effectifs",
-              "Preuve de la structure de propriété/contrôle",
-              "Documentation sur la chaîne de propriété",
-              "Déclarations de bénéficiaire effectif",
-            ],
-          },
-          {
-            title: "ACHÈVEMENT",
-            description: "Documentation de l'Entreprise",
-            details: [
-              "Livraison de la documentation",
-              "Dépôts post-création",
-              "Création du registre des procès-verbaux",
-              "Assistance juridique continue",
-            ],
-            tips: "Inscrivez-vous pour des permis ou licences spécifiques à l'industrie si nécessaire pour votre activité.",
-            requiredDocs: [
-              "Certificat d'enregistrement de l'entreprise",
-              "Documentation d'enregistrement fiscal",
-              "Inscription à la sécurité sociale",
-              "Sceau et registre de l'entreprise",
-            ],
-          },
-        ],
       },
     },
     footer: {
@@ -575,34 +375,339 @@ export const translations = {
         "En cochant cette case, je reconnais avoir lu et accepté les termes et conditions. Je consens à la collecte et au traitement de mes données personnelles uniquement dans le but d'être contacté concernant ma demande immobilière.",
       submit: "Soumettre la Demande",
     },
-    businessForm: {
-      businessNeeds: "Vos Besoins Professionnels",
-      createBusiness: "Créer une entreprise au Portugal",
-      assistBusiness:
-        "Obtenir de l'aide pour une entreprise portugaise existante",
-      businessStructure: "Structure d'Entreprise",
-      selfEmployed: "En tant qu'auto-entrepreneur",
-      createCompany: "Créer une entreprise",
-      soleOwner: "En tant que propriétaire unique",
-      withPartners: "Avec des partenaires",
-      needAdvice: "Besoin de conseils sur ce choix",
-      assistanceNeeded: "Assistance Nécessaire Avec",
-      contracts: "Contrats",
-      compliance: "Conformité",
-      disputes: "Résolution de litiges",
-      other: "Autre",
-      pleaseSpecify: "Veuillez préciser",
-      businessSector: "Secteur d'Activité",
-      specifyBusinessSector: "Veuillez préciser votre secteur d'activité",
-      timeline: "Calendrier",
-      lessThan1Month: "Moins d'1 mois",
-      oneToThreeMonths: "1-3 mois",
-      moreThan3Months: "Plus de 3 mois",
-      otherRequirements:
-        "Veuillez préciser toute autre exigence ou information",
-      terms:
-        "En cochant cette case, je reconnais avoir lu et accepté les termes et conditions. Je consens à la collecte et au traitement de mes données personnelles uniquement dans le but d'être contacté concernant ma demande. Mes informations ne seront pas partagées avec des tiers ni utilisées à d'autres fins que cette demande.",
-      submit: "Soumettre la Demande",
+    realEstate: {
+      title: "Investissement Immobilier au Portugal",
+      subtitle:
+        "Accompagnement juridique expert pour sécuriser vos investissements immobiliers au Portugal",
+      timeline: "Calendrier du Processus",
+      stepAction: {
+        previous: "Précédent",
+        next: "Suivant",
+      },
+      stepInfo: {
+        details: "Tâches Clés",
+        requiredDocs: "Documents Requis",
+        tips: "Conseil Utile",
+        duration: "Durée",
+      },
+      representationOptions: {
+        title: "Options de Représentation",
+        inPerson: {
+          title: "Accompagnement en Personne",
+          description:
+            "Présence juridique complète tout au long de votre parcours immobilier au Portugal. J'assiste personnellement à toutes les réunions et signatures clés, vous assurant une expertise à chaque moment critique, de la première visite à la remise finale. Cette option offre un maximum de sécurité et de soutien, particulièrement recommandée pour les premiers investisseurs dans l'immobilier portugais.",
+        },
+        remote: {
+          title: "Représentation à Distance",
+          description:
+            "Protection juridique complète pour les clients ne pouvant être physiquement présents au Portugal. Grâce à des procurations sécurisées, je gère tous les aspects de votre transaction avec la même attention aux détails que si vous étiez présent. Des consultations vidéo régulières et une documentation détaillée vous tiennent informé et en contrôle tout au long du processus, quelle que soit votre localisation.",
+        },
+      },
+      cta: {
+        title: "Démarrez Votre Parcours Immobilier",
+        description:
+          "Que vous achetiez ou vendiez un bien au Portugal, naviguer dans les complexités juridiques nécessite une expertise. De la préparation initiale à l'enregistrement final, je fournis un accompagnement juridique complet pour protéger vos intérêts et assurer une transaction fluide. Discutons de votre situation spécifique et créons une stratégie personnalisée pour votre parcours immobilier portugais.",
+      },
+      purchaseSteps: [
+        {
+          title: "PRÉPARATION",
+          description: "Documentation & Offre",
+          duration: "1-2 semaines",
+          details: [
+            "Analyse du projet",
+            "Due diligence juridique",
+            "Soumission de l'offre d'achat",
+          ],
+          tips: "Obtenez une pré-approbation pour votre prêt immobilier si nécessaire",
+          requiredDocs: [
+            "Titre de propriété",
+            "Documents fiscaux",
+            "Permis de construire",
+            "Certificat énergétique",
+          ],
+        },
+        {
+          title: "ACCORD",
+          description: "Contrat & Dépôt",
+          duration: "1-3 semaines",
+          details: [
+            "Structuration des conditions",
+            "Négociation du contrat",
+            "Signature",
+            "Paiement de l'acompte",
+          ],
+          tips: "L'acompte standard est de 10-30%",
+          requiredDocs: [
+            "Projet de contrat préliminaire",
+            "Preuve de fonds pour l'acompte",
+            "NIF",
+            "Documents d'identification",
+          ],
+        },
+        {
+          title: "CONDITIONS PRÉALABLES",
+          description: "Vérification & Financement",
+          duration: "2-8 semaines",
+          details: [
+            "Confirmation du financement, le cas échéant",
+            "Vérification des autres conditions préalables",
+            "Vérification des droits de préemption",
+            "Obtention des formulaires fiscaux",
+          ],
+          tips: "Pour les appartements, examinez les règlements de copropriété et confirmez l'absence de frais impayés.",
+          requiredDocs: [
+            "Certificat du registre foncier (de moins de 6 mois)",
+            "Certificat d'impôt foncier",
+            "Certificat de copropriété (si applicable)",
+            "Licence d'habitation",
+          ],
+        },
+        {
+          title: "ACTE NOTARIÉ",
+          description: "Signature Finale",
+          duration: "1 semaine",
+          details: [
+            "Préparation de la documentation",
+            "Traduction si nécessaire",
+            "Représentation juridique si nécessaire",
+            "Supervision du paiement des taxes",
+          ],
+          tips: "Confirmez les procédures de paiement exactes avec votre banque à l'avance, surtout pour les transferts internationaux.",
+          requiredDocs: [
+            "Contrat d'achat final",
+            "Preuve de fonds pour le paiement final",
+            "Formulaires de paiement des taxes",
+            "Procuration (si applicable)",
+          ],
+        },
+        {
+          title: "TRANSFERT",
+          description: "Enregistrement",
+          duration: "2-4 semaines",
+          details: [
+            "Enregistrement de la propriété",
+            "Transfert des services publics",
+            "Représentation fiscale",
+            "Support post-acquisition",
+          ],
+          tips: "Conservez soigneusement tous les documents d'acquisition pour référence future et revente éventuelle.",
+          requiredDocs: [
+            "Acte signé",
+            "Formulaire d'enregistrement d'impôt foncier",
+            "Preuve de paiement de toutes les taxes de transaction",
+            "Contrats de services publics",
+          ],
+        },
+      ],
+      saleSteps: [
+        {
+          title: "PRÉPARATION",
+          description: "Documentation & Marketing",
+          duration: "2-3 semaines",
+          details: [
+            "Évaluation de la propriété",
+            "Collecte de documents",
+            "Vérification juridique",
+            "Préparation marketing",
+          ],
+          tips: "Envisagez d'obtenir un nouveau certificat énergétique si le vôtre est obsolète",
+          requiredDocs: [
+            "Enregistrement de la propriété",
+            "Licence d'habitation",
+            "Certificat énergétique",
+            "Accords de copropriété (si applicable)",
+          ],
+        },
+        {
+          title: "NÉGOCIATION",
+          description: "Offres & Conditions",
+          duration: "4-12 semaines",
+          details: [
+            "Évaluation des offres",
+            "Négociation des conditions",
+            "Rédaction du contrat",
+          ],
+          tips: "Négociez des conditions d'acompte progressives pour une sécurité supplémentaire si le délai de clôture est prolongé.",
+          requiredDocs: [
+            "CPCV",
+            "Documents d'évaluation de la propriété",
+            "Calculs de l'impôt sur les plus-values",
+            "Procuration (si vente à distance)",
+          ],
+        },
+        {
+          title: "CLÔTURE",
+          description: "Acte & Transfert",
+          duration: "2-3 semaines",
+          details: [
+            "Documentation finale",
+            "Conformité fiscale",
+            "Traduction / Représentation chez le notaire",
+            "Réception des fonds",
+          ],
+          tips: "Assurez-vous que tous les contrats de services publics sont transférés ou résiliés.",
+          requiredDocs: [
+            "Document d'acte final",
+            "Coordonnées bancaires pour la réception des fonds",
+            "Demandes de résiliation des services",
+            "Déclaration de plus-value",
+          ],
+        },
+      ],
+      purchase: {
+        title: "Achat de Propriété",
+        description:
+          "Sécurisez votre acquisition immobilière avec un accompagnement juridique complet, de la recherche à la signature de l'acte final.",
+        services: [
+          "Due diligence complète",
+          "Vérification des titres et charges",
+          "Négociation du contrat préliminaire",
+          "Assistance à la signature notariale",
+          "Coordination avec les professionnels impliqués",
+        ],
+      },
+      sale: {
+        title: "Vente de Propriété",
+        description:
+          "Optimisez votre vente immobilière avec un conseil juridique stratégique et une gestion efficace de la transaction.",
+        services: [
+          "Préparation des documents nécessaires",
+          "Conseil sur les implications fiscales",
+          "Négociation des conditions de vente",
+          "Assistance à la signature notariale",
+          "Suivi post-vente",
+        ],
+      },
+      dueDiligence: {
+        title: "Due Diligence",
+        description:
+          "Analyse approfondie des aspects juridiques, administratifs et financiers de votre projet immobilier.",
+        services: [
+          "Vérification du statut juridique du bien",
+          "Contrôle de la conformité urbanistique",
+          "Analyse des charges et servitudes",
+          "Vérification fiscale",
+          "Évaluation des risques potentiels",
+        ],
+      },
+      formTitle: "Formulaire de Contact Immobilier",
+      formcta: "Soumettre votre demande",
+    },
+    business: {
+      title: "Entrepreneuriat",
+      description:
+        "Lancez votre activité au Portugal en toute sérénité. Accompagnement juridique complet, du choix de la structure à l'immatriculation.",
+      items: [
+        "Choix de la structure juridique",
+        "Création d'entreprise",
+        "Conformité légale",
+        "Suivi juridique",
+      ],
+      cta: "Créer votre Entreprise",
+      formationPackage: {
+        title: "Pack de Création d'Entreprise",
+        subtitle:
+          "Assistance juridique complète pour la création d'entreprise au Portugal",
+      },
+      formationProcess: "Processus de Formation",
+      stepAction: {
+        previous: "Précédent",
+        next: "Suivant",
+      },
+      stepInfo: {
+        details: "Étapes Clés",
+        requiredDocs: "Documents Requis",
+        tips: "Conseil Utile",
+      },
+      cta: {
+        title: "Démarrez Votre Parcours Entrepreneurial Dès Aujourd'hui",
+        description:
+          "De l'idée à l'exploitation, créer une entreprise au Portugal nécessite de naviguer dans des exigences juridiques complexes. Mon assistance juridique complète garantit que la formation de votre entreprise se déroule efficacement tout en établissant une base juridique solide pour votre réussite commerciale. Discutons de votre vision entrepreneuriale et créons une stratégie de formation adaptée à vos objectifs.",
+      },
+      steps: [
+        {
+          title: "COLLECTE",
+          description: "Recueil des Documents",
+          details: [
+            "Recueil des informations requises",
+            "Vérification des documents d'identité",
+            "Confirmation des éléments clés de l'entreprise",
+            "Analyse stratégique",
+          ],
+          tips: "Tenez compte de l'expansion future de votre entreprise lors de la sélection du champ d'activités.",
+          requiredDocs: [
+            "Document d'identité",
+            "Justificatif de domicile",
+            "NIF",
+          ],
+        },
+        {
+          title: "FORMATION",
+          description: "Noms de l'Entreprise",
+          details: [
+            "Réservation de nom",
+            "Conception de la structure des actions",
+            "Options de dépôt de capital",
+            "Statuts constitutifs",
+          ],
+          tips: "Choisissez plusieurs noms d'entreprise alternatifs car votre premier choix peut ne pas être disponible.",
+          requiredDocs: [
+            "Demande de réservation de nom",
+            "Projet de statuts",
+            "Informations sur les actionnaires",
+          ],
+        },
+        {
+          title: "ENREGISTREMENT",
+          description: "Dépôt Officiel",
+          details: [
+            "Soumission des documents",
+            "Suivi de l'enregistrement",
+            "Configuration de la gouvernance d'entreprise",
+            "Installation initiale de conformité",
+          ],
+          tips: "L'enregistrement peut être complété en 1-3 jours ouvrables si toute la documentation est correctement préparée.",
+          requiredDocs: [
+            "Preuve de réservation de nom",
+            "Statuts signés",
+            "Powers of attorney (le cas échéant)",
+          ],
+        },
+        {
+          title: "BÉNÉFICIAIRES",
+          description: "Enregistrement UBO",
+          details: [
+            "Identification du bénéficiaire effectif",
+            "Préparation de la déclaration UBO",
+            "Vérification de conformité",
+            "Soumission au registre",
+          ],
+          tips: "L'inscription UBO est obligatoire.",
+          requiredDocs: [
+            "Documents d'identification des bénéficiaires effectifs",
+            "Preuve de la structure de propriété/contrôle",
+            "Documentation sur la chaîne de propriété",
+            "Déclarations de bénéficiaire effectif",
+          ],
+        },
+        {
+          title: "ACHÈVEMENT",
+          description: "Documentation de l'Entreprise",
+          details: [
+            "Livraison de la documentation",
+            "Dépôts post-création",
+            "Création du registre des procès-verbaux",
+            "Assistance juridique continue",
+          ],
+          tips: "Inscrivez-vous pour des permis ou licences spécifiques à l'industrie si nécessaire pour votre activité.",
+          requiredDocs: [
+            "Certificat d'enregistrement de l'entreprise",
+            "Documentation d'enregistrement fiscal",
+            "Inscription à la sécurité sociale",
+            "Sceau et registre de l'entreprise",
+          ],
+        },
+      ],
     },
   },
   en: {
@@ -676,112 +781,16 @@ export const translations = {
         cta: "Explore Settling Options",
       },
       realEstate: {
-        title: "Real Estate Investment in Portugal",
-        subtitle:
-          "Expert legal guidance to secure your real estate investments in Portugal",
-        timeline: "Process Timeline",
-        stepAction: {
-          previous: "Previous",
-          next: "Next",
-        },
-        stepInfo: {
-          details: "Key Tasks",
-          requiredDocs: "Required Documents",
-          tips: "Helpful Tip",
-          duration: "Duration",
-        },
-        representationOptions: {
-          title: "Representation Options",
-          inPerson: {
-            title: "In-Person Support",
-            description:
-              "Comprehensive legal presence throughout your property journey in Portugal. I personally attend all key meetings and signings, ensuring you have expert guidance at every critical moment, from first viewing to final handover. This option provides maximum security and support, especially recommended for first-time investors in Portuguese Real Estate.",
-          },
-          remote: {
-            title: "Remote Representation",
-            description:
-              "Full legal protection and oversight for clients unable to be physically present in Portugal. Through secure power of attorney arrangements, I handle all aspects of your transaction with the same attention to detail as if you were present. Regular video consultations and detailed documentation keep you informed and in control throughout the process, regardless of your location.",
-          },
-        },
-        cta: {
-          title: "Start Your Property Journey",
-          description:
-            "Whether buying or selling property in Portugal, navigating the legal complexities requires expert guidance. From initial preparation to final registration, I provide comprehensive legal support to protect your interests and ensure a smooth transaction. Let's discuss your specific situation and create a tailored strategy for your Portuguese real estate journey.",
-        },
-        purchaseSteps: [
-          {
-            title: "PREPARATION",
-            description: "Documentation & Offer",
-          },
-          {
-            title: "AGREEMENT",
-            description: "Contract & Deposit",
-          },
-          {
-            title: "CONDITIONS PRECEDENT",
-            description: "Verification & Funding",
-          },
-          {
-            title: "NOTARY DEED",
-            description: "Final Signature",
-          },
-          {
-            title: "TRANSFER",
-            description: "Registration",
-          },
+        title: "Real Estate Investment",
+        description:
+          "Secure your property investment with end-to-end legal support. Access to a trusted network of Real Estate professionals",
+        items: [
+          "Purchase / Sale",
+          "Legal due diligence",
+          "Transaction security",
+          "Professional network access",
         ],
-        saleSteps: [
-          {
-            title: "PREPARATION",
-            description: "Documentation & Marketing",
-          },
-          {
-            title: "NEGOTIATION",
-            description: "Offers & Terms",
-          },
-          {
-            title: "CLOSING",
-            description: "Deed & Transfer",
-          },
-        ],
-        purchase: {
-          title: "Property Purchase",
-          description:
-            "Secure your property acquisition with comprehensive legal support, from search to final deed signing.",
-          services: [
-            "Comprehensive due diligence",
-            "Title and encumbrance verification",
-            "Preliminary contract negotiation",
-            "Notarial deed assistance",
-            "Coordination with all professionals involved",
-          ],
-        },
-        sale: {
-          title: "Property Sale",
-          description:
-            "Optimize your property sale with strategic legal advice and efficient transaction management.",
-          services: [
-            "Preparation of necessary documentation",
-            "Tax implications advisory",
-            "Sale conditions negotiation",
-            "Notarial deed assistance",
-            "Post-sale follow-up",
-          ],
-        },
-        dueDiligence: {
-          title: "Due Diligence",
-          description:
-            "In-depth analysis of the legal, administrative, and financial aspects of your real estate project.",
-          services: [
-            "Property legal status verification",
-            "Urban compliance check",
-            "Encumbrance and easement analysis",
-            "Tax verification",
-            "Potential risk assessment",
-          ],
-        },
-        formTitle: "Real Estate Contact Form",
-        cta: "Submit Your Request",
+        cta: "Discover Legal Services",
       },
       business: {
         title: "Entrepreneurship",
@@ -794,106 +803,6 @@ export const translations = {
           "Ongoing legal support",
         ],
         cta: "Start Your Business",
-        formationPackage: {
-          title: "Business Formation Package",
-          subtitle:
-            "Complete legal assistance for company formation in Portugal",
-        },
-        formationProcess: "Formation Process",
-        stepAction: {
-          previous: "Previous",
-          next: "Next",
-        },
-        stepInfo: {
-          details: "Key Steps",
-          requiredDocs: "Required Documents",
-          tips: "Helpful Tip",
-        },
-        cta: {
-          title: "Start Your Business Journey Today",
-          description:
-            "From concept to operation, establishing a business in Portugal requires navigating complex legal requirements. My comprehensive legal guidance ensures your company formation proceeds efficiently while building a solid legal foundation for your business success. Let's discuss your entrepreneurial vision and create a tailored formation strategy that aligns with your goals.",
-        },
-        steps: [
-          {
-            title: "COLLECTION",
-            description: "Gathering Documents",
-            details: [
-              "Gathering required information",
-              "Identity document verification",
-              "Confirmation of the business key elements",
-              "Strategic analysis",
-            ],
-            tips: "Consider future business expansion when selecting your business activities scope.",
-            requiredDocs: ["Identity document", "Proof of address", "NIF"],
-          },
-          {
-            title: "FORMATION",
-            description: "Company Names",
-            details: [
-              "Name reservation",
-              "Share structure design",
-              "Capital deposit options",
-              "Articles of association",
-            ],
-            tips: "Choose multiple alternative company names as your first choice may not be available.",
-            requiredDocs: [
-              "Name reservation application",
-              "Draft articles of association",
-              "Shareholder information",
-            ],
-          },
-          {
-            title: "REGISTRATION",
-            description: "Official Filing",
-            details: [
-              "Documentation submission",
-              "Registration monitoring",
-              "Corporate governance setup",
-              "Initial compliance setup",
-            ],
-            tips: "Registration can be completed within 1-3 business days if all documentation is properly prepared.",
-            requiredDocs: [
-              "Proof of name reservation",
-              "Signed articles of association",
-              "Powers of attorney (if applicable)",
-            ],
-          },
-          {
-            title: "BENEFICIARIES",
-            description: "UBO Registration",
-            details: [
-              "Ultimate Beneficial Owner identification",
-              "UBO declaration preparation",
-              "Compliance verification",
-              "Registry submission",
-            ],
-            tips: "UBO registration is mandatory.",
-            requiredDocs: [
-              "Beneficial owners' identification documents",
-              "Proof of ownership/control structure",
-              "Chain of ownership documentation",
-              "Beneficial owner declarations",
-            ],
-          },
-          {
-            title: "COMPLETION",
-            description: "Company Documentation",
-            details: [
-              "Documentation delivery",
-              "Post-formation filings",
-              "Creation of the minutes book",
-              "On-going legal assistance",
-            ],
-            tips: "Register for specific industry permits or licenses if required for your business activity.",
-            requiredDocs: [
-              "Company registration certificate",
-              "Tax registration documentation",
-              "Social security registration",
-              "Company seal and deed book",
-            ],
-          },
-        ],
       },
     },
     footer: {
@@ -1172,32 +1081,334 @@ export const translations = {
         "By checking this box, I acknowledge that I have read and agree to the terms and conditions. I consent to the collection and processing of my personal data solely for the purpose of being contacted regarding my real estate inquiry.",
       submit: "Submit Request",
     },
-    businessForm: {
-      businessNeeds: "Your Business Needs",
-      createBusiness: "Create a business in Portugal",
-      assistBusiness: "Get assistance with existing Portuguese business",
-      businessStructure: "Business Structure",
-      selfEmployed: "As self-employed",
-      createCompany: "Create a company",
-      soleOwner: "As sole owner",
-      withPartners: "With partners",
-      needAdvice: "Need advice on this choice",
-      assistanceNeeded: "Assistance Needed With",
-      contracts: "Contracts",
-      compliance: "Compliance",
-      disputes: "Dispute resolution",
-      other: "Other",
-      pleaseSpecify: "Please specify",
-      businessSector: "Business Sector",
-      specifyBusinessSector: "Please specify your business sector",
-      timeline: "Timeline",
-      lessThan1Month: "Less than 1 month",
-      oneToThreeMonths: "1-3 months",
-      moreThan3Months: "More than 3 months",
-      otherRequirements: "Please specify any other requirements or information",
-      terms:
-        "By checking this box, I acknowledge that I have read and agree to the terms and conditions. I consent to the collection and processing of my personal data solely for the purpose of being contacted regarding my inquiry. My information will not be shared with third parties or used for any other purposes beyond this request.",
-      submit: "Submit Request",
+    realEstate: {
+      title: "Real Estate Investment in Portugal",
+      subtitle:
+        "Expert legal guidance to secure your real estate investments in Portugal",
+      timeline: "Process Timeline",
+      stepAction: {
+        previous: "Previous",
+        next: "Next",
+      },
+      stepInfo: {
+        details: "Key Tasks",
+        requiredDocs: "Required Documents",
+        tips: "Helpful Tip",
+        duration: "Duration",
+      },
+      representationOptions: {
+        title: "Representation Options",
+        inPerson: {
+          title: "In-Person Support",
+          description:
+            "Comprehensive legal presence throughout your property journey in Portugal. I personally attend all key meetings and signings, ensuring you have expert guidance at every critical moment, from first viewing to final handover. This option provides maximum security and support, especially recommended for first-time investors in Portuguese Real Estate.",
+        },
+        remote: {
+          title: "Remote Representation",
+          description:
+            "Full legal protection and oversight for clients unable to be physically present in Portugal. Through secure power of attorney arrangements, I handle all aspects of your transaction with the same attention to detail as if you were present. Regular video consultations and detailed documentation keep you informed and in control throughout the process, regardless of your location.",
+        },
+      },
+      cta: {
+        title: "Start Your Property Journey",
+        description:
+          "Whether buying or selling property in Portugal, navigating the legal complexities requires expert guidance. From initial preparation to final registration, I provide comprehensive legal support to protect your interests and ensure a smooth transaction. Let's discuss your specific situation and create a tailored strategy for your Portuguese real estate journey.",
+      },
+      purchaseSteps: [
+        {
+          title: "PREPARATION",
+          description: "Documentation & Offer",
+          duration: "1-2 weeks",
+          details: [
+            "Project Analysis",
+            "Legal due diligence",
+            "Purchase offer submission",
+          ],
+          tips: "Get pre-approved for mortgage if needed",
+          requiredDocs: [
+            "Property title",
+            "Tax records",
+            "Building permits",
+            "Energy certificate",
+          ],
+        },
+        {
+          title: "AGREEMENT",
+          description: "Contract & Deposit",
+          duration: "1-3 weeks",
+          details: [
+            "Conditions structuring",
+            "Contract negotiation",
+            "Signing",
+            "Deposit payment",
+          ],
+          tips: "Standard deposit is 10-30%",
+          requiredDocs: [
+            "Draft preliminary contract",
+            "Proof of funds for deposit",
+            "NIF",
+            "Identification documents",
+          ],
+        },
+        {
+          title: "CONDITIONS PRECEDENT",
+          description: "Verification & Funding",
+          duration: "2-8 weeks",
+          details: [
+            "Funding confirmation, if any",
+            "Verification of other conditions precedent",
+            "Verification of preemptive rights",
+            "Obtention of tax forms",
+          ],
+          tips: "For apartments, review condominium regulations and confirm absence outstanding fees.",
+          requiredDocs: [
+            "Land registry certificate (less than 6 months old)",
+            "Property tax certificate",
+            "Condominium certificate (if applicable)",
+            "Habitation license",
+          ],
+        },
+        {
+          title: "NOTARY DEED",
+          description: "Final Signature",
+          duration: "1 week",
+          details: [
+            "Documentation preparation",
+            "Translation if needed",
+            "Legal representation if needed",
+            "Tax payment oversight",
+          ],
+          tips: "Confirm exact payment procedures with your bank in advance, especially for international transfers.",
+          requiredDocs: [
+            "Final purchase contract",
+            "Proof of funds for final payment",
+            "Tax payment forms",
+            "Power of attorney (if applicable)",
+          ],
+        },
+        {
+          title: "TRANSFER",
+          description: "Registration",
+          duration: "2-4 weeks",
+          details: [
+            "Property registration",
+            "Utility transfers",
+            "Tax representation",
+            "Post-acquisition support",
+          ],
+          tips: "Keep all acquisition documents safely stored for future reference and eventual resale.",
+          requiredDocs: [
+            "Signed deed",
+            "Property tax registration form",
+            "Proof of payment of all transaction taxes",
+            "Utility contracts",
+          ],
+        },
+      ],
+      saleSteps: [
+        {
+          title: "PREPARATION",
+          description: "Documentation & Marketing",
+          duration: "2-3 weeks",
+          details: [
+            "Property evaluation",
+            "Document collection",
+            "Legal verification",
+            "Marketing preparation",
+          ],
+          tips: "Consider obtaining a new energy certificate if your current one is outdated",
+          requiredDocs: [
+            "Property Registration",
+            "Habitation license",
+            "Energy certificate",
+            "Condominium agreements (if applicable)",
+          ],
+        },
+        {
+          title: "NEGOTIATION",
+          description: "Offers & Terms",
+          duration: "4-12 weeks",
+          details: [
+            "Offer evaluation",
+            "Terms negotiation",
+            "Contract drafting",
+          ],
+          tips: "Negotiate progressive deposit terms for additional security if the closing timeline is extended.",
+          requiredDocs: [
+            "CPCV",
+            "Property valuation documents",
+            "Capital gains tax calculations",
+            "Power of attorney (if selling remotely)",
+          ],
+        },
+        {
+          title: "CLOSING",
+          description: "Deed & Transfer",
+          duration: "2-3 weeks",
+          details: [
+            "Final documentation",
+            "Tax compliance",
+            "Translation / Representation at notary",
+            "Fund reception",
+          ],
+          tips: "Make sure all utility contracts are transferred or terminated.",
+          requiredDocs: [
+            "Final deed document",
+            "Bank details for receiving funds",
+            "Utility termination requests",
+            "Capital gain declaration",
+          ],
+        },
+      ],
+      purchase: {
+        title: "Property Purchase",
+        description:
+          "Secure your property acquisition with comprehensive legal support, from search to final deed signing.",
+        services: [
+          "Comprehensive due diligence",
+          "Title and encumbrance verification",
+          "Preliminary contract negotiation",
+          "Notarial deed assistance",
+          "Coordination with all professionals involved",
+        ],
+      },
+      sale: {
+        title: "Property Sale",
+        description:
+          "Optimize your property sale with strategic legal advice and efficient transaction management.",
+        services: [
+          "Preparation of necessary documentation",
+          "Tax implications advisory",
+          "Sale conditions negotiation",
+          "Notarial deed assistance",
+          "Post-sale follow-up",
+        ],
+      },
+      dueDiligence: {
+        title: "Due Diligence",
+        description:
+          "In-depth analysis of the legal, administrative, and financial aspects of your real estate project.",
+        services: [
+          "Property legal status verification",
+          "Urban compliance check",
+          "Encumbrance and easement analysis",
+          "Tax verification",
+          "Potential risk assessment",
+        ],
+      },
+      formTitle: "Real Estate Contact Form",
+      cta: "Submit Your Request",
+    },
+    business: {
+      title: "Entrepreneurship",
+      description:
+        "Launch your business in Portugal with confidence. Complete legal guidance from company set-up to on-going legal support.",
+      items: [
+        "Legal structure selection",
+        "Company creation",
+        "Compliance",
+        "Ongoing legal support",
+      ],
+      cta: "Start Your Business",
+      formationPackage: {
+        title: "Business Formation Package",
+        subtitle: "Complete legal assistance for company formation in Portugal",
+      },
+      formationProcess: "Formation Process",
+      stepAction: {
+        previous: "Previous",
+        next: "Next",
+      },
+      stepInfo: {
+        details: "Key Steps",
+        requiredDocs: "Required Documents",
+        tips: "Helpful Tip",
+      },
+      cta: {
+        title: "Start Your Business Journey Today",
+        description:
+          "From concept to operation, establishing a business in Portugal requires navigating complex legal requirements. My comprehensive legal guidance ensures your company formation proceeds efficiently while building a solid legal foundation for your business success. Let's discuss your entrepreneurial vision and create a tailored formation strategy that aligns with your goals.",
+      },
+      steps: [
+        {
+          title: "COLLECTION",
+          description: "Gathering Documents",
+          details: [
+            "Gathering required information",
+            "Identity document verification",
+            "Confirmation of the business key elements",
+            "Strategic analysis",
+          ],
+          tips: "Consider future business expansion when selecting your business activities scope.",
+          requiredDocs: ["Identity document", "Proof of address", "NIF"],
+        },
+        {
+          title: "FORMATION",
+          description: "Company Names",
+          details: [
+            "Name reservation",
+            "Share structure design",
+            "Capital deposit options",
+            "Articles of association",
+          ],
+          tips: "Choose multiple alternative company names as your first choice may not be available.",
+          requiredDocs: [
+            "Name reservation application",
+            "Draft articles of association",
+            "Shareholder information",
+          ],
+        },
+        {
+          title: "REGISTRATION",
+          description: "Official Filing",
+          details: [
+            "Documentation submission",
+            "Registration monitoring",
+            "Corporate governance setup",
+            "Initial compliance setup",
+          ],
+          tips: "Registration can be completed within 1-3 business days if all documentation is properly prepared.",
+          requiredDocs: [
+            "Proof of name reservation",
+            "Signed articles of association",
+            "Powers of attorney (if applicable)",
+          ],
+        },
+        {
+          title: "BENEFICIARIES",
+          description: "UBO Registration",
+          details: [
+            "Ultimate Beneficial Owner identification",
+            "UBO declaration preparation",
+            "Compliance verification",
+            "Registry submission",
+          ],
+          tips: "UBO registration is mandatory.",
+          requiredDocs: [
+            "Beneficial owners' identification documents",
+            "Proof of ownership/control structure",
+            "Chain of ownership documentation",
+            "Beneficial owner declarations",
+          ],
+        },
+        {
+          title: "COMPLETION",
+          description: "Company Documentation",
+          details: [
+            "Documentation delivery",
+            "Post-formation filings",
+            "Creation of the minutes book",
+            "On-going legal assistance",
+          ],
+          tips: "Register for specific industry permits or licenses if required for your business activity.",
+          requiredDocs: [
+            "Company registration certificate",
+            "Tax registration documentation",
+            "Social security registration",
+            "Company seal and deed book",
+          ],
+        },
+      ],
     },
   },
 };

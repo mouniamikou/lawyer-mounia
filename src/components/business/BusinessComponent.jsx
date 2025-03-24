@@ -22,13 +22,22 @@ import { translations } from "@/translations";
 
 const BusinessFormationService = () => {
   const { language } = useLanguage();
-  const t =
-    translations[language]?.services?.business ||
-    translations.en.services.business;
+  const t = translations[language]?.business || translations.en.business;
+
+  console.log("Current language:", language);
+  console.log("Business translations:", t);
+  console.log("Steps translation:", t.steps);
+  console.log("First step details:", t.steps && t.steps[0]);
+
+  useEffect(() => {
+    // Force a re-render when language changes
+    console.log("Language changed to:", language);
+  }, [language]);
 
   const [activeStep, setActiveStep] = useState(0);
   const [showTips, setShowTips] = useState(true);
   const [currentStep, setCurrentStep] = useState(null);
+  const [steps, setSteps] = useState([]);
 
   const serviceVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -42,152 +51,61 @@ const BusinessFormationService = () => {
     },
   };
 
-  const steps = [
-    {
-      title: t.steps && t.steps[0] ? t.steps[0].title : "COLLECTION",
-      description:
-        t.steps && t.steps[0] ? t.steps[0].description : "Gathering Documents",
-      icon: <Download className="w-6 h-6 text-[#039B9B]" />,
-      duration: "1-2 weeks",
-      details:
-        t.steps && t.steps[0]
-          ? t.steps[0].details
-          : [
-              "Gathering required information",
-              "Identity document verification",
-              "Confirmation of the business key elements",
-              "Strategic analysis",
-            ],
-      tips:
-        t.steps && t.steps[0]
-          ? t.steps[0].tips
-          : "Consider future business expansion when selecting your business activities scope.",
-      requiredDocs:
-        t.steps && t.steps[0]
-          ? t.steps[0].requiredDocs
-          : ["Identity document", "Proof of address", "NIF"],
-    },
-    {
-      title: t.steps && t.steps[1] ? t.steps[1].title : "FORMATION",
-      description:
-        t.steps && t.steps[1] ? t.steps[1].description : "Company Names",
-      icon: <Building className="w-6 h-6 text-[#039B9B]" />,
-      duration: "1-2 weeks",
-      details:
-        t.steps && t.steps[1]
-          ? t.steps[1].details
-          : [
-              "Name reservation",
-              "Share structure design",
-              "Capital deposit options",
-              "Articles of association",
-            ],
-      tips:
-        t.steps && t.steps[1]
-          ? t.steps[1].tips
-          : "Choose multiple alternative company names as your first choice may not be available.",
-      requiredDocs:
-        t.steps && t.steps[1]
-          ? t.steps[1].requiredDocs
-          : [
-              "Name reservation application",
-              "Draft articles of association",
-              "Shareholder information",
-            ],
-    },
-    {
-      title: t.steps && t.steps[2] ? t.steps[2].title : "REGISTRATION",
-      description:
-        t.steps && t.steps[2] ? t.steps[2].description : "Official Filing",
-      icon: <FileCheck className="w-6 h-6 text-[#039B9B]" />,
-      duration: "1-3 business days",
-      details:
-        t.steps && t.steps[2]
-          ? t.steps[2].details
-          : [
-              "Documentation submission",
-              "Registration monitoring",
-              "Corporate governance setup",
-              "Initial compliance setup",
-            ],
-      tips:
-        t.steps && t.steps[2]
-          ? t.steps[2].tips
-          : "Registration can be completed within 1-3 business days if all documentation is properly prepared.",
-      requiredDocs:
-        t.steps && t.steps[2]
-          ? t.steps[2].requiredDocs
-          : [
-              "Proof of name reservation",
-              "Signed articles of association",
-              "Powers of attorney (if applicable)",
-            ],
-    },
-    {
-      title: t.steps && t.steps[3] ? t.steps[3].title : "BENEFICIARIES",
-      description:
-        t.steps && t.steps[3] ? t.steps[3].description : "UBO Registration",
-      icon: <Users className="w-6 h-6 text-[#039B9B]" />,
-      duration: "1-2 weeks",
-      details:
-        t.steps && t.steps[3]
-          ? t.steps[3].details
-          : [
-              "Ultimate Beneficial Owner identification",
-              "UBO declaration preparation",
-              "Compliance verification",
-              "Registry submission",
-            ],
-      tips:
-        t.steps && t.steps[3]
-          ? t.steps[3].tips
-          : "UBO registration is mandatory.",
-      requiredDocs:
-        t.steps && t.steps[3]
-          ? t.steps[3].requiredDocs
-          : [
-              "Beneficial owners' identification documents",
-              "Proof of ownership/control structure",
-              "Chain of ownership documentation",
-              "Beneficial owner declarations",
-            ],
-    },
-    {
-      title: t.steps && t.steps[4] ? t.steps[4].title : "COMPLETION",
-      description:
-        t.steps && t.steps[4]
-          ? t.steps[4].description
-          : "Company Documentation",
-      icon: <Scale className="w-6 h-6 text-[#039B9B]" />,
-      duration: "1-2 weeks",
-      details:
-        t.steps && t.steps[4]
-          ? t.steps[4].details
-          : [
-              "Documentation delivery",
-              "Post-formation filings",
-              "Creation of the minutes book",
-              "On-going legal assistance",
-            ],
-      tips:
-        t.steps && t.steps[4]
-          ? t.steps[4].tips
-          : "Register for specific industry permits or licenses if required for your business activity.",
-      requiredDocs:
-        t.steps && t.steps[4]
-          ? t.steps[4].requiredDocs
-          : [
-              "Company registration certificate",
-              "Tax registration documentation",
-              "Social security registration",
-              "Company seal and deed book",
-            ],
-    },
-  ];
+  useEffect(() => {
+    // Recreate the steps array when language changes
+    const newSteps = [
+      {
+        title: t.steps[0].title,
+        description: t.steps[0].description,
+        icon: <Download className="w-6 h-6 text-[#039B9B]" />,
+        duration: "1-2 weeks",
+        details: t.steps[0].details,
+        tips: t.steps[0].tips,
+        requiredDocs: t.steps[0].requiredDocs,
+      },
+      {
+        title: t.steps[1].title,
+        description: t.steps[1].description,
+        icon: <Building className="w-6 h-6 text-[#039B9B]" />,
+        duration: "1-2 weeks",
+        details: t.steps[1].details,
+        tips: t.steps[1].tips,
+        requiredDocs: t.steps[1].requiredDocs,
+      },
+      {
+        title: t.steps[2].title,
+        description: t.steps[2].description,
+        icon: <FileCheck className="w-6 h-6 text-[#039B9B]" />,
+        duration: "1-3 business days",
+        details: t.steps[2].details,
+        tips: t.steps[2].tips,
+        requiredDocs: t.steps[2].requiredDocs,
+      },
+      {
+        title: t.steps[3].title,
+        description: t.steps[3].description,
+        icon: <Users className="w-6 h-6 text-[#039B9B]" />,
+        duration: "1-2 weeks",
+        details: t.steps[3].details,
+        tips: t.steps[3].tips,
+        requiredDocs: t.steps[3].requiredDocs,
+      },
+      {
+        title: t.steps[4].title,
+        description: t.steps[4].description,
+        icon: <Scale className="w-6 h-6 text-[#039B9B]" />,
+        duration: "1-2 weeks",
+        details: t.steps[4].details,
+        tips: t.steps[4].tips,
+        requiredDocs: t.steps[4].requiredDocs,
+      },
+    ];
+    setSteps(newSteps);
+  }, [language, t]);
 
   useEffect(() => {
     setCurrentStep(steps[activeStep]);
-  }, [activeStep]);
+  }, [activeStep, steps]);
 
   const handleNext = () => {
     if (activeStep < steps.length - 1) {
@@ -230,14 +148,13 @@ const BusinessFormationService = () => {
             variants={serviceVariants}
             className="text-4xl md:text-5xl font-bold text-center text-primary-dark mb-8"
           >
-            {t.formationPackage?.title || "Business Formation Package"}
+            {t.formationPackage.title}
           </motion.h1>
           <motion.p
             variants={serviceVariants}
             className="text-xl text-center text-gray-600 max-w-3xl mx-auto mb-16"
           >
-            {t.formationPackage?.subtitle ||
-              "Complete legal assistance for company formation in Portugal"}
+            {t.formationPackage.subtitle}
           </motion.p>
         </div>
       </div>
@@ -246,7 +163,7 @@ const BusinessFormationService = () => {
         <div className="bg-white rounded-xl shadow-lg p-6">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-xl sm:text-2xl font-bold text-primary-dark">
-              {t.formationProcess || "Formation Process"}
+              {t.formationProcess}
             </h2>
             <button
               onClick={() => setShowTips(!showTips)}
@@ -315,9 +232,7 @@ const BusinessFormationService = () => {
               }`}
             >
               <ChevronLeft className="w-4 h-4" />
-              <span className="hidden sm:inline">
-                {t.stepAction?.previous || "Previous"}
-              </span>
+              <span className="hidden sm:inline">{t.stepAction.previous}</span>
             </button>
             <button
               onClick={handleNext}
@@ -328,9 +243,7 @@ const BusinessFormationService = () => {
                   : "bg-gray-200 text-gray-400 cursor-not-allowed"
               }`}
             >
-              <span className="hidden sm:inline">
-                {t.stepAction?.next || "Next"}
-              </span>
+              <span className="hidden sm:inline">{t.stepAction.next}</span>
               <ChevronRight className="w-4 h-4" />
             </button>
           </div>
@@ -348,11 +261,11 @@ const BusinessFormationService = () => {
                 <div className="flex items-center gap-2 mb-4 sm:mb-6">
                   {currentStep.icon}
                   <h4 className="font-semibold text-primary-dark text-base sm:text-lg">
-                    {t.stepInfo?.details || "Key Steps"}
+                    {t.stepInfo.details}
                   </h4>
                 </div>
                 <ul className="space-y-3 sm:space-y-4">
-                  {currentStep.details.map((detail, i) => (
+                  {t.steps[activeStep].details.map((detail, i) => (
                     <li
                       key={i}
                       className="flex items-start gap-3 bg-[#039B9B]/5 p-3 rounded-lg text-sm sm:text-base"
@@ -371,10 +284,10 @@ const BusinessFormationService = () => {
                       <AlertCircle className="w-6 h-6 text-primary-dark mt-1" />
                       <div>
                         <h4 className="font-semibold text-primary-dark mb-2 text-sm sm:text-base">
-                          {t.stepInfo?.tips || "Helpful Tip"}
+                          {t.stepInfo.tips}
                         </h4>
                         <p className="text-gray-600 text-sm sm:text-base">
-                          {currentStep.tips}
+                          {t.steps[activeStep].tips}
                         </p>
                       </div>
                     </div>
@@ -385,11 +298,11 @@ const BusinessFormationService = () => {
                   <div className="flex items-center gap-2 mb-4">
                     <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-primary-dark" />
                     <h4 className="font-semibold text-primary-dark text-sm sm:text-base">
-                      {t.stepInfo?.requiredDocs || "Required Documents"}
+                      {t.stepInfo.requiredDocs}
                     </h4>
                   </div>
                   <ul className="space-y-3">
-                    {currentStep.requiredDocs.map((doc, i) => (
+                    {t.steps[activeStep].requiredDocs.map((doc, i) => (
                       <li
                         key={i}
                         className="flex items-center gap-3 text-gray-600 bg-[#039B9B]/5 p-3 rounded-lg text-sm sm:text-base"
@@ -411,11 +324,10 @@ const BusinessFormationService = () => {
           className="mt-8 sm:mt-16 text-center"
         >
           <h2 className="text-2xl sm:text-3xl font-bold text-[#039B9B] mb-4">
-            {t.cta?.title || "Start Your Business Journey Today"}
+            {t.cta.title}
           </h2>
           <p className="text-gray-600 text-sm sm:text-base max-w-3xl mx-auto">
-            {t.cta?.description ||
-              "From concept to operation, establishing a business in Portugal requires navigating complex legal requirements. My comprehensive legal guidance ensures your company formation proceeds efficiently while building a solid legal foundation for your business success. Let's discuss your entrepreneurial vision and create a tailored formation strategy that aligns with your goals."}
+            {t.cta.description}
           </p>
         </motion.div>
       </div>
