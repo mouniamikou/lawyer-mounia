@@ -21,7 +21,7 @@ async function getData(slug) {
       body { en, fr },
       publishedAt,
       category,
-      excerpt { en, fr },
+      description { en, fr },
       seo { en, fr }
     }
   `;
@@ -32,56 +32,54 @@ async function getData(slug) {
 const components = {
   block: {
     h2: ({ children }) => {
-      // Extract text from children (handling cases where children are objects)
       const text = children
-        .map((child) =>
-          typeof child.props.text === "string"
-            ? child.props.text
-            : child?.props?.text || ""
-        )
+        .map((child) => {
+          if (typeof child === "string") return child;
+          if (typeof child?.props?.text === "string") return child.props.text;
+          return "";
+        })
         .join(" ")
         .trim();
-      // Ensure text exists before generating ID
+    
       if (!text) return <h2 className="text-3xl font-bold my-5">{children}</h2>;
-
-      // Generate an ID from the heading text
+    
       const id = text
         .toLowerCase()
-        .replace(/\s+/g, "-") // Replace spaces with dashes
-        .replace(/[^a-z0-9-]/g, ""); // Remove special characters
-
+        .replace(/\s+/g, "-")
+        .replace(/[^a-z0-9-]/g, "");
+    
       return (
         <h2 id={id} className="text-3xl font-bold my-5 scroll-mt-20">
           {children}
         </h2>
       );
     },
+    
 
     h3: ({ children }) => {
-      // Extract text from children (handling cases where children are objects)
       const text = children
-        .map((child) =>
-          typeof child.props.text === "string"
-            ? child.props.text
-            : child?.props?.text || ""
-        )
+        .map((child) => {
+          if (typeof child === "string") return child;
+          if (typeof child?.props?.text === "string") return child.props.text;
+          return "";
+        })
         .join(" ")
         .trim();
-      // Ensure text exists before generating ID
+    
       if (!text) return <h3 className="text-2xl font-bold my-4">{children}</h3>;
-
-      // Generate an ID from the heading text
+    
       const id = text
         .toLowerCase()
-        .replace(/\s+/g, "-") // Replace spaces with dashes
-        .replace(/[^a-z0-9-]/g, ""); // Remove special characters
-
+        .replace(/\s+/g, "-")
+        .replace(/[^a-z0-9-]/g, "");
+    
       return (
         <h3 id={id} className="text-2xl font-bold my-4">
           {children}
         </h3>
       );
     },
+    
     normal: ({ children }) => (
       <p className="text-lg my-4 leading-relaxed">{children}</p>
     ),
