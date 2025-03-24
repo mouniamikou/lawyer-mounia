@@ -44,7 +44,13 @@ const RealEstateForm = () => {
     },
     other: "",
     termsAccepted: false,
+    name: "",
+    propertyType: "",
+    message: "",
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
 
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
@@ -53,13 +59,73 @@ const RealEstateForm = () => {
 
   const budgetRanges = t.budget.ranges;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your form submission logic here
-    setIsSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch("/api/realestate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus("success");
+        // Reset form
+        setFormData({
+          personalInfo: {
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            currentCountry: "",
+          },
+          projectStatus: "",
+          transactionType: "", // 'buy' or 'sell'
+          budget: "", // for buying
+          projectStage: {
+            searching: false,
+            identifiedProperty: false,
+            submittedOffer: false,
+            offerAccepted: false,
+            promiseSigned: false,
+            deedSigned: false,
+            promiseDate: "",
+            deedDate: "",
+          },
+          sellingStage: {
+            considering: false,
+            listed: false,
+            offerAccepted: false,
+            promiseSigned: false,
+            deedSigned: false,
+            promiseDate: "",
+            deedDate: "",
+          },
+          other: "",
+          termsAccepted: false,
+          name: "",
+          propertyType: "",
+          message: "",
+        });
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  if (isSubmitted) {
+  if (submitStatus === "success") {
     return <SuccessMessage />;
   }
 
@@ -79,6 +145,18 @@ const RealEstateForm = () => {
         className="space-y-6"
         onSubmit={handleSubmit}
       >
+        {/* Display success/error messages */}
+        {submitStatus === "success" && (
+          <div className="success-message">
+            Your real estate inquiry has been submitted successfully!
+          </div>
+        )}
+        {submitStatus === "error" && (
+          <div className="error-message">
+            There was an error submitting your form. Please try again.
+          </div>
+        )}
+
         <PersonalInfoForm
           formData={formData}
           onFormDataChange={setFormData}
@@ -511,8 +589,9 @@ const RealEstateForm = () => {
           <button
             type="submit"
             className="w-full bg-[#039B9B] text-white px-6 py-3 rounded-lg hover:bg-[#028787] transition-colors font-semibold"
+            disabled={isSubmitting}
           >
-            {t.submit}
+            {isSubmitting ? "Submitting..." : t.submit}
           </button>
         </motion.div>
       </motion.form>

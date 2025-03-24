@@ -33,7 +33,75 @@ const BusinessForm = () => {
     timeline: "", // '<1month', '1-3months', '>3months'
     other: "",
     termsAccepted: false,
+    name: "",
+    message: "",
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch("/api/business", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus("success");
+        setFormData({
+          personalInfo: {
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            currentCountry: "",
+          },
+          businessType: "",
+          createType: "",
+          companyStructure: "",
+          needAdvice: false,
+          existingBusiness: {
+            contracts: false,
+            compliance: false,
+            disputes: false,
+            other: false,
+            otherText: "",
+          },
+          businessSector: "",
+          timeline: "",
+          other: "",
+          termsAccepted: false,
+          name: "",
+          message: "",
+        });
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
@@ -50,7 +118,23 @@ const BusinessForm = () => {
         backgroundPosition: "center",
       }}
     >
-      <motion.form initial="hidden" animate="visible" className="space-y-6">
+      <motion.form
+        initial="hidden"
+        animate="visible"
+        className="space-y-6"
+        onSubmit={handleSubmit}
+      >
+        {submitStatus === "success" && (
+          <div className="success-message">
+            Your business inquiry has been submitted successfully!
+          </div>
+        )}
+        {submitStatus === "error" && (
+          <div className="error-message">
+            There was an error submitting your form. Please try again.
+          </div>
+        )}
+
         <PersonalInfoForm
           formData={formData}
           onFormDataChange={setFormData}
@@ -69,9 +153,7 @@ const BusinessForm = () => {
                 name="businessType"
                 value="create"
                 className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
-                onChange={(e) =>
-                  setFormData({ ...formData, businessType: e.target.value })
-                }
+                onChange={handleChange}
                 checked={formData.businessType === "create"}
               />
               <span className="text-gray-700">
@@ -85,9 +167,7 @@ const BusinessForm = () => {
                 name="businessType"
                 value="assist"
                 className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
-                onChange={(e) =>
-                  setFormData({ ...formData, businessType: e.target.value })
-                }
+                onChange={handleChange}
                 checked={formData.businessType === "assist"}
               />
               <span className="text-gray-700">
@@ -102,9 +182,7 @@ const BusinessForm = () => {
                 name="businessType"
                 value="other"
                 className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
-                onChange={(e) =>
-                  setFormData({ ...formData, businessType: e.target.value })
-                }
+                onChange={handleChange}
                 checked={formData.businessType === "other"}
               />
               <span className="text-gray-700">{t?.other || "Other"}</span>
@@ -125,9 +203,7 @@ const BusinessForm = () => {
                   name="createType"
                   value="self-employed"
                   className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
-                  onChange={(e) =>
-                    setFormData({ ...formData, createType: e.target.value })
-                  }
+                  onChange={handleChange}
                   checked={formData.createType === "self-employed"}
                 />
                 <span className="text-gray-700">
@@ -141,9 +217,7 @@ const BusinessForm = () => {
                   name="createType"
                   value="company"
                   className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
-                  onChange={(e) =>
-                    setFormData({ ...formData, createType: e.target.value })
-                  }
+                  onChange={handleChange}
                   checked={formData.createType === "company"}
                 />
                 <span className="text-gray-700">
@@ -159,12 +233,7 @@ const BusinessForm = () => {
                       name="companyStructure"
                       value="alone"
                       className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
-                      onChange={(e) =>
-                        setFormData({
-                          ...formData,
-                          companyStructure: e.target.value,
-                        })
-                      }
+                      onChange={handleChange}
                       checked={formData.companyStructure === "alone"}
                     />
                     <span className="text-gray-700">
@@ -177,12 +246,7 @@ const BusinessForm = () => {
                       name="companyStructure"
                       value="partners"
                       className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
-                      onChange={(e) =>
-                        setFormData({
-                          ...formData,
-                          companyStructure: e.target.value,
-                        })
-                      }
+                      onChange={handleChange}
                       checked={formData.companyStructure === "partners"}
                     />
                     <span className="text-gray-700">
@@ -327,9 +391,7 @@ const BusinessForm = () => {
                 "Please specify your business sector"
               }
               value={formData.businessSector}
-              onChange={(e) =>
-                setFormData({ ...formData, businessSector: e.target.value })
-              }
+              onChange={handleChange}
             />
           </div>
         </motion.section>
@@ -360,9 +422,7 @@ const BusinessForm = () => {
                   name="timeline"
                   value={option.value}
                   className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
-                  onChange={(e) =>
-                    setFormData({ ...formData, timeline: e.target.value })
-                  }
+                  onChange={handleChange}
                   checked={formData.timeline === option.value}
                 />
                 <span className="text-gray-700">{option.label}</span>
@@ -385,9 +445,7 @@ const BusinessForm = () => {
                 "Please specify any other requirements or information"
               }
               value={formData.other}
-              onChange={(e) =>
-                setFormData({ ...formData, other: e.target.value })
-              }
+              onChange={handleChange}
             />
           </div>
         </motion.section>
@@ -415,8 +473,9 @@ const BusinessForm = () => {
           <button
             type="submit"
             className="w-full bg-[#039B9B] text-white px-6 py-3 rounded-lg hover:bg-[#028787] transition-colors font-semibold"
+            disabled={isSubmitting}
           >
-            {t?.submit || "Submit Request"}
+            {isSubmitting ? "Submitting..." : t?.submit || "Submit Request"}
           </button>
         </motion.div>
       </motion.form>
