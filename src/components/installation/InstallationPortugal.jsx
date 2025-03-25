@@ -94,7 +94,7 @@ const InstallationPortugal = () => {
             variants={serviceVariants}
             className="text-4xl md:text-5xl font-bold text-center text-primary-dark mb-8"
           >
-            {t.title}
+          {t.title}
           </motion.h1>
 
           <motion.p
@@ -156,14 +156,15 @@ const InstallationPortugal = () => {
             </button>
           </div>
 
-          <div className="relative mb-12">
+          {/* Timeline */}
+          <div className="relative mb-8 sm:mb-12 overflow-x-auto pb-4">
             <div className="absolute top-8 left-0 w-full h-1 bg-[#039B9B]/10" />
 
-            <div className="relative flex justify-between">
+            <div className="relative flex justify-between min-w-[640px] sm:min-w-0 px-4 sm:px-0">
               {currentSteps.map((step, index) => (
                 <motion.div
                   key={index}
-                  className={`relative flex flex-col items-center w-48 group ${
+                  className={`relative flex flex-col items-center w-40 sm:w-48 group ${
                     index === activeStep ? "scale-105" : ""
                   }`}
                   initial={{ opacity: 0, y: 20 }}
@@ -172,7 +173,7 @@ const InstallationPortugal = () => {
                 >
                   <button
                     onClick={() => handleStepClick(index)}
-                    className={`w-8 h-8 rounded-full flex items-center justify-center
+                    className={`w-8 h-8 mt-1 rounded-full flex items-center justify-center
                       ${index <= activeStep ? "text-primary-dark" : "text-gray-400"} 
                       ${index === activeStep ? "ring-4 ring-[#039B9B]/20" : ""}
                       bg-white border-2 border-current
@@ -180,85 +181,113 @@ const InstallationPortugal = () => {
                   >
                     <span className="font-medium">{index + 1}</span>
                   </button>
-                  <span className="text-center text-sm text-gray-600 mt-2 font-medium">
-                    {step.description}
-                  </span>
+
+                  <div
+                    className={`text-center mt-4 transition-colors duration-300 ${
+                      index === activeStep ? "text-primary-dark" : "text-gray-600"
+                    }`}
+                  >
+                    <h3 className="font-bold text-xs sm:text-sm mb-1">
+                      {step.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm opacity-80">
+                      {step.description}
+                    </p>
+                  </div>
                 </motion.div>
               ))}
             </div>
           </div>
 
+          {/* Navigation */}
+          <div className="flex justify-between gap-4 mb-6 sm:mb-8">
+            <button
+              onClick={handlePrevious}
+              disabled={activeStep === 0}
+              className={`px-4 py-2 sm:px-6 sm:py-3 rounded-lg transition-all flex items-center gap-2 text-sm sm:text-base flex-1 sm:flex-none justify-center ${
+                activeStep > 0
+                  ? "bg-[#039B9B] text-white hover:shadow-lg"
+                  : "bg-gray-200 text-gray-400 cursor-not-allowed"
+              }`}
+            >
+              <ChevronLeft className="w-4 h-4" />
+              <span className="hidden sm:inline">{t.stepAction.previous}</span>
+            </button>
+            <button
+              onClick={handleNext}
+              disabled={activeStep === currentSteps.length - 1}
+              className={`px-4 py-2 sm:px-6 sm:py-3 rounded-lg transition-all flex items-center gap-2 text-sm sm:text-base flex-1 sm:flex-none justify-center ${
+                activeStep < currentSteps.length - 1
+                  ? "bg-[#039B9B] text-white hover:shadow-lg"
+                  : "bg-gray-200 text-gray-400 cursor-not-allowed"
+              }`}
+            >
+              <span className="hidden sm:inline">{t.stepAction.next}</span>
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+
+          {/* Content */}
           <AnimatePresence mode="wait">
             <motion.div
               key={activeStep}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4 }}
-              className="mb-8"
+              className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                {/* Left Column - Main Step Info */}
-                <div className="lg:col-span-2">
-                  <h3 className="text-3xl font-bold text-primary-dark mb-3">
-                    {currentStep.title}
-                  </h3>
-                  <p className="text-gray-600 mb-6">
-                    {currentStep.descriptionDetails}
-                  </p>
+              <div>
+                <div className="flex items-center gap-2 mb-4 sm:mb-6">
+                  {currentStep.icon}
+                  <h4 className="font-semibold text-primary-dark text-base sm:text-lg">
+                    {t.stepInfo.details}
+                  </h4>
+                </div>
+                <ul className="space-y-3 sm:space-y-4">
+                  {currentStep.details.map((detail, i) => (
+                    <li
+                      key={i}
+                      className="flex items-start gap-3 bg-[#039B9B]/5 p-3 rounded-lg text-sm sm:text-base"
+                    >
+                      <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-primary-dark mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-                  <div className="mb-8">
-                    <h4 className="text-lg font-semibold text-primary-dark mb-3 flex items-center">
-                      <LucideFileCheck className="mr-2 text-primary" />
-                      {t.stepInfo.details}
-                    </h4>
-                    <ul className="space-y-3">
-                      {currentStep.details.map((detail, index) => (
-                        <li key={index} className="flex items-start">
-                          <CheckCircle className="text-green-500 h-5 w-5 mt-0.5 mr-2 shrink-0" />
-                          <span>{detail}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="mb-8">
-                    <h4 className="text-lg font-semibold text-primary-dark mb-3 flex items-center">
-                      <Clock className="mr-2 text-primary" />
-                      {t.stepInfo.duration}
-                    </h4>
-                    <div className="px-4 py-3 bg-blue-50 text-blue-800 rounded-lg">
-                      {currentStep.duration}
-                    </div>
-                  </div>
-
-                  {showTips && (
-                    <div className="mb-8">
-                      <h4 className="text-lg font-semibold text-primary-dark mb-3 flex items-center">
-                        <AlertCircle className="mr-2 text-amber-500" />
-                        {t.stepInfo.tips}
-                      </h4>
-                      <div className="px-4 py-3 bg-amber-50 text-amber-800 rounded-lg">
-                        {currentStep.tips}
+              <div className="space-y-6 sm:space-y-8">
+                {showTips && (
+                  <div className="bg-[#039B9B]/10 rounded-lg p-4 sm:p-6">
+                    <div className="flex items-start gap-3">
+                      <AlertCircle className="w-6 h-6 text-primary-dark mt-1" />
+                      <div>
+                        <h4 className="font-semibold text-primary-dark mb-2 text-sm sm:text-base">
+                          {t.stepInfo.tips}
+                        </h4>
+                        <p className="text-gray-600 text-sm sm:text-base">
+                          {currentStep.tips}
+                        </p>
                       </div>
                     </div>
-                  )}
-                </div>
+                  </div>
+                )}
 
-                {/* Right Column - Required Documents */}
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <h4 className="text-lg font-semibold text-primary-dark mb-4 flex items-center">
-                    <FileText className="mr-2 text-primary" />
-                    {t.stepInfo.requiredDocs}
-                  </h4>
+                <div>
+                  <div className="flex items-center gap-2 mb-4">
+                    <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-primary-dark" />
+                    <h4 className="font-semibold text-primary-dark text-sm sm:text-base">
+                      {t.stepInfo.requiredDocs}
+                    </h4>
+                  </div>
                   <ul className="space-y-3">
-                    {currentStep.requiredDocs.map((doc, index) => (
+                    {currentStep.requiredDocs.map((doc, i) => (
                       <li
-                        key={index}
-                        className="flex items-start border-b border-gray-200 pb-2"
+                        key={i}
+                        className="flex items-center gap-3 text-gray-600 bg-[#039B9B]/5 p-3 rounded-lg text-sm sm:text-base"
                       >
-                        <BookMarked className="text-primary h-5 w-5 mt-0.5 mr-2 shrink-0" />
-                        <span>{doc}</span>
+                        <div className="w-2 h-2 rounded-full bg-[#039B9B]" />
+                        {doc}
                       </li>
                     ))}
                   </ul>
@@ -266,33 +295,6 @@ const InstallationPortugal = () => {
               </div>
             </motion.div>
           </AnimatePresence>
-
-          <div className="flex justify-between pt-4">
-            <button
-              onClick={handlePrevious}
-              disabled={activeStep === 0}
-              className={`flex items-center px-4 py-2 rounded-lg transition-colors ${
-                activeStep === 0
-                  ? "text-gray-400 cursor-not-allowed"
-                  : "text-gray-700 hover:bg-gray-100"
-              }`}
-            >
-              <ChevronLeft className="w-5 h-5 mr-1" />
-              {t.stepAction.previous}
-            </button>
-            <button
-              onClick={handleNext}
-              disabled={activeStep === currentSteps.length - 1}
-              className={`flex items-center px-4 py-2 rounded-lg transition-colors ${
-                activeStep === currentSteps.length - 1
-                  ? "text-gray-400 cursor-not-allowed"
-                  : "text-gray-700 hover:bg-gray-100"
-              }`}
-            >
-              {t.stepAction.next}
-              <ChevronRight className="w-5 h-5 ml-1" />
-            </button>
-          </div>
         </div>
       </div>
     </div>

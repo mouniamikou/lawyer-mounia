@@ -6,7 +6,6 @@ import {
   Download,
   FileText,
   CheckCircle,
-  AlertTriangle,
   AlertCircle,
   Info,
   ChevronLeft,
@@ -14,7 +13,6 @@ import {
   Building,
   Scale,
   FileCheck,
-  HandCoins,
   Users,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";

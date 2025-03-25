@@ -189,7 +189,7 @@ const BlogPost = () => {
 
         return (
           <li key={id}>
-            <a href={`#${id}`} className="text-blue-500 hover:underline">
+            <a href={`#${id}`} className="text-white hover:underline">
               {text}
             </a>
           </li>
@@ -237,13 +237,16 @@ const BlogPost = () => {
           {post.category}
         </span>
         <h1 className="text-5xl font-bold mb-4">{post.title}</h1>
+     
         <time className="text-gray-600 block mb-6">
           {formatDate(post.publishedAt)}
         </time>
+        <p className="text-xl text-gray-700 mb-4">{post.description[language] || post.description.en}</p>
       </div>
 
       {post.mainImage && (
         <div className="relative w-full h-[500px] mb-12">
+          
           <Image
             src={post.mainImage.asset.url}
             alt={post.title}
@@ -254,10 +257,10 @@ const BlogPost = () => {
         </div>
       )}
 
-      <div className="prose prose-lg max-w-none">
-        <nav className="mb-6 p-4 border rounded-lg bg-gray-100">
-          <h3 className="text-xl font-semibold mb-2">Summary</h3>
-          <ul className="list-disc pl-5">{generateSummary(post.body)}</ul>
+      <div className="prose  prose-lg max-w-none">
+        <nav className="mb-6 p-4 border rounded-lg bg-primary ">
+          <h3 className="text-xl text-white font-semibold mb-2">Summary</h3>
+          <ul className="list-disc text-white pl-5">{generateSummary(post.body)}</ul>
         </nav>
         <PortableText value={post.body} components={components} />
       </div>
