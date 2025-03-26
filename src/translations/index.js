@@ -709,6 +709,40 @@ export const translations = {
         },
       ],
     },
+    mainForm: {
+      title: "Services Juridiques au Portugal",
+      subtitle:
+        "Assistance experte en création d'entreprise, transactions immobilières et services de relocalisation au Portugal.",
+      services: {
+        installation: {
+          title: "Installation au Portugal",
+          description: "Cliquez pour sélectionner ce type de service",
+        },
+        realEstate: {
+          title: "Immobilier",
+          description: "Cliquez pour sélectionner ce type de service",
+        },
+        business: {
+          title: "Entreprise",
+          description: "Cliquez pour sélectionner ce type de service",
+        },
+        other: {
+          title: "Autres Services",
+          description: "Cliquez pour sélectionner ce type de service",
+        },
+      },
+      otherServices: {
+        title: "Veuillez Décrire Vos Besoins",
+        placeholder:
+          "Veuillez décrire en détail les services dont vous avez besoin. Incluez toutes les exigences spécifiques ou questions que vous pourriez avoir.",
+      },
+      termsAndConditions:
+        "En cochant cette case, je reconnais avoir lu et accepté les conditions générales. Je consens à la collecte et au traitement de mes données personnelles uniquement dans le but d'être contacté concernant ma demande. Mes informations ne seront pas partagées avec des tiers ni utilisées à d'autres fins que cette demande.",
+      buttons: {
+        submit: "Envoyer la Demande",
+        back: "Retour",
+      },
+    },
   },
   en: {
     nav: {
@@ -1409,6 +1443,40 @@ export const translations = {
           ],
         },
       ],
+    },
+    mainForm: {
+      title: "Legal Services in Portugal",
+      subtitle:
+        "Expert assistance with business creation, transactions immobilières et services de relocalisation au Portugal.",
+      services: {
+        installation: {
+          title: "Installation in Portugal",
+          description: "Cliquez pour sélectionner ce type de service",
+        },
+        realEstate: {
+          title: "Immobilier",
+          description: "Cliquez pour sélectionner ce type de service",
+        },
+        business: {
+          title: "Entreprise",
+          description: "Cliquez pour sélectionner ce type de service",
+        },
+        other: {
+          title: "Autres Services",
+          description: "Cliquez pour sélectionner ce type de service",
+        },
+      },
+      otherServices: {
+        title: "Veuillez Décrire Vos Besoins",
+        placeholder:
+          "Veuillez décrire en détail les services dont vous avez besoin. Incluez toutes les exigences spécifiques ou questions que vous pourriez avoir.",
+      },
+      termsAndConditions:
+        "En cochant cette case, je reconnais avoir lu et accepté les conditions générales. Je consens à la collecte et au traitement de mes données personnelles uniquement dans le but d'être contacté concernant ma demande. Mes informations ne seront pas partagées avec des tiers ni utilisées à d'autres fins que cette demande.",
+      buttons: {
+        submit: "Envoyer la Demande",
+        back: "Retour",
+      },
     },
   },
 };
