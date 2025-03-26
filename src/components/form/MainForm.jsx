@@ -54,10 +54,57 @@ const MainContactForm = () => {
     );
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    // Handle form submission
+
+    // You could add a loading state here if needed
+    // const [isSubmitting, setIsSubmitting] = useState(false);
+    // setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/general", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || "Failed to send email");
+      }
+
+      // Show success message
+      alert(t.form?.successMessage || "Form submitted successfully!");
+
+      // Reset form
+      setFormData({
+        personalInfo: {
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          currentCountry: "",
+        },
+        projectStatus: "",
+        serviceType: "",
+        installation: {},
+        realEstate: {},
+        business: {},
+        otherDetails: "",
+        additionalInfo: "",
+        termsAccepted: false,
+      });
+      setStep(1);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert(t.form?.errorMessage || "Failed to submit form. Please try again.");
+    } finally {
+      // Hide loading state if needed
+      // setIsSubmitting(false);
+    }
   };
 
   return (

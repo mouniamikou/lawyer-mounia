@@ -742,6 +742,11 @@ export const translations = {
         submit: "Envoyer la Demande",
         back: "Retour",
       },
+      form: {
+        successMessage: "Merci ! Nous vous répondrons bientôt.",
+        errorMessage:
+          "Désolé, une erreur s'est produite lors de l'envoi du formulaire. Veuillez réessayer.",
+      },
     },
   },
   en: {
@@ -1476,6 +1481,11 @@ export const translations = {
       buttons: {
         submit: "Envoyer la Demande",
         back: "Retour",
+      },
+      form: {
+        successMessage: "Thank you! We'll get back to you soon.",
+        errorMessage:
+          "Sorry, there was an error submitting your form. Please try again.",
       },
     },
   },
