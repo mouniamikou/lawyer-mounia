@@ -32,9 +32,70 @@ const InstallationForm = () => {
     termsAccepted: false,
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
+
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch("/api/installation", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus("success");
+        // Reset form
+        setFormData({
+          personalInfo: {
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            currentCountry: "",
+          },
+          projectStatus: "",
+          residencyStatus: "", // 'eu' or 'non-eu'
+          portugaStatus: "", // 'moving' or 'resident'
+          needs: {
+            administrative: false,
+            consultation: false,
+            other: false,
+          },
+          visaType: "", // 'D2' or 'D7'
+          aimaDate: "",
+          termsAccepted: false,
+        });
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -47,7 +108,12 @@ const InstallationForm = () => {
         backgroundPosition: "center",
       }}
     >
-      <motion.form initial="hidden" animate="visible" className="space-y-6">
+      <motion.form
+        initial="hidden"
+        animate="visible"
+        className="space-y-6"
+        onSubmit={handleSubmit}
+      >
         <PersonalInfoForm formData={formData} onFormDataChange={setFormData} />
 
         {/* Residency Status */}
@@ -361,11 +427,22 @@ const InstallationForm = () => {
         </motion.section>
 
         <motion.div variants={fadeIn} className="pt-6">
+          {submitStatus === "success" && (
+            <div className="success-message">
+              Your installation inquiry has been submitted successfully!
+            </div>
+          )}
+          {submitStatus === "error" && (
+            <div className="error-message">
+              There was an error submitting your form. Please try again.
+            </div>
+          )}
           <button
             type="submit"
             className="w-full bg-[#039B9B] text-white px-6 py-3 rounded-lg hover:bg-[#028787]] transition-colors font-semibold"
+            disabled={isSubmitting}
           >
-            {t.submit}
+            {isSubmitting ? "Submitting..." : t.submit}
           </button>
         </motion.div>
       </motion.form>
