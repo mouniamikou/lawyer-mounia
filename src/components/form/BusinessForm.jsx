@@ -391,7 +391,9 @@ const BusinessForm = () => {
                 "Please specify your business sector"
               }
               value={formData.businessSector}
-              onChange={handleChange}
+              onChange={(e) =>
+                setFormData({ ...formData, businessSector: e.target.value })
+              }
             />
           </div>
         </motion.section>
@@ -445,7 +447,9 @@ const BusinessForm = () => {
                 "Please specify any other requirements or information"
               }
               value={formData.other}
-              onChange={handleChange}
+              onChange={(e) =>
+                setFormData({ ...formData, other: e.target.value })
+              }
             />
           </div>
         </motion.section>
