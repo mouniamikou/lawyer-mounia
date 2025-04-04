@@ -11,12 +11,6 @@ import { translations } from "@/translations";
 function Page() {
   const { language } = useLanguage();
 
-  console.log("Business page language:", language);
-  console.log(
-    "Business translations:",
-    translations[language]?.services?.business
-  );
-
   return (
     <>
       <Navbar />

@@ -141,22 +141,22 @@ const RealEstateServicesPage = () => {
   return (
     <div className="py-24 px-4">
       {/* Header Section with Background */}
-      <div className="relative mb-12">
+      <div className="relative mb-12 max-w-6xl mx-auto">
         {/* Background Image with Overlay */}
         <div
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 "
           style={{
             backgroundImage:
               "url('/core-architects_portuguese-architecture99-1160x613.jpg')", // Replace with your image path
             backgroundPosition: "center",
-            backgroundSize: "60%",
+            backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             opacity: "0.3", // Adjust opacity as needed
           }}
         />
 
         {/* Header Content */}
-        <div className="relative z-10 py-12">
+        <div className="relative z-10   py-12 px-12">
           <motion.h1
             variants={serviceVariants}
             className="text-4xl md:text-5xl font-bold text-center text-primary-dark mb-8"
@@ -166,13 +166,13 @@ const RealEstateServicesPage = () => {
 
           <motion.p
             variants={serviceVariants}
-            className="text-xl text-center text-gray-600 max-w-3xl mx-auto mb-16"
+            className="text-xl text-center text-gray-600   mx-auto mb-8"
           >
             {t.subtitle}
           </motion.p>
 
           {/* Service Type Tabs */}
-          <div className="flex justify-center gap-6 mb-12">
+          <div className="flex justify-center gap-6 ">
             <motion.button
               variants={serviceVariants}
               onClick={() => setActiveTab("purchase")}

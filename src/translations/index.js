@@ -100,10 +100,14 @@ export const translations = {
       },
     },
     footer: {
+      contact: "Contact",
       office: "Cabinet Juridique",
       navigation: "Navigation",
       followUs: "Suivez-nous",
       rights: "Tous droits réservés",
+      needLegalAdvice: "Besoin d'aide ?",
+      legalGuidance: "Obtenez des conseils juridiques personnalisés.",
+      bookConsultation: "Réserver une Consultation",
       address: "Rua Augusta, Lisbonne, Portugal",
       schedule: "Lun-Ven: 9:00 - 18:00",
       legalLinks: {
@@ -112,7 +116,9 @@ export const translations = {
         cookies: "Politique des cookies",
         disclaimer: "Mentions légales",
       },
+      copyright: "Cabinet Juridique. Tous droits réservés.",
     },
+
     contact: {
       title: "Prêt à Commencer Votre Parcours Portugais ?",
       subtitle:
@@ -137,16 +143,16 @@ export const translations = {
     installationPortugal: {
       title: "Installation au Portugal",
       subtitle:
-        "Accompagnement juridique expert pour une transition en douceur au Portugal, avec un soutien personnalisé à chaque étape administrative de votre processus de relocalisation.",
+        "Assistance juridique complète pour votre relocalisation au Portugal : de l'obtention du visa jusqu'à la résidence permanente",
       tabs: {
         nonEU: "Citoyens Hors-UE",
         eu: "Citoyens UE",
       },
-      timeline: "Calendrier du Processus",
+      timeline: "Calendrier du processus",
       globalSteps: [
         {
           title: "DEMANDE DE VISA",
-          description: "Processus Initial",
+          description: "Processus initial",
           descriptionDetails:
             "Sécurisez votre droit légal de résider au Portugal avec une planification stratégique de visa et un soutien expert pour votre demande.",
           duration: "4-6 semaines",
@@ -167,17 +173,17 @@ export const translations = {
         },
         {
           title: "RELOCALISATION",
-          description: "Processus de Déménagement",
+          description: "Déménagement",
           descriptionDetails:
             "Gérez les préparatifs avant l'arrivée et les démarches administratives essentielles pour une transition en douceur.",
           duration: "2-3 semaines",
           details: [
-            "Organisation du logement",
+            "Préparation du logement",
             "Ouverture de compte bancaire",
             "Enregistrement du NIF",
-            "Inscription à la santé",
+            "Souscription d'une protection santé",
           ],
-          tips: "Envisagez d'abord un logement temporaire pour permettre des visites de propriétés en personne avant un engagement à long terme",
+          tips: "Envisagez d'abord un logement temporaire pour permettre des visites de biens en personne avant un engagement à long terme",
           requiredDocs: [
             "Justificatif de domicile",
             "Preuve de capacité financière",
@@ -195,7 +201,7 @@ export const translations = {
             "Enregistrement de résidence",
             "Inscription à la sécurité sociale",
             "Enregistrement à l'ambassade",
-            "Intégration communautaire",
+            "Intégration",
           ],
           tips: "Envisagez des cours de portugais pour faciliter l'intégration et les interactions quotidiennes.",
           requiredDocs: [
@@ -209,13 +215,13 @@ export const translations = {
       euSteps: [
         {
           title: "ENREGISTREMENT",
-          description: "Installation Initiale",
+          description: "Préparation",
           descriptionDetails:
             "Commencez votre parcours avec les enregistrements essentiels et la préparation de documents pour les citoyens de l'UE.",
           duration: "1-2 semaines",
           details: [
             "Vérification de la citoyenneté UE",
-            "Enregistrement du NIF",
+            "Obtention du NIF",
             "Enregistrement de l'adresse",
             "Certificat d'enregistrement",
           ],
@@ -228,13 +234,13 @@ export const translations = {
         },
         {
           title: "ÉTABLISSEMENT",
-          description: "Installation Locale",
+          description: "Installation",
           descriptionDetails:
             "Sécurisez votre base administrative locale avec la banque, les soins de santé et la documentation résidentielle.",
           duration: "2-3 semaines",
           details: [
             "Ouverture de compte bancaire",
-            "Inscription aux soins de santé",
+            "Couverture santé",
             "Enregistrement à la sécurité sociale",
           ],
           tips: "L'inscription au système portugais est obligatoire pour les citoyens de l'UE séjournant plus de 3 mois au Portugal",
@@ -247,7 +253,7 @@ export const translations = {
         },
         {
           title: "INTÉGRATION",
-          description: "Processus Final",
+          description: "Processus final",
           descriptionDetails:
             "Complétez votre transition avec des exigences administratives à long terme et envisagez la citoyenneté.",
           duration: "2-4 semaines",
@@ -265,16 +271,21 @@ export const translations = {
         next: "Suivant",
       },
       stepInfo: {
-        requiredDocs: "Documents Requis",
+        requiredDocs: "Documents requis",
         details: "Détails",
         duration: "Durée",
         tips: "Conseils",
+      },
+      cta: {
+        title: "Commencez votre nouvelle vie au Portugal",
+        description:
+          "De la planification à l'installation définitive, s'établir au Portugal nécessite une navigation experte à travers les procédures administratives et juridiques. Mon accompagnement sur mesure vous guide depuis la demande de visa jusqu'à l'obtention de votre résidence, en assurant la conformité de votre dossier aux exigences légales portugaises. Échangeons sur votre projet d'expatriation et développons ensemble une stratégie d'installation adaptée à vos besoins spécifiques et à votre situation personnelle.",
       },
     },
     installationForm: {
       title: "Formulaire de Contact",
       personalInfo: {
-        title: "Informations Personnelles",
+        title: "Informations personnelles",
         firstName: "Prénom",
         lastName: "Nom",
         email: "Adresse e-mail",
@@ -291,7 +302,7 @@ export const translations = {
         },
       },
       residencyStatus: {
-        title: "Statut de Résidence",
+        title: "Nationalité",
         euCitizen: "Citoyen de l'UE",
         nonEuCitizen: "Citoyen hors UE",
       },
@@ -344,7 +355,7 @@ export const translations = {
         ],
       },
       projectStage: {
-        title: "Étape du Projet",
+        title: "Étape du projet",
         searching: "Actuellement en recherche de propriété",
         identifiedProperty:
           "Propriété spécifique identifiée et souhaite soumettre une offre",
@@ -356,7 +367,7 @@ export const translations = {
         deedSigned: "Acte notarié signé",
       },
       sellingStage: {
-        title: "Étape de Vente",
+        title: "Étape de vente",
         considering: "Envisage de vendre",
         listed: "Propriété mise en vente",
         offerReceived: "Offre reçue",
@@ -367,7 +378,7 @@ export const translations = {
         deedSigned: "Acte notarié signé",
       },
       other: {
-        title: "Autre Information",
+        title: "Autre information",
         placeholder:
           "Veuillez indiquer toute autre information pertinente concernant votre situation immobilière...",
       },
@@ -376,42 +387,42 @@ export const translations = {
       submit: "Soumettre la Demande",
     },
     realEstate: {
-      title: "Investissement Immobilier au Portugal",
+      title: "Investissement immobilier au Portugal",
       subtitle:
-        "Accompagnement juridique expert pour sécuriser vos investissements immobiliers au Portugal",
-      timeline: "Calendrier du Processus",
+        "Conseil juridique personnalisé pour sécuriser vos investissements immobiliers et optimiser votre patrimoine au Portugal",
+      timeline: "Calendrier du processus",
       stepAction: {
         previous: "Précédent",
         next: "Suivant",
       },
       stepInfo: {
-        details: "Tâches Clés",
-        requiredDocs: "Documents Requis",
-        tips: "Conseil Utile",
+        details: "Missions principales",
+        requiredDocs: "Documents requis",
+        tips: "Conseil",
         duration: "Durée",
       },
       representationOptions: {
         title: "Options de Représentation",
         inPerson: {
-          title: "Accompagnement en Personne",
+          title: "Accompagnement en personne",
           description:
-            "Présence juridique complète tout au long de votre parcours immobilier au Portugal. J'assiste personnellement à toutes les réunions et signatures clés, vous assurant une expertise à chaque moment critique, de la première visite à la remise finale. Cette option offre un maximum de sécurité et de soutien, particulièrement recommandée pour les premiers investisseurs dans l'immobilier portugais.",
+            "Assistance juridique complète tout au long de votre parcours immobilier au Portugal. J'assiste personnellement à toutes les réunions clés et signatures et vous assure mon expertise à chaque moment important, de votre première visite à la remise des clés. Cette option offre un maximum de sécurité et de soutien, particulièrement recommandée pour votre premier investissement immobilier au Portugal.",
         },
         remote: {
-          title: "Représentation à Distance",
+          title: "Transaction à distance",
           description:
-            "Protection juridique complète pour les clients ne pouvant être physiquement présents au Portugal. Grâce à des procurations sécurisées, je gère tous les aspects de votre transaction avec la même attention aux détails que si vous étiez présent. Des consultations vidéo régulières et une documentation détaillée vous tiennent informé et en contrôle tout au long du processus, quelle que soit votre localisation.",
+            "Assistance juridique complète pour les clients ne pouvant être physiquement présents au Portugal. Grâce à des procurations, je gère tous les aspects de votre transaction avec la même attention aux détails que si vous étiez présent. Des consultations vidéo régulières et une documentation détaillée vous tiennent informé et en maîtrise tout au long du processus, où que vous soyez.",
         },
       },
       cta: {
-        title: "Démarrez Votre Parcours Immobilier",
+        title: "Débutez votre parcours immobilier",
         description:
-          "Que vous achetiez ou vendiez un bien au Portugal, naviguer dans les complexités juridiques nécessite une expertise. De la préparation initiale à l'enregistrement final, je fournis un accompagnement juridique complet pour protéger vos intérêts et assurer une transaction fluide. Discutons de votre situation spécifique et créons une stratégie personnalisée pour votre parcours immobilier portugais.",
+          "Que vous soyez acheteur ou vendeur d'un bien au Portugal, maîtriser les subtilités juridiques exige une expertise spécifique. Des préparatifs initiaux jusqu'à l'enregistrement définitif, je vous offre un soutien juridique intégral pour sauvegarder vos intérêts et garantir une transaction sans accroc. Échangeons sur votre cas particulier afin d'élaborer ensemble une approche sur mesure pour votre projet immobilier au Portugal.",
       },
       purchaseSteps: [
         {
           title: "PRÉPARATION",
-          description: "Documentation & Offre",
+          description: "Documentation & offre",
           duration: "1-2 semaines",
           details: [
             "Analyse du projet",
@@ -422,13 +433,13 @@ export const translations = {
           requiredDocs: [
             "Titre de propriété",
             "Documents fiscaux",
-            "Permis de construire",
+            "Permis",
             "Certificat énergétique",
           ],
         },
         {
           title: "ACCORD",
-          description: "Contrat & Dépôt",
+          description: "Contrat & dépôt",
           duration: "1-3 semaines",
           details: [
             "Structuration des conditions",
@@ -446,7 +457,7 @@ export const translations = {
         },
         {
           title: "CONDITIONS PRÉALABLES",
-          description: "Vérification & Financement",
+          description: "Vérification & financement",
           duration: "2-8 semaines",
           details: [
             "Confirmation du financement, le cas échéant",
@@ -454,25 +465,25 @@ export const translations = {
             "Vérification des droits de préemption",
             "Obtention des formulaires fiscaux",
           ],
-          tips: "Pour les appartements, examinez les règlements de copropriété et confirmez l'absence de frais impayés.",
+          tips: "Pour les appartements, examinez le règlement de copropriété et confirmez l'absence de frais impayés.",
           requiredDocs: [
             "Certificat du registre foncier (de moins de 6 mois)",
-            "Certificat d'impôt foncier",
-            "Certificat de copropriété (si applicable)",
+            "Certificat du registre fiscal",
+            "Certificat de la copropriété (si applicable)",
             "Licence d'habitation",
           ],
         },
         {
           title: "ACTE NOTARIÉ",
-          description: "Signature Finale",
+          description: "Signature notariée",
           duration: "1 semaine",
           details: [
             "Préparation de la documentation",
             "Traduction si nécessaire",
             "Représentation juridique si nécessaire",
-            "Supervision du paiement des taxes",
+            "Anticipation du paiement des impôts",
           ],
-          tips: "Confirmez les procédures de paiement exactes avec votre banque à l'avance, surtout pour les transferts internationaux.",
+          tips: "Vérifier en détail les modalités de paiement avec votre banque à l'avance, surtout pour les transferts internationaux.",
           requiredDocs: [
             "Contrat d'achat final",
             "Preuve de fonds pour le paiement final",
@@ -486,11 +497,11 @@ export const translations = {
           duration: "2-4 semaines",
           details: [
             "Enregistrement de la propriété",
-            "Transfert des services publics",
+            "Transfert des contrats",
             "Représentation fiscale",
             "Support post-acquisition",
           ],
-          tips: "Conservez soigneusement tous les documents d'acquisition pour référence future et revente éventuelle.",
+          tips: "Conservez soigneusement tous les documents d'acquisition pour une éventuelle revente.",
           requiredDocs: [
             "Acte signé",
             "Formulaire d'enregistrement d'impôt foncier",
@@ -502,7 +513,7 @@ export const translations = {
       saleSteps: [
         {
           title: "PRÉPARATION",
-          description: "Documentation & Marketing",
+          description: "Documentation & marketing",
           duration: "2-3 semaines",
           details: [
             "Évaluation de la propriété",
@@ -510,17 +521,17 @@ export const translations = {
             "Vérification juridique",
             "Préparation marketing",
           ],
-          tips: "Envisagez d'obtenir un nouveau certificat énergétique si le vôtre est obsolète",
+          tips: "Négociez des acomptes progressifs pour une sécurité supplémentaire si le processus est prolongé.",
           requiredDocs: [
-            "Enregistrement de la propriété",
+            "titre de propriété",
             "Licence d'habitation",
             "Certificat énergétique",
-            "Accords de copropriété (si applicable)",
+            "Règlement de copropriété  (si applicable)",
           ],
         },
         {
           title: "NÉGOCIATION",
-          description: "Offres & Conditions",
+          description: "Offres & conditions",
           duration: "4-12 semaines",
           details: [
             "Évaluation des offres",
@@ -537,7 +548,7 @@ export const translations = {
         },
         {
           title: "CLÔTURE",
-          description: "Acte & Transfert",
+          description: "Acte & transfert",
           duration: "2-3 semaines",
           details: [
             "Documentation finale",
@@ -549,13 +560,13 @@ export const translations = {
           requiredDocs: [
             "Document d'acte final",
             "Coordonnées bancaires pour la réception des fonds",
-            "Demandes de résiliation des services",
+            "Résiliation des contrats",
             "Déclaration de plus-value",
           ],
         },
       ],
       purchase: {
-        title: "Achat de Propriété",
+        title: "Acquisition",
         description:
           "Sécurisez votre acquisition immobilière avec un accompagnement juridique complet, de la recherche à la signature de l'acte final.",
         services: [
@@ -567,7 +578,7 @@ export const translations = {
         ],
       },
       sale: {
-        title: "Vente de Propriété",
+        title: "Vente",
         description:
           "Optimisez votre vente immobilière avec un conseil juridique stratégique et une gestion efficace de la transaction.",
         services: [
@@ -607,7 +618,7 @@ export const translations = {
       formationPackage: {
         title: "Pack de Création d'Entreprise",
         subtitle:
-          "Assistance juridique complète pour la création d'entreprise au Portugal",
+          "Accompagnement juridique intégral pour la création et le développement de votre entreprise au Portugal",
       },
       formationProcess: "Processus de Formation",
       stepAction: {
@@ -615,26 +626,26 @@ export const translations = {
         next: "Suivant",
       },
       stepInfo: {
-        details: "Étapes Clés",
-        requiredDocs: "Documents Requis",
-        tips: "Conseil Utile",
+        details: "Étapes clés",
+        requiredDocs: "Documents requis",
+        tips: "Conseil utile",
       },
       cta: {
-        title: "Démarrez Votre Parcours Entrepreneurial Dès Aujourd'hui",
+        title: "Initiez votre projet entrepreneurial au Portugal",
         description:
-          "De l'idée à l'exploitation, créer une entreprise au Portugal nécessite de naviguer dans des exigences juridiques complexes. Mon assistance juridique complète garantit que la formation de votre entreprise se déroule efficacement tout en établissant une base juridique solide pour votre réussite commerciale. Discutons de votre vision entrepreneuriale et créons une stratégie de formation adaptée à vos objectifs.",
+          "De la conception à la mise en œuvre, créer une entreprise au Portugal exige une maîtrise des complexités juridiques locales. Mon accompagnement juridique sur mesure vous garantit non seulement une constitution d'entreprise efficace, mais aussi l'établissement de fondations légales solides pour pérenniser votre succès commercial. Échangeons sur votre vision et élaborons ensemble une stratégie entrepreneuriale parfaitement alignée avec vos ambitions et les spécificités du marché portugais",
       },
       steps: [
         {
           title: "COLLECTE",
-          description: "Recueil des Documents",
+          description: "Recueil des documents",
           details: [
             "Recueil des informations requises",
             "Vérification des documents d'identité",
             "Confirmation des éléments clés de l'entreprise",
             "Analyse stratégique",
           ],
-          tips: "Tenez compte de l'expansion future de votre entreprise lors de la sélection du champ d'activités.",
+          tips: "Anticipez le développement de votre entreprise lors de la définition de l'objet social.",
           requiredDocs: [
             "Document d'identité",
             "Justificatif de domicile",
@@ -643,56 +654,56 @@ export const translations = {
         },
         {
           title: "FORMATION",
-          description: "Noms de l'Entreprise",
+          description: "Dénomination sociale",
           details: [
-            "Réservation de nom",
-            "Conception de la structure des actions",
+            "réservation de la dénomination sociale",
+            "structuration du capital social",
             "Options de dépôt de capital",
             "Statuts constitutifs",
           ],
           tips: "Choisissez plusieurs noms d'entreprise alternatifs car votre premier choix peut ne pas être disponible.",
           requiredDocs: [
-            "Demande de réservation de nom",
+            "Demande de réservation de la dénomination sociale",
             "Projet de statuts",
             "Informations sur les actionnaires",
           ],
         },
         {
           title: "ENREGISTREMENT",
-          description: "Dépôt Officiel",
+          description: "Dépôt officiel",
           details: [
             "Soumission des documents",
             "Suivi de l'enregistrement",
             "Configuration de la gouvernance d'entreprise",
-            "Installation initiale de conformité",
+            "Mise en place de la conformité",
           ],
           tips: "L'enregistrement peut être complété en 1-3 jours ouvrables si toute la documentation est correctement préparée.",
           requiredDocs: [
-            "Preuve de réservation de nom",
+            "Preuve de réservation de la dénomination sociale",
             "Statuts signés",
-            "Powers of attorney (le cas échéant)",
+            "procuration (le cas échéant)",
           ],
         },
         {
           title: "BÉNÉFICIAIRES",
           description: "Enregistrement UBO",
           details: [
-            "Identification du bénéficiaire effectif",
+            "Identification des bénéficiaires effectifs",
             "Préparation de la déclaration UBO",
             "Vérification de conformité",
             "Soumission au registre",
           ],
           tips: "L'inscription UBO est obligatoire.",
           requiredDocs: [
-            "Documents d'identification des bénéficiaires effectifs",
+            "Documentation de la chaîne de propriété",
             "Preuve de la structure de propriété/contrôle",
             "Documentation sur la chaîne de propriété",
             "Déclarations de bénéficiaire effectif",
           ],
         },
         {
-          title: "ACHÈVEMENT",
-          description: "Documentation de l'Entreprise",
+          title: "FINALISATION",
+          description: "Documentation sociale",
           details: [
             "Livraison de la documentation",
             "Dépôts post-création",
@@ -710,25 +721,25 @@ export const translations = {
       ],
     },
     mainForm: {
-      title: "Services Juridiques au Portugal",
+      title: "Discutons de Votre Projet au Portugal",
       subtitle:
-        "Assistance experte en création d'entreprise, transactions immobilières et services de relocalisation au Portugal.",
+        "Un accompagnement sur mesure commence par une simple prise de contact",
       services: {
         installation: {
           title: "Installation au Portugal",
-          description: "Cliquez pour sélectionner ce type de service",
+          description: "Préparer mon installation au Portugal",
         },
         realEstate: {
           title: "Immobilier",
-          description: "Cliquez pour sélectionner ce type de service",
+          description: "Créer mon entreprise au Portugal",
         },
         business: {
           title: "Entreprise",
-          description: "Cliquez pour sélectionner ce type de service",
+          description: "Sécuriser mon investissement immobilier",
         },
         other: {
           title: "Autres Services",
-          description: "Cliquez pour sélectionner ce type de service",
+          description: "Explorer d'autres possibilités",
         },
       },
       otherServices: {
@@ -747,6 +758,38 @@ export const translations = {
         errorMessage:
           "Désolé, une erreur s'est produite lors de l'envoi du formulaire. Veuillez réessayer.",
       },
+    },
+    businessForm: {
+      businessNeeds: "Vos besoins professionnels",
+      createBusiness: "Créer une entreprise au Portugal",
+      assistBusiness:
+        "Obtenir de l'aide pour une entreprise portugaise existante",
+      other: "Autre",
+      businessStructure: "Structure d'entreprise",
+      selfEmployed: "En tant qu'indépendant",
+      createCompany: "Créer une société",
+      soleOwner: "En tant que propriétaire unique",
+      withPartners: "Avec des associés",
+      needAdvice: "Besoin de conseils sur ce choix",
+      assistanceNeeded: "Assistance nécessaire avec",
+      contracts: "Contrats",
+      compliance: "Conformité",
+      disputes: "Résolution de litiges",
+      pleaseSpecify: "Veuillez préciser",
+      businessSector: "Secteur d'activité",
+      specifyBusinessSector: "Veuillez préciser votre secteur d'activité",
+      timeline: "Calendrier",
+      lessThan1Month: "Moins d'1 mois",
+      oneToThreeMonths: "1-3 mois",
+      moreThan3Months: "Plus de 3 mois",
+      otherRequirements:
+        "Veuillez spécifier toute autre exigence ou information",
+      terms:
+        "En cochant cette case, je reconnais avoir lu et accepté les conditions générales. Je consens à la collecte et au traitement de mes données personnelles uniquement dans le but d'être contacté concernant ma demande. Mes informations ne seront pas partagées avec des tiers ni utilisées à d'autres fins que cette demande.",
+      submit: "Soumettre la Demande",
+    },
+    blog: {
+      summary: "Ce guide abordera :",
     },
   },
   en: {
@@ -851,12 +894,18 @@ export const translations = {
       rights: "All rights reserved",
       address: "Rua Augusta, Lisbon, Portugal",
       schedule: "Mon-Fri: 9:00 - 18:00",
+      contact: "Contact",
+      needLegalAdvice: "Need Legal Advice?",
+      legalGuidance:
+        "Get professional legal guidance for your specific situation.",
+      bookConsultation: "Book a Consultation",
       legalLinks: {
         terms: "Terms of Service",
         privacy: "Privacy Policy",
         cookies: "Cookie Policy",
         disclaimer: "Disclaimer",
       },
+      copyright: "Cabinet Juridique. All rights reserved.",
     },
     contact: {
       title: "Ready to Start Your Portuguese Journey?",
@@ -1015,6 +1064,11 @@ export const translations = {
         duration: "Duration",
         tips: "Tips",
       },
+      cta: {
+        title: "Begin your new life in Portugal",
+        description:
+          "From planning to permanent settlement, establishing yourself in Portugal requires expert navigation through administrative and legal procedures. My tailored guidance supports you from visa application to obtaining your residence, ensuring your case complies with Portuguese legal requirements. Let's discuss your expatriation project and develop together an installation strategy adapted to your specific needs and personal situation.",
+      },
     },
     installationForm: {
       title: "Contact Form",
@@ -1036,7 +1090,7 @@ export const translations = {
         },
       },
       residencyStatus: {
-        title: "Residency Status",
+        title: "Citizenship",
         euCitizen: "EU Citizen",
         nonEuCitizen: "Non-EU Citizen",
       },
@@ -1450,43 +1504,72 @@ export const translations = {
       ],
     },
     mainForm: {
-      title: "Legal Services in Portugal",
-      subtitle:
-        "Expert assistance with business creation, transactions immobilières et services de relocalisation au Portugal.",
+      title: "Let's Discuss Your Portugal Project",
+      subtitle: "Personalized assistance begins with a simple contact",
       services: {
         installation: {
-          title: "Installation in Portugal",
-          description: "Cliquez pour sélectionner ce type de service",
+          title: "Settling in Portugal",
+          description: "Prepare my relocation to Portugal",
         },
         realEstate: {
-          title: "Immobilier",
-          description: "Cliquez pour sélectionner ce type de service",
+          title: "Real Estate",
+          description: "Secure my property investment",
         },
         business: {
-          title: "Entreprise",
-          description: "Cliquez pour sélectionner ce type de service",
+          title: "Business",
+          description: "Start my company in Portugal",
         },
         other: {
-          title: "Autres Services",
-          description: "Cliquez pour sélectionner ce type de service",
+          title: "Other Services",
+          description: "Explore other possibilities",
         },
       },
       otherServices: {
-        title: "Veuillez Décrire Vos Besoins",
+        title: "Please Describe Your Needs",
         placeholder:
-          "Veuillez décrire en détail les services dont vous avez besoin. Incluez toutes les exigences spécifiques ou questions que vous pourriez avoir.",
+          "Please describe in detail the services you need. Include any specific requirements or questions you might have.",
       },
       termsAndConditions:
-        "En cochant cette case, je reconnais avoir lu et accepté les conditions générales. Je consens à la collecte et au traitement de mes données personnelles uniquement dans le but d'être contacté concernant ma demande. Mes informations ne seront pas partagées avec des tiers ni utilisées à d'autres fins que cette demande.",
+        "By checking this box, I acknowledge that I have read and agree to the terms and conditions. I consent to the collection and processing of my personal data solely for the purpose of being contacted regarding my inquiry. My information will not be shared with third parties or used for any other purposes beyond this request.",
       buttons: {
-        submit: "Envoyer la Demande",
-        back: "Retour",
+        submit: "Submit Request",
+        back: "Back",
       },
       form: {
-        successMessage: "Thank you! We'll get back to you soon.",
+        successMessage: "Thank you! We'll be in touch soon.",
         errorMessage:
-          "Sorry, there was an error submitting your form. Please try again.",
+          "Sorry, an error occurred while submitting the form. Please try again.",
       },
+    },
+    businessForm: {
+      businessNeeds: "Your Business Needs",
+      createBusiness: "Create a business in Portugal",
+      assistBusiness: "Get assistance with existing Portuguese business",
+      other: "Other",
+      businessStructure: "Business Structure",
+      selfEmployed: "As self-employed",
+      createCompany: "Create a company",
+      soleOwner: "As sole owner",
+      withPartners: "With partners",
+      needAdvice: "Need advice on this choice",
+      assistanceNeeded: "Assistance Needed With",
+      contracts: "Contracts",
+      compliance: "Compliance",
+      disputes: "Dispute resolution",
+      pleaseSpecify: "Please specify",
+      businessSector: "Business Sector",
+      specifyBusinessSector: "Please specify your business sector",
+      timeline: "Timeline",
+      lessThan1Month: "Less than 1 month",
+      oneToThreeMonths: "1-3 months",
+      moreThan3Months: "More than 3 months",
+      otherRequirements: "Please specify any other requirements or information",
+      terms:
+        "By checking this box, I acknowledge that I have read and agree to the terms and conditions. I consent to the collection and processing of my personal data solely for the purpose of being contacted regarding my inquiry. My information will not be shared with third parties or used for any other purposes beyond this request.",
+      submit: "Submit Request",
+    },
+    blog: {
+      summary: "Summary :",
     },
   },
 };

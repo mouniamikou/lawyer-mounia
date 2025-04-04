@@ -75,37 +75,37 @@ const InstallationPortugal = () => {
   return (
     <div className="py-24 px-4">
       {/* Header Section with Background */}
-      <div className="relative mb-12">
+      <div className="relative mb-12 max-w-6xl mx-auto">
         {/* Background Image with Overlay */}
         <div
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 "
           style={{
             backgroundImage: "url('/passportPP.jpeg')", // Use your image path
             backgroundPosition: "center",
-            backgroundSize: "60%",
+            backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             opacity: "0.3", // Adjust opacity as needed
           }}
         />
 
         {/* Header Content */}
-        <div className="relative z-10 py-12">
+        <div className="relative z-10 py-12 px-12">
           <motion.h1
             variants={serviceVariants}
             className="text-4xl md:text-5xl font-bold text-center text-primary-dark mb-8"
           >
-          {t.title}
+            {t.title}
           </motion.h1>
 
           <motion.p
             variants={serviceVariants}
-            className="text-xl text-center text-gray-600 max-w-3xl mx-auto mb-16"
+            className="text-xl text-center text-gray-600   mx-auto mb-8"
           >
             {t.subtitle}
           </motion.p>
 
           {/* Citizenship Type Tabs */}
-          <div className="flex justify-center gap-6 mb-12">
+          <div className="flex justify-center gap-6 ">
             <motion.button
               variants={serviceVariants}
               onClick={() => setActiveTab("global")}
@@ -184,7 +184,9 @@ const InstallationPortugal = () => {
 
                   <div
                     className={`text-center mt-4 transition-colors duration-300 ${
-                      index === activeStep ? "text-primary-dark" : "text-gray-600"
+                      index === activeStep
+                        ? "text-primary-dark"
+                        : "text-gray-600"
                     }`}
                   >
                     <h3 className="font-bold text-xs sm:text-sm mb-1">
@@ -296,6 +298,15 @@ const InstallationPortugal = () => {
             </motion.div>
           </AnimatePresence>
         </div>
+        <motion.div variants={serviceVariants} className="mt-16 text-center">
+          <h2 className="text-3xl font-bold text-primary-dark mb-8">
+            {t.cta?.title || "Start Your Property Journey"}
+          </h2>
+          <p className="text-gray-600 max-w-3xl mx-auto">
+            {t.cta?.description ||
+              "Whether buying or selling property in Portugal, navigating the legal complexities requires expert guidance. From initial preparation to final registration, I provide comprehensive legal support to protect your interests and ensure a smooth transaction. Let's discuss your specific situation and create a tailored strategy for your Portuguese real estate journey."}
+          </p>
+        </motion.div>
       </div>
     </div>
   );

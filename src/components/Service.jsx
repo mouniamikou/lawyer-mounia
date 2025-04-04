@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { Home, Building, Briefcase, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useLanguage } from '../context/LanguageContext';
-import { translations } from '../translations';
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations";
 
 export default function Services() {
   const { language } = useLanguage();
@@ -19,7 +19,7 @@ export default function Services() {
       items: t.services.installation.items,
       image: "/passportPP.jpeg",
       buttonText: t.services.installation.cta,
-      link: "/installationportugal"
+      link: "/installationportugal",
     },
     {
       icon: Building,
@@ -28,7 +28,7 @@ export default function Services() {
       items: t.services.realEstate.items,
       image: "/core-architects_portuguese-architecture99-1160x613.jpg",
       buttonText: t.services.realEstate.cta,
-      link: "/Realestate"
+      link: "/Realestate",
     },
     {
       icon: Briefcase,
@@ -37,8 +37,8 @@ export default function Services() {
       items: t.services.business.items,
       image: "/krakenimages-376KN_ISplE-unsplash.jpg",
       buttonText: t.services.business.cta,
-      link: "/business"
-    }
+      link: "/business",
+    },
   ];
 
   return (
@@ -62,7 +62,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="bg-white rounded-xl shadow-lg overflow-hidden group"
+              className="bg-white rounded-xl shadow-lg overflow-hidden group flex flex-col h-full"
             >
               <div className="relative h-56 w-full overflow-hidden">
                 <Image
@@ -74,7 +74,7 @@ export default function Services() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   {service.title}
                 </h3>
@@ -87,12 +87,12 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                <button className="w-full bg-primary text-white px-6 py-2 rounded-lg font-medium hover:bg-primary-dark transition-colors flex items-center justify-center gap-2">
-                  <Link href={service.link}>
-                    {service.buttonText}
-                  </Link>
-                  <ArrowRight size={16} />
-                </button>
+                <div className="mt-auto">
+                  <button className="w-full bg-primary text-white px-6 py-2 rounded-lg font-medium hover:bg-primary-dark transition-colors flex items-center justify-center gap-2">
+                    <Link href={service.link}>{service.buttonText}</Link>
+                    <ArrowRight size={16} />
+                  </button>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -101,4 +101,3 @@ export default function Services() {
     </section>
   );
 }
-

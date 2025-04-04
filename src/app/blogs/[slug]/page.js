@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/translations";
+import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
 import { urlForImage } from "../../../sanity/lib/image";
@@ -22,6 +24,18 @@ async function getData(slug) {
       publishedAt,
       category,
       description { en, fr },
+      introduction { en, fr },
+      suggestedBlog-> {
+        title { en, fr },
+        category,
+        publishedAt,
+        mainImage {
+          asset-> {
+            url
+          }
+        },
+        slug
+      },
       seo { en, fr }
     }
   `;
@@ -134,6 +148,7 @@ const components = {
 const BlogPost = () => {
   //prettier-ignore
   const { language } = useLanguage();
+  const t = translations[language]?.blog || translations.en.blog;
   const params = useParams();
   const [post, setPost] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -154,6 +169,15 @@ const BlogPost = () => {
           excerpt: data.excerpt?.[language] || data.excerpt?.en || "",
           body: data.body?.[language] || [],
           seo: data.seo?.[language] || {},
+          suggestedBlog: data.suggestedBlog
+            ? {
+                ...data.suggestedBlog,
+                title:
+                  data.suggestedBlog?.title?.[language] ||
+                  data.suggestedBlog?.title?.en ||
+                  "",
+              }
+            : null,
         };
         // ✅ Localize content based on language
         setPost(post);
@@ -237,16 +261,17 @@ const BlogPost = () => {
           {post.category}
         </span>
         <h1 className="text-5xl font-bold mb-4">{post.title}</h1>
-     
+
         <time className="text-gray-600 block mb-6">
           {formatDate(post.publishedAt)}
         </time>
-        <p className="text-xl text-gray-700 mb-4">{post.description[language] || post.description.en}</p>
+        <p className="text-xl text-gray-700 mb-4">
+          {post.description[language] || post.description.en}
+        </p>
       </div>
 
       {post.mainImage && (
         <div className="relative w-full h-[500px] mb-12">
-          
           <Image
             src={post.mainImage.asset.url}
             alt={post.title}
@@ -256,14 +281,73 @@ const BlogPost = () => {
           />
         </div>
       )}
+      {post.introduction && (
+        <p className="text-xl text-gray-700 mb-8">
+          {post.introduction[language] || post.introduction.en}
+        </p>
+      )}
 
       <div className="prose  prose-lg max-w-none">
         <nav className="mb-6 p-4 border rounded-lg bg-primary ">
-          <h3 className="text-xl text-white font-semibold mb-2">Summary</h3>
-          <ul className="list-disc text-white pl-5">{generateSummary(post.body)}</ul>
+          <h3 className="text-xl text-white font-semibold mb-2">{t.summary}</h3>
+          <ul className="list-disc text-white pl-5">
+            {generateSummary(post.body)}
+          </ul>
         </nav>
         <PortableText value={post.body} components={components} />
       </div>
+
+      {post.suggestedBlog && (
+        <div className="mt-12">
+          <div>
+            <h2 className="text-2xl font-semibold mb-4">
+              {language === "en" ? "Suggested Blog Post" : "Article Similaire"}
+            </h2>
+          </div>
+          <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+            {post.suggestedBlog.mainImage && (
+              <div className="relative h-48 w-full">
+                <Image
+                  src={post.suggestedBlog.mainImage.asset.url}
+                  alt={post.suggestedBlog.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            )}
+
+            <div className="p-6">
+              <span className="inline-block px-3 py-1 text-sm rounded-full bg-primary text-white mb-4">
+                {post.suggestedBlog.category}
+              </span>
+
+              <h2 className="text-xl font-semibold mb-2 line-clamp-2">
+                {post.suggestedBlog.title}
+              </h2>
+
+              <p className="text-gray-600 mb-4 line-clamp-3">
+                {post.suggestedBlog.excerpt}
+              </p>
+
+              <div className="flex justify-between items-center">
+                <div className="flex flex-col">
+                  <span className="text-sm text-gray-500">
+                    {formatDate(post.suggestedBlog.publishedAt)}
+                  </span>
+                </div>
+
+                <Link
+                  href={`/blogs/${post.suggestedBlog.slug.current}`}
+                  className="px-4 py-2 text-sm rounded-md border border-gray-300 
+                    hover:bg-gray-50 transition-colors duration-200"
+                >
+                  {language === "en" ? "Read More" : "Lire la Suite"}
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </article>
   );
 };

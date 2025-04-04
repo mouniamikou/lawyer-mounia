@@ -22,15 +22,7 @@ const BusinessFormationService = () => {
   const { language } = useLanguage();
   const t = translations[language]?.business || translations.en.business;
 
-  console.log("Current language:", language);
-  console.log("Business translations:", t);
-  console.log("Steps translation:", t.steps);
-  console.log("First step details:", t.steps && t.steps[0]);
-
-  useEffect(() => {
-    // Force a re-render when language changes
-    console.log("Language changed to:", language);
-  }, [language]);
+  useEffect(() => {}, [language]);
 
   const [activeStep, setActiveStep] = useState(0);
   const [showTips, setShowTips] = useState(true);
@@ -126,22 +118,21 @@ const BusinessFormationService = () => {
   return (
     <div className="py-24 px-4">
       {/* Header Section with Background */}
-      <div className="relative mb-12">
+      <div className="relative mb-12 max-w-6xl mx-auto">
         {/* Background Image with Overlay */}
         <div
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 "
           style={{
-            backgroundImage:
-              "url('/GettyImages-1084171152-8445a490b5894f0a9bb588dbfc2ac22d.jpg')",
-            backgroundSize: "60%",
-            backgroundPosition: "center",
+            backgroundImage: "url('/krakenimages-376KN_ISplE-unsplash.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "0% 30%",
             backgroundRepeat: "no-repeat",
             opacity: "0.3",
           }}
         />
 
         {/* Header Content */}
-        <div className="relative z-10  py-12">
+        <div className="relative z-10   py-12 px-12">
           <motion.h1
             variants={serviceVariants}
             className="text-4xl md:text-5xl font-bold text-center text-primary-dark mb-8"
