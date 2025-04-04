@@ -1,6 +1,6 @@
 "use client";
 
-import InstallationForm from "@/components/form/ContactForm";
+import InstallationForm from "@/components/form/InstallationForm";
 import Navbar from "@/components/Navbar";
 import Instal from "@/components/installation/InstallationPortugal.jsx";
 import React from "react";

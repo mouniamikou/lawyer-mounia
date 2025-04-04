@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import PersonalInfoForm from "./PersonalInfo";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/translations";
+import SuccessMessage from "../SuccessMessage";
 
 const BusinessForm = () => {
   const { language } = useLanguage();
@@ -107,6 +108,10 @@ const BusinessForm = () => {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
+
+  if (submitStatus === "success") {
+    return <SuccessMessage />;
+  }
 
   return (
     <div

@@ -128,7 +128,7 @@ export const translations = {
         title: "Merci !",
         message:
           "Votre formulaire a été soumis avec succès. Souhaitez-vous planifier une consultation directe ?",
-        cta: "Réserver un Appel Maintenant",
+        cta: "Réserver une Consultation",
       },
     },
     booking: {
@@ -916,7 +916,7 @@ export const translations = {
         title: "Thank You!",
         message:
           "Your form has been submitted successfully. Would you like to schedule a direct consultation?",
-        cta: "Book a Call Now",
+        cta: "Book a Consultation",
       },
     },
     booking: {

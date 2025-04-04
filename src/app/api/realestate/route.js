@@ -36,10 +36,7 @@ export async function POST(request) {
       deedDate: ${formData.sellingStage.deedDate} }
       </p>
       <p><strong>Other:</strong> ${formData.other}</p>
-      <p><strong>Terms Accepted:</strong> ${formData.termsAccepted}</p>
-      <p><strong>Name:</strong> ${formData.name}</p>
       <p><strong>Property Type:</strong> ${formData.propertyType}</p>
-      <p><strong>Message:</strong> ${formData.message}</p>
       <p><strong>Submitted on:</strong> ${new Date().toLocaleString()}</p>
     `;
 
@@ -75,10 +72,7 @@ export async function POST(request) {
       deedDate: ${formData.sellingStage.deedDate},
     },
     other: ${formData.other},
-    termsAccepted: ${formData.termsAccepted},
-    name: ${formData.name},
     propertyType: ${formData.propertyType},
-    message: ${formData.message},
    
       Submitted on: ${new Date().toLocaleString()}
     `;

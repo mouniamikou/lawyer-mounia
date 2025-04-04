@@ -92,8 +92,6 @@ export async function POST(req) {
           : ""
       }
       
-      <p><strong>Terms Accepted:</strong> ${formData.termsAccepted ? "Yes" : "No"}</p>
-      
       <p>This inquiry was submitted on ${new Date().toLocaleString()}</p>
     `;
 
@@ -164,8 +162,7 @@ ${formData.additionalInfo}
 `
     : ""
 }
-
-Terms Accepted: ${formData.termsAccepted ? "Yes" : "No"}
+ 
 
 This inquiry was submitted on ${new Date().toLocaleString()}
     `;

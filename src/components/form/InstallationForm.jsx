@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import PersonalInfoForm from "./PersonalInfo";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/translations";
+import SuccessMessage from "../SuccessMessage";
 
 const InstallationForm = () => {
   const { language } = useLanguage();
@@ -97,6 +98,9 @@ const InstallationForm = () => {
       setIsSubmitting(false);
     }
   };
+  if (submitStatus === "success") {
+    return <SuccessMessage />;
+  }
 
   return (
     <div

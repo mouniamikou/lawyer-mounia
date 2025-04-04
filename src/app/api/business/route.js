@@ -26,9 +26,6 @@ export async function POST(request) {
       <p><strong>Business Sector:</strong> ${formData.businessSector}</p>
       <p><strong>Timeline:</strong> ${formData.timeline}</p>
       <p><strong>Other:</strong> ${formData.other}</p>
-      <p><strong>Terms Accepted:</strong> ${formData.termsAccepted}</p>
-      <p><strong>Name:</strong> ${formData.name}</p>
-      <p><strong>Message:</strong> ${formData.message}</p>
       <p><strong>Submitted on:</strong> ${new Date().toLocaleString()}</p>
     `;
 
@@ -55,10 +52,7 @@ export async function POST(request) {
     businessSector: ${formData.businessSector}
     timeline: ${formData.timeline}
     other: ${formData.other}
-    termsAccepted: ${formData.termsAccepted}
-    name: ${formData.name}
-    message: ${formData.message}
-  
+
       Submitted on: ${new Date().toLocaleString()}
     `;
 

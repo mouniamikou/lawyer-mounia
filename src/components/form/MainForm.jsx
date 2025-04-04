@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Home, Building, Briefcase, FileText } from "lucide-react";
 import PersonalInfoForm from "./PersonalInfo";
-import InstallationForm from "./ContactForm";
+import InstallationForm from "./InstallationForm";
 import RealEstateForm from "./RealEtateform";
 import BusinessForm from "./BusinessForm";
 import { useLanguage } from "@/context/LanguageContext";
