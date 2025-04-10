@@ -156,6 +156,7 @@ const BusinessForm = () => {
               <input
                 type="radio"
                 name="businessType"
+                required
                 value="create"
                 className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
                 onChange={handleChange}
@@ -170,6 +171,7 @@ const BusinessForm = () => {
               <input
                 type="radio"
                 name="businessType"
+                required
                 value="assist"
                 className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
                 onChange={handleChange}
@@ -185,6 +187,7 @@ const BusinessForm = () => {
               <input
                 type="radio"
                 name="businessType"
+                required
                 value="other"
                 className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
                 onChange={handleChange}
@@ -207,6 +210,7 @@ const BusinessForm = () => {
                   type="radio"
                   name="createType"
                   value="self-employed"
+                  required
                   className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
                   onChange={handleChange}
                   checked={formData.createType === "self-employed"}
@@ -220,6 +224,7 @@ const BusinessForm = () => {
                 <input
                   type="radio"
                   name="createType"
+                  required
                   value="company"
                   className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
                   onChange={handleChange}
@@ -236,6 +241,7 @@ const BusinessForm = () => {
                     <input
                       type="radio"
                       name="companyStructure"
+                      required
                       value="alone"
                       className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
                       onChange={handleChange}
@@ -249,6 +255,7 @@ const BusinessForm = () => {
                     <input
                       type="radio"
                       name="companyStructure"
+                      required
                       value="partners"
                       className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
                       onChange={handleChange}
@@ -389,6 +396,7 @@ const BusinessForm = () => {
           </h3>
           <div>
             <input
+              required
               type="text"
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
               placeholder={
@@ -427,6 +435,7 @@ const BusinessForm = () => {
                 <input
                   type="radio"
                   name="timeline"
+                  required
                   value={option.value}
                   className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
                   onChange={handleChange}

@@ -170,6 +170,7 @@ const RealEstateForm = () => {
           <div className="space-y-2">
             <label className="flex items-center space-x-3">
               <input
+                required
                 type="radio"
                 name="transactionType"
                 value="buy"
@@ -184,6 +185,7 @@ const RealEstateForm = () => {
             <label className="flex items-center space-x-3">
               <input
                 type="radio"
+                required
                 name="transactionType"
                 value="sell"
                 className="focus:ring-[#039B9B] h-4 w-4 text-[#039B9B] border-gray-300"
@@ -211,6 +213,7 @@ const RealEstateForm = () => {
                     <input
                       type="radio"
                       name="budget"
+                      required
                       value={range}
                       className="focus:ring-[#039B9B] h-4 w-4 text-[#039B9B] border-gray-300"
                       onChange={(e) =>

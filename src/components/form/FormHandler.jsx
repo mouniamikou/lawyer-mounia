@@ -86,6 +86,7 @@ const FormHandler = ({ formType, FormComponent }) => {
             </h2>
             <div>
               <textarea
+                required
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#039B9B] focus:ring-[#039B9B] min-h-[200px]"
                 placeholder={t.otherServices.placeholder}
                 value={formData.otherDetails}

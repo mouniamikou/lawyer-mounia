@@ -5,59 +5,106 @@ export async function POST(request) {
   try {
     const formData = await request.json();
 
-    // Create HTML content from form data
+    // Helper function to format boolean values
+    const formatBoolean = (value) => (value ? "Yes" : "No");
+
+    // Build existing business section if it has data
+    let existingBusinessHtml = "";
+    let existingBusinessText = "";
+
+    const hasExistingBusinessData = Object.values(
+      formData.existingBusiness
+    ).some((val) => val && val !== "" && val !== false);
+
+    if (hasExistingBusinessData) {
+      existingBusinessHtml = `
+        <div style="margin: 15px 0; padding: 10px; background-color: #f9f9f9; border-radius: 5px;">
+          <h3 style="color: #333; margin-bottom: 10px;">Existing Business Needs</h3>
+          <ul style="list-style-type: none; padding-left: 0;">
+            ${formData.existingBusiness.contracts ? `<li><strong>Contracts:</strong> Yes</li>` : ""}
+            ${formData.existingBusiness.compliance ? `<li><strong>Compliance:</strong> Yes</li>` : ""}
+            ${formData.existingBusiness.disputes ? `<li><strong>Disputes:</strong> Yes</li>` : ""}
+            ${formData.existingBusiness.other ? `<li><strong>Other:</strong> Yes</li>` : ""}
+            ${formData.existingBusiness.otherText ? `<li><strong>Details:</strong> ${formData.existingBusiness.otherText}</li>` : ""}
+          </ul>
+        </div>
+      `;
+
+      existingBusinessText = `
+EXISTING BUSINESS NEEDS
+----------------------
+${formData.existingBusiness.contracts ? "- Contracts: Yes\n" : ""}${formData.existingBusiness.compliance ? "- Compliance: Yes\n" : ""}${formData.existingBusiness.disputes ? "- Disputes: Yes\n" : ""}${formData.existingBusiness.other ? "- Other: Yes\n" : ""}${formData.existingBusiness.otherText ? "- Details: " + formData.existingBusiness.otherText + "\n" : ""}`;
+    }
+
+    // Create HTML content from form data with improved styling
     const htmlContent = `
-      <h1>New Business Form Submission</h1>
-      <p><strong>Name:</strong> ${formData.personalInfo.firstName} ${formData.personalInfo.lastName}</p>
-      <p><strong>Email:</strong> ${formData.personalInfo.email}</p>
-      <p><strong>Phone:</strong> ${formData.personalInfo.phone}</p>
-      <p><strong>Current Country:</strong> ${formData.personalInfo.currentCountry}</p>
-      <p><strong>Business Type:</strong> ${formData.businessType}</p>
-      <p><strong>Create Type:</strong> ${formData.createType}</p>
-      <p><strong>Company Structure:</strong> ${formData.companyStructure}</p>
-      <p><strong>Need Advice:</strong> ${formData.needAdvice}</p>
-      <p><strong>Existing Business:</strong> {
-      contracts: ${formData.existingBusiness.contracts},
-      compliance: ${formData.existingBusiness.compliance},
-      disputes: ${formData.existingBusiness.disputes},
-      other: ${formData.existingBusiness.other},
-      otherText: ${formData.existingBusiness.otherText}
-    }</p>
-      <p><strong>Business Sector:</strong> ${formData.businessSector}</p>
-      <p><strong>Timeline:</strong> ${formData.timeline}</p>
-      <p><strong>Other:</strong> ${formData.other}</p>
-      <p><strong>Submitted on:</strong> ${new Date().toLocaleString()}</p>
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <h1 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px;">New Business Inquiry</h1>
+        
+        <div style="margin: 15px 0; padding: 10px; background-color: #f9f9f9; border-radius: 5px;">
+          <h3 style="color: #333; margin-bottom: 10px;">Personal Information</h3>
+          <ul style="list-style-type: none; padding-left: 0;">
+            <li><strong>Name:</strong> ${formData.personalInfo.firstName} ${formData.personalInfo.lastName}</li>
+            ${formData.personalInfo.email ? `<li><strong>Email:</strong> ${formData.personalInfo.email}</li>` : ""}
+            ${formData.personalInfo.phone ? `<li><strong>Phone:</strong> ${formData.personalInfo.phone}</li>` : ""}
+            ${formData.personalInfo.currentCountry ? `<li><strong>Current Country:</strong> ${formData.personalInfo.currentCountry}</li>` : ""}
+          </ul>
+        </div>
+        
+        <div style="margin: 15px 0; padding: 10px; background-color: #f9f9f9; border-radius: 5px;">
+          <h3 style="color: #333; margin-bottom: 10px;">Business Details</h3>
+          <ul style="list-style-type: none; padding-left: 0;">
+            ${formData.businessType ? `<li><strong>Business Type:</strong> ${formData.businessType}</li>` : ""}
+            ${formData.createType ? `<li><strong>Create Type:</strong> ${formData.createType}</li>` : ""}
+            ${formData.companyStructure ? `<li><strong>Company Structure:</strong> ${formData.companyStructure}</li>` : ""}
+            ${formData.needAdvice !== undefined ? `<li><strong>Need Advice:</strong> ${formatBoolean(formData.needAdvice)}</li>` : ""}
+            ${formData.businessSector ? `<li><strong>Business Sector:</strong> ${formData.businessSector}</li>` : ""}
+            ${formData.timeline ? `<li><strong>Timeline:</strong> ${formData.timeline}</li>` : ""}
+          </ul>
+        </div>
+        
+        ${existingBusinessHtml}
+        
+        ${
+          formData.other
+            ? `
+        <div style="margin: 15px 0; padding: 10px; background-color: #f9f9f9; border-radius: 5px;">
+          <h3 style="color: #333; margin-bottom: 10px;">Other Information</h3>
+          <p>${formData.other}</p>
+        </div>
+        `
+            : ""
+        }
+        
+        <p style="color: #7f8c8d; font-size: 0.9em; margin-top: 20px; border-top: 1px solid #ecf0f1; padding-top: 10px;">
+          Submitted on: ${new Date().toLocaleString()}
+        </p>
+      </div>
     `;
 
-    // Create plain text version
+    // Create plain text version with improved structure
     const textContent = `
-      New Business Form Submission
-        Personal Information:
-    --------------------
-    Name: ${formData.personalInfo.firstName} ${formData.personalInfo.lastName}
-    Email: ${formData.personalInfo.email}
-    Phone: ${formData.personalInfo.phone}
-    Current Country: ${formData.personalInfo.currentCountry}
-    businessType: ${formData.businessType}
-    createType: ${formData.createType}
-    companyStructure: ${formData.companyStructure}
-    needAdvice: ${formData.needAdvice}
-    existingBusiness: {
-      contracts: ${formData.existingBusiness.contracts},
-      compliance: ${formData.existingBusiness.compliance},
-      disputes: ${formData.existingBusiness.disputes},
-      other: ${formData.existingBusiness.other},
-      otherText: ${formData.existingBusiness.otherText},
-    },
-    businessSector: ${formData.businessSector}
-    timeline: ${formData.timeline}
-    other: ${formData.other}
+NEW BUSINESS INQUIRY
+===================
 
-      Submitted on: ${new Date().toLocaleString()}
+PERSONAL INFORMATION
+-------------------
+Name: ${formData.personalInfo.firstName} ${formData.personalInfo.lastName}
+${formData.personalInfo.email ? "Email: " + formData.personalInfo.email + "\n" : ""}${formData.personalInfo.phone ? "Phone: " + formData.personalInfo.phone + "\n" : ""}${formData.personalInfo.currentCountry ? "Current Country: " + formData.personalInfo.currentCountry : ""}
+
+BUSINESS DETAILS
+--------------
+${formData.businessType ? "Business Type: " + formData.businessType + "\n" : ""}${formData.createType ? "Create Type: " + formData.createType + "\n" : ""}${formData.companyStructure ? "Company Structure: " + formData.companyStructure + "\n" : ""}${formData.needAdvice !== undefined ? "Need Advice: " + formatBoolean(formData.needAdvice) + "\n" : ""}${formData.businessSector ? "Business Sector: " + formData.businessSector + "\n" : ""}${formData.timeline ? "Timeline: " + formData.timeline + "\n" : ""}
+
+${existingBusinessText}
+
+${formData.other ? `OTHER INFORMATION\n----------------\n${formData.other}\n` : ""}
+
+Submitted on: ${new Date().toLocaleString()}
     `;
 
     const result = await sendEmail(
-      "New Business Form Submission",
+      "New Business Inquiry",
       htmlContent,
       textContent
     );

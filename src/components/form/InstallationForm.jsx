@@ -136,6 +136,7 @@ const InstallationForm = () => {
                   setFormData({ ...formData, residencyStatus: e.target.value })
                 }
                 checked={formData.residencyStatus === "eu"}
+                required
               />
               <span className="text-gray-700">
                 {t.residencyStatus.euCitizen}
@@ -143,6 +144,7 @@ const InstallationForm = () => {
             </label>
             <label className="flex items-center space-x-3">
               <input
+                required
                 type="radio"
                 name="residencyStatus"
                 value="non-eu"
@@ -175,6 +177,7 @@ const InstallationForm = () => {
                 <input
                   type="radio"
                   name="portugaStatus"
+                  required
                   value="moving"
                   className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
                   onChange={(e) =>
@@ -186,6 +189,7 @@ const InstallationForm = () => {
               <label className="flex items-center space-x-3">
                 <input
                   type="radio"
+                  required
                   name="portugaStatus"
                   value="resident"
                   className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
@@ -283,6 +287,7 @@ const InstallationForm = () => {
                   <input
                     type="radio"
                     name="needType"
+                    required
                     value="d2"
                     className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
                     onChange={(e) =>
@@ -300,6 +305,7 @@ const InstallationForm = () => {
                   <input
                     type="radio"
                     name="needType"
+                    required
                     value="d7"
                     className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
                     onChange={(e) =>
@@ -319,6 +325,7 @@ const InstallationForm = () => {
                   <input
                     type="radio"
                     name="needType"
+                    required
                     value="aima"
                     className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300"
                     onChange={(e) =>

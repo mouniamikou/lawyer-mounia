@@ -5,6 +5,9 @@ export async function POST(req) {
   try {
     const formData = await req.json();
 
+    // Helper function to format boolean values
+    const formatBoolean = (value) => (value ? "Yes" : "No");
+
     // Determine subject based on service type
     let subject = "New Inquiry - ";
     switch (formData.serviceType) {
@@ -24,147 +27,151 @@ export async function POST(req) {
         subject += "Website Contact Form";
     }
 
-    // Create HTML content for the email
+    // Build installation details section if applicable
+    let installationHtml = "";
+    let installationText = "";
+
+    if (formData.serviceType === "installation" && formData.installation) {
+      installationHtml = `
+        <div style="margin: 15px 0; padding: 10px; background-color: #f9f9f9; border-radius: 5px;">
+          <h3 style="color: #333; margin-bottom: 10px;">Installation Details</h3>
+          <ul style="list-style-type: none; padding-left: 0;">
+            ${formData.installation.visaType ? `<li><strong>Visa Type:</strong> ${formData.installation.visaType}</li>` : ""}
+            ${formData.installation.timeline ? `<li><strong>Timeline:</strong> ${formData.installation.timeline}</li>` : ""}
+            ${formData.installation.familySize ? `<li><strong>Family Size:</strong> ${formData.installation.familySize}</li>` : ""}
+            ${formData.installation.additionalInfo ? `<li><strong>Additional Information:</strong> ${formData.installation.additionalInfo}</li>` : ""}
+          </ul>
+        </div>
+      `;
+
+      installationText = `
+INSTALLATION DETAILS
+-------------------
+${formData.installation.visaType ? "Visa Type: " + formData.installation.visaType + "\n" : ""}${formData.installation.timeline ? "Timeline: " + formData.installation.timeline + "\n" : ""}${formData.installation.familySize ? "Family Size: " + formData.installation.familySize + "\n" : ""}${formData.installation.additionalInfo ? "Additional Information: " + formData.installation.additionalInfo : ""}
+`;
+    }
+
+    // Build real estate details section if applicable
+    let realEstateHtml = "";
+    let realEstateText = "";
+
+    if (formData.serviceType === "realEstate" && formData.realEstate) {
+      realEstateHtml = `
+        <div style="margin: 15px 0; padding: 10px; background-color: #f9f9f9; border-radius: 5px;">
+          <h3 style="color: #333; margin-bottom: 10px;">Real Estate Details</h3>
+          <ul style="list-style-type: none; padding-left: 0;">
+            ${formData.realEstate.propertyType ? `<li><strong>Property Type:</strong> ${formData.realEstate.propertyType}</li>` : ""}
+            ${formData.realEstate.budget ? `<li><strong>Budget:</strong> ${formData.realEstate.budget}</li>` : ""}
+            ${formData.realEstate.location ? `<li><strong>Location:</strong> ${formData.realEstate.location}</li>` : ""}
+            ${formData.realEstate.timeline ? `<li><strong>Timeline:</strong> ${formData.realEstate.timeline}</li>` : ""}
+            ${formData.realEstate.additionalInfo ? `<li><strong>Additional Information:</strong> ${formData.realEstate.additionalInfo}</li>` : ""}
+          </ul>
+        </div>
+      `;
+
+      realEstateText = `
+REAL ESTATE DETAILS
+------------------
+${formData.realEstate.propertyType ? "Property Type: " + formData.realEstate.propertyType + "\n" : ""}${formData.realEstate.budget ? "Budget: " + formData.realEstate.budget + "\n" : ""}${formData.realEstate.location ? "Location: " + formData.realEstate.location + "\n" : ""}${formData.realEstate.timeline ? "Timeline: " + formData.realEstate.timeline + "\n" : ""}${formData.realEstate.additionalInfo ? "Additional Information: " + formData.realEstate.additionalInfo : ""}
+`;
+    }
+
+    // Build business details section if applicable
+    let businessHtml = "";
+    let businessText = "";
+
+    if (formData.serviceType === "business" && formData.business) {
+      businessHtml = `
+        <div style="margin: 15px 0; padding: 10px; background-color: #f9f9f9; border-radius: 5px;">
+          <h3 style="color: #333; margin-bottom: 10px;">Business Details</h3>
+          <ul style="list-style-type: none; padding-left: 0;">
+            ${formData.business.businessType ? `<li><strong>Business Type:</strong> ${formData.business.businessType}</li>` : ""}
+            ${formData.business.timeline ? `<li><strong>Timeline:</strong> ${formData.business.timeline}</li>` : ""}
+            ${formData.business.investmentAmount ? `<li><strong>Investment Amount:</strong> ${formData.business.investmentAmount}</li>` : ""}
+            ${formData.business.additionalInfo ? `<li><strong>Additional Information:</strong> ${formData.business.additionalInfo}</li>` : ""}
+          </ul>
+        </div>
+      `;
+
+      businessText = `
+BUSINESS DETAILS
+---------------
+${formData.business.businessType ? "Business Type: " + formData.business.businessType + "\n" : ""}${formData.business.timeline ? "Timeline: " + formData.business.timeline + "\n" : ""}${formData.business.investmentAmount ? "Investment Amount: " + formData.business.investmentAmount + "\n" : ""}${formData.business.additionalInfo ? "Additional Information: " + formData.business.additionalInfo : ""}
+`;
+    }
+
+    // Build other details section if applicable
+    let otherDetailsHtml = "";
+    let otherDetailsText = "";
+
+    if (formData.serviceType === "other" && formData.otherDetails) {
+      otherDetailsHtml = `
+        <div style="margin: 15px 0; padding: 10px; background-color: #f9f9f9; border-radius: 5px;">
+          <h3 style="color: #333; margin-bottom: 10px;">Other Details</h3>
+          <p>${formData.otherDetails}</p>
+        </div>
+      `;
+
+      otherDetailsText = `
+OTHER DETAILS
+------------
+${formData.otherDetails}
+`;
+    }
+
+    // Create HTML content for the email with improved styling
     const htmlContent = `
-      <h1>New Inquiry from Website</h1>
-      <h2>${subject}</h2>
-      
-      <h3>Personal Information</h3>
-      <p><strong>Name:</strong> ${formData.personalInfo.firstName} ${formData.personalInfo.lastName}</p>
-      <p><strong>Email:</strong> ${formData.personalInfo.email}</p>
-      <p><strong>Phone:</strong> ${formData.personalInfo.phone}</p>
-      <p><strong>Current Country:</strong> ${formData.personalInfo.currentCountry}</p>
-      
-      ${formData.projectStatus ? `<p><strong>Project Status:</strong> ${formData.projectStatus}</p>` : ""}
-      
-      ${
-        formData.serviceType === "installation" && formData.installation
-          ? `
-        <h3>Installation Details</h3>
-        <p><strong>Visa Type:</strong> ${formData.installation.visaType || "Not specified"}</p>
-        <p><strong>Timeline:</strong> ${formData.installation.timeline || "Not specified"}</p>
-        <p><strong>Family Size:</strong> ${formData.installation.familySize || "Not specified"}</p>
-        <p><strong>Additional Information:</strong> ${formData.installation.additionalInfo || "None provided"}</p>
-      `
-          : ""
-      }
-      
-      ${
-        formData.serviceType === "realEstate" && formData.realEstate
-          ? `
-        <h3>Real Estate Details</h3>
-        <p><strong>Property Type:</strong> ${formData.realEstate.propertyType || "Not specified"}</p>
-        <p><strong>Budget:</strong> ${formData.realEstate.budget || "Not specified"}</p>
-        <p><strong>Location:</strong> ${formData.realEstate.location || "Not specified"}</p>
-        <p><strong>Timeline:</strong> ${formData.realEstate.timeline || "Not specified"}</p>
-        <p><strong>Additional Information:</strong> ${formData.realEstate.additionalInfo || "None provided"}</p>
-      `
-          : ""
-      }
-      
-      ${
-        formData.serviceType === "business" && formData.business
-          ? `
-        <h3>Business Details</h3>
-        <p><strong>Business Type:</strong> ${formData.business.businessType || "Not specified"}</p>
-        <p><strong>Timeline:</strong> ${formData.business.timeline || "Not specified"}</p>
-        <p><strong>Investment Amount:</strong> ${formData.business.investmentAmount || "Not specified"}</p>
-        <p><strong>Additional Information:</strong> ${formData.business.additionalInfo || "None provided"}</p>
-      `
-          : ""
-      }
-      
-      ${
-        formData.serviceType === "other" && formData.otherDetails
-          ? `
-        <h3>Other Details</h3>
-        <p>${formData.otherDetails}</p>
-      `
-          : ""
-      }
-      
-      ${
-        formData.additionalInfo
-          ? `
-        <h3>Additional Information</h3>
-        <p>${formData.additionalInfo}</p>
-      `
-          : ""
-      }
-      
-      <p>This inquiry was submitted on ${new Date().toLocaleString()}</p>
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <h1 style="color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px;">${subject}</h1>
+        
+        <div style="margin: 15px 0; padding: 10px; background-color: #f9f9f9; border-radius: 5px;">
+          <h3 style="color: #333; margin-bottom: 10px;">Personal Information</h3>
+          <ul style="list-style-type: none; padding-left: 0;">
+            <li><strong>Name:</strong> ${formData.personalInfo.firstName} ${formData.personalInfo.lastName}</li>
+            ${formData.personalInfo.email ? `<li><strong>Email:</strong> ${formData.personalInfo.email}</li>` : ""}
+            ${formData.personalInfo.phone ? `<li><strong>Phone:</strong> ${formData.personalInfo.phone}</li>` : ""}
+            ${formData.personalInfo.currentCountry ? `<li><strong>Current Country:</strong> ${formData.personalInfo.currentCountry}</li>` : ""}
+            ${formData.projectStatus ? `<li><strong>Project Status:</strong> ${formData.projectStatus}</li>` : ""}
+          </ul>
+        </div>
+        
+        ${installationHtml}
+        ${realEstateHtml}
+        ${businessHtml}
+        ${otherDetailsHtml}
+        
+        ${
+          formData.additionalInfo
+            ? `
+        <div style="margin: 15px 0; padding: 10px; background-color: #f9f9f9; border-radius: 5px;">
+          <h3 style="color: #333; margin-bottom: 10px;">Additional Information</h3>
+          <p>${formData.additionalInfo}</p>
+        </div>
+        `
+            : ""
+        }
+        
+        <p style="color: #7f8c8d; font-size: 0.9em; margin-top: 20px; border-top: 1px solid #ecf0f1; padding-top: 10px;">
+          Submitted on: ${new Date().toLocaleString()}
+        </p>
+      </div>
     `;
 
-    // Create plain text version
+    // Create plain text version with improved structure
     const textContent = `
-New Inquiry from Website
-${subject}
+${subject.toUpperCase()}
+${"=".repeat(subject.length)}
 
-Personal Information:
+PERSONAL INFORMATION
+-------------------
 Name: ${formData.personalInfo.firstName} ${formData.personalInfo.lastName}
-Email: ${formData.personalInfo.email}
-Phone: ${formData.personalInfo.phone}
-Current Country: ${formData.personalInfo.currentCountry}
+${formData.personalInfo.email ? "Email: " + formData.personalInfo.email + "\n" : ""}${formData.personalInfo.phone ? "Phone: " + formData.personalInfo.phone + "\n" : ""}${formData.personalInfo.currentCountry ? "Current Country: " + formData.personalInfo.currentCountry + "\n" : ""}${formData.projectStatus ? "Project Status: " + formData.projectStatus : ""}
 
-${formData.projectStatus ? `Project Status: ${formData.projectStatus}` : ""}
+${installationText}${realEstateText}${businessText}${otherDetailsText}
 
-${
-  formData.serviceType === "installation" && formData.installation
-    ? `
-Installation Details:
-Visa Type: ${formData.installation.visaType || "Not specified"}
-Timeline: ${formData.installation.timeline || "Not specified"}
-Family Size: ${formData.installation.familySize || "Not specified"}
-Additional Information: ${formData.installation.additionalInfo || "None provided"}
-`
-    : ""
-}
+${formData.additionalInfo ? `ADDITIONAL INFORMATION\n--------------------\n${formData.additionalInfo}\n` : ""}
 
-${
-  formData.serviceType === "realEstate" && formData.realEstate
-    ? `
-Real Estate Details:
-Property Type: ${formData.realEstate.propertyType || "Not specified"}
-Budget: ${formData.realEstate.budget || "Not specified"}
-Location: ${formData.realEstate.location || "Not specified"}
-Timeline: ${formData.realEstate.timeline || "Not specified"}
-Additional Information: ${formData.realEstate.additionalInfo || "None provided"}
-`
-    : ""
-}
-
-${
-  formData.serviceType === "business" && formData.business
-    ? `
-Business Details:
-Business Type: ${formData.business.businessType || "Not specified"}
-Timeline: ${formData.business.timeline || "Not specified"}
-Investment Amount: ${formData.business.investmentAmount || "Not specified"}
-Additional Information: ${formData.business.additionalInfo || "None provided"}
-`
-    : ""
-}
-
-${
-  formData.serviceType === "other" && formData.otherDetails
-    ? `
-Other Details:
-${formData.otherDetails}
-`
-    : ""
-}
-
-${
-  formData.additionalInfo
-    ? `
-Additional Information:
-${formData.additionalInfo}
-`
-    : ""
-}
- 
-
-This inquiry was submitted on ${new Date().toLocaleString()}
+Submitted on: ${new Date().toLocaleString()}
     `;
 
     // Use your existing mailer utility

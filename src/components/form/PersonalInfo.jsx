@@ -71,6 +71,7 @@ const PersonalInfoForm = ({
               onChange={(e) =>
                 handlePersonalInfoChange("firstName", e.target.value)
               }
+              required
             />
           </div>
           <div>
@@ -83,6 +84,7 @@ const PersonalInfoForm = ({
               onChange={(e) =>
                 handlePersonalInfoChange("lastName", e.target.value)
               }
+              required
             />
           </div>
           <div>
@@ -95,6 +97,7 @@ const PersonalInfoForm = ({
               onChange={(e) =>
                 handlePersonalInfoChange("email", e.target.value)
               }
+              required
             />
           </div>
           <div>
@@ -107,6 +110,7 @@ const PersonalInfoForm = ({
               onChange={(e) =>
                 handlePersonalInfoChange("phone", e.target.value)
               }
+              required
             />
           </div>
           <div>
@@ -119,6 +123,7 @@ const PersonalInfoForm = ({
               onChange={(e) =>
                 handlePersonalInfoChange("currentCountry", e.target.value)
               }
+              required
             />
           </div>
         </div>
@@ -142,6 +147,7 @@ const PersonalInfoForm = ({
                 className="focus:ring-[#039B9B] h-4 w-4 text-[#039B9B] border-gray-300"
                 onChange={(e) => handleProjectStatusChange(e.target.value)}
                 checked={formData.projectStatus === option.value}
+                required
               />
               <span className="text-gray-700">{option.value}</span>
             </label>
