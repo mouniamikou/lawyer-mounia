@@ -8,7 +8,7 @@ const SuccessMessage = () => {
   const t = translations[language]?.contact || translations.en.contact;
 
   return (
-    <div className="text-center p-8 bg-white rounded-xl shadow-lg max-w-2xl mx-auto">
+    <div className="text-center p-8 bg-white rounded-xl shadow-lg max-w-2xl mx-auto mb-8">
       <div className="mb-6">
         <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
           <svg

@@ -55,6 +55,7 @@ const FormHandler = ({ formType, FormComponent }) => {
         throw new Error(result.error || "Failed to send email");
       }
       setSubmitStatus("success");
+      window.scrollTo(0, 0);
     } catch (error) {
       console.error("Error submitting form:", error);
       setSubmitStatus("error");
@@ -144,6 +145,9 @@ const FormHandler = ({ formType, FormComponent }) => {
               [formType]: specificFormData,
             })
           }
+          onSubmit={() => {
+            window.scrollTo(0, 0);
+          }}
         />
       )}
     </motion.section>

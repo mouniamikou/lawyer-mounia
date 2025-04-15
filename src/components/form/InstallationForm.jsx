@@ -6,7 +6,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/translations";
 import SuccessMessage from "../SuccessMessage";
 
-const InstallationForm = () => {
+const InstallationForm = ({ onSubmit }) => {
   const { language } = useLanguage();
   const t =
     translations[language]?.installationForm ||
@@ -67,6 +67,10 @@ const InstallationForm = () => {
 
       if (result.success) {
         setSubmitStatus("success");
+        // only scroll to top on contact pages
+        if (onSubmit) {
+          onSubmit();
+        }
         // Reset form
         setFormData({
           personalInfo: {

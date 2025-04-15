@@ -6,7 +6,7 @@ import SuccessMessage from "../SuccessMessage";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/translations";
 
-const RealEstateForm = () => {
+const RealEstateForm = ({ onSubmit }) => {
   const { language } = useLanguage();
   const t =
     translations[language]?.realEstateForm || translations.en.realEstateForm;
@@ -77,6 +77,10 @@ const RealEstateForm = () => {
 
       if (result.success) {
         setSubmitStatus("success");
+        // only scroll to top on contact pages
+        if (onSubmit) {
+          onSubmit();
+        }
         // Reset form
         setFormData({
           personalInfo: {

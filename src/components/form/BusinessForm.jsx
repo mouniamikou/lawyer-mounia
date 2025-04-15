@@ -6,7 +6,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/translations";
 import SuccessMessage from "../SuccessMessage";
 
-const BusinessForm = () => {
+const BusinessForm = ({ onSubmit }) => {
   const { language } = useLanguage();
   const t =
     translations[language]?.businessForm || translations.en.businessForm;
@@ -93,6 +93,10 @@ const BusinessForm = () => {
           name: "",
           message: "",
         });
+        // only scroll to top on contact pages
+        if (onSubmit) {
+          onSubmit();
+        }
       } else {
         setSubmitStatus("error");
       }
