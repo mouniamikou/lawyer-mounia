@@ -2,6 +2,12 @@ export default {
   name: "blogPost",
   title: "Blog Post",
   type: "document",
+  preview: {
+    select: {
+      title: "title.en",
+      media: "mainImage",
+    },
+    },
   fields: [
     {
       name: "title",

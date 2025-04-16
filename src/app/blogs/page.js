@@ -60,8 +60,9 @@ const BlogList = () => {
     { id: "visa-portugal", en: "Visa Portugal", fr: "Visa Portugal" },
     { id: "real-estate", en: "Real Estate", fr: "Immobilier" },
     { id: "business", en: "Business", fr: "Entreprise" },
-    { id: "others", en: "Others", fr: "Autres" }
+    { id: "tax", en: "Tax", fr: "Fiscalité" }
   ];
+  
 
   const handleFilterChange = (category) => {
     setSelectedCategory(category);
@@ -69,9 +70,12 @@ const BlogList = () => {
 
     if (category === "All") {
       setFilteredBlogs(blogs);
+     
+
     } else {
       const filtered = blogs.filter((blog) => blog.category === category);
       setFilteredBlogs(filtered);
+
     }
   };
 
@@ -119,6 +123,7 @@ const BlogList = () => {
         {categories.map((category) => (
           <button
             key={category.id}
+            
             onClick={() => handleFilterChange(category.id)}
             className={`px-4 py-2 rounded-full transition-colors duration-200 
               ${selectedCategory === category.id 
