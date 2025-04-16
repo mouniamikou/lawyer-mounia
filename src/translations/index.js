@@ -789,7 +789,7 @@ export const translations = {
       submit: "Soumettre la Demande",
     },
     blog: {
-      summary: "Ce guide abordera :",
+      summary: "Sommaire :",
     },
   },
   en: {

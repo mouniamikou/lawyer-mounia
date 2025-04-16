@@ -40,7 +40,7 @@ export default {
           { title: "Visa Portugal", value: "visa-portugal" },
           { title: "Real Estate", value: "real-estate" },
           { title: "Business", value: "business" },
-          { title: "Others", value: "others" },
+          { title: "Tax", value: "tax" },
         ],
         layout: "radio",
       },
