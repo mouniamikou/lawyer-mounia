@@ -9,12 +9,8 @@ import {
   Info,
   ChevronLeft,
   ChevronRight,
-  Clock,
-  BookMarked,
   FileText,
-  LucideFileCheck,
   Globe,
-  Flag,
 } from "lucide-react";
 import EUImag from "../../../public/european.png";
 import { useLanguage } from "@/context/LanguageContext";

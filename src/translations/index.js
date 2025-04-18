@@ -686,19 +686,19 @@ export const translations = {
         },
         {
           title: "BÉNÉFICIAIRES",
-          description: "Enregistrement UBO",
+          description: "Enregistrement",
           details: [
             "Identification des bénéficiaires effectifs",
-            "Préparation de la déclaration UBO",
+            "Préparation de la déclaration",
             "Vérification de conformité",
             "Soumission au registre",
           ],
-          tips: "L'inscription UBO est obligatoire.",
+          tips: "L'inscription des bénéficiaires effectifs.",
           requiredDocs: [
             "Documentation de la chaîne de propriété",
             "Preuve de la structure de propriété/contrôle",
             "Documentation sur la chaîne de propriété",
-            "Déclarations de bénéficiaire effectif",
+            "Déclaration des bénéficiaires effectifs",
           ],
         },
         {
